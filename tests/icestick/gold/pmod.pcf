@@ -1,0 +1,8 @@
+set_io PMOD0[0] 78
+set_io PMOD0[1] 79
+set_io PMOD0[2] 80
+set_io PMOD0[3] 81
+set_io D4 96
+set_io D3 97
+set_io D2 98
+set_io D1 99

@@ -1,0 +1,102 @@
+{
+    ".deps_version": 2, 
+    "cmp build/D5.pcf gold/D5.pcf": {
+        "build/D5.pcf": "input-c9b8e0aa7b809d06f80e49996aac2651", 
+        "gold/D5.pcf": "input-c9b8e0aa7b809d06f80e49996aac2651"
+    }, 
+    "cmp build/D5.v gold/D5.v": {
+        "build/D5.v": "input-14494108713d7add9fe7d3d42cb2f9f8", 
+        "gold/D5.v": "input-14494108713d7add9fe7d3d42cb2f9f8"
+    }, 
+    "cmp build/counter.pcf gold/counter.pcf": {
+        "build/counter.pcf": "input-d0f9688b50dbf201786bebcc4e7594d2", 
+        "gold/counter.pcf": "input-d0f9688b50dbf201786bebcc4e7594d2"
+    }, 
+    "cmp build/counter.v gold/counter.v": {
+        "build/counter.v": "input-06277a39202c34a29c2a85f16a70afed", 
+        "gold/counter.v": "input-06277a39202c34a29c2a85f16a70afed", 
+        "gold/counter192.v": "input-648d6688b77923acf561d335c515082b", 
+        "gold/counter96.pcf": "input-d0f9688b50dbf201786bebcc4e7594d2"
+    }, 
+    "cmp build/counter192.pcf gold/counter192.pcf": {
+        "build/counter192.pcf": "input-d0f9688b50dbf201786bebcc4e7594d2", 
+        "gold/counter192.pcf": "input-d0f9688b50dbf201786bebcc4e7594d2"
+    }, 
+    "cmp build/counter192.v gold/counter192.v": {
+        "build/counter192.blif": "input-fbff7653c542b88c6cb37d766bd02ebb", 
+        "build/counter192.v": "input-648d6688b77923acf561d335c515082b", 
+        "build/counter96.v": "input-515eb6942a8ede53e1ac49faf6dfa475", 
+        "gold/counter192.v": "input-648d6688b77923acf561d335c515082b"
+    }, 
+    "cmp build/counter48.pcf gold/counter48.pcf": {
+        "build/counter48.pcf": "input-d0f9688b50dbf201786bebcc4e7594d2", 
+        "gold/counter48.pcf": "input-d0f9688b50dbf201786bebcc4e7594d2"
+    }, 
+    "cmp build/counter48.v gold/counter48.v": {
+        "build/counter192.blif": "input-fbff7653c542b88c6cb37d766bd02ebb", 
+        "build/counter192.v": "input-648d6688b77923acf561d335c515082b", 
+        "build/counter48.v": "input-7013bc8c38811539fc54e5016eb9eb7b", 
+        "gold/counter.v": "input-06277a39202c34a29c2a85f16a70afed", 
+        "gold/counter192.v": "input-648d6688b77923acf561d335c515082b", 
+        "gold/counter48.v": "input-7013bc8c38811539fc54e5016eb9eb7b"
+    }, 
+    "cmp build/counter96.pcf gold/counter96.pcf": {
+        "build/counter96.pcf": "input-d0f9688b50dbf201786bebcc4e7594d2", 
+        "gold/counter96.pcf": "input-d0f9688b50dbf201786bebcc4e7594d2"
+    }, 
+    "cmp build/counter96.v gold/counter96.v": {
+        "build/counter96.v": "input-4d61e76bc889b24da629eaf2ff7ac7a8", 
+        "gold/counter96.v": "input-4d61e76bc889b24da629eaf2ff7ac7a8"
+    }, 
+    "cmp build/j1j3.pcf gold/j1j3.pcf": {
+        "build/j1j3.pcf": "input-22802cd800c1e59bf43cf9fe2033c8bf", 
+        "gold/j1j3.pcf": "input-22802cd800c1e59bf43cf9fe2033c8bf"
+    }, 
+    "cmp build/j1j3.v gold/j1j3.v": {
+        "build/j1j3.v": "input-61dc6e18b06940569455c41c154598be", 
+        "gold/j1j3.v": "input-61dc6e18b06940569455c41c154598be"
+    }, 
+    "cmp build/pmod.pcf gold/pmod.pcf": {
+        "build/pmod.pcf": "input-f5638c788b84f960eac9bd97485bbc10", 
+        "gold/pmod.pcf": "input-f5638c788b84f960eac9bd97485bbc10"
+    }, 
+    "cmp build/pmod.v gold/pmod.v": {
+        "build/pmod.v": "input-3988a5098665c02d1627e0f23a374c24", 
+        "gold/pmod.v": "input-3988a5098665c02d1627e0f23a374c24"
+    }, 
+    "python D5.py build/D5": {
+        "D5.py": "input-8f2aa3e719b938f8982ca0feb546ddd6", 
+        "build/D5.pcf": "output-c9b8e0aa7b809d06f80e49996aac2651", 
+        "build/D5.v": "output-14494108713d7add9fe7d3d42cb2f9f8"
+    }, 
+    "python counter.py build/counter": {
+        "build/counter.pcf": "output-d0f9688b50dbf201786bebcc4e7594d2", 
+        "build/counter.v": "output-06277a39202c34a29c2a85f16a70afed", 
+        "counter.py": "input-0687233577f4ef69d11c77873dc7568c"
+    }, 
+    "python counter192.py build/counter192": {
+        "build/counter192.pcf": "output-d0f9688b50dbf201786bebcc4e7594d2", 
+        "build/counter192.v": "output-648d6688b77923acf561d335c515082b", 
+        "counter192.py": "input-a71288999bc84b9b73b1f177188d58dd"
+    }, 
+    "python counter48.py build/counter48": {
+        "build/counter48.pcf": "output-d0f9688b50dbf201786bebcc4e7594d2", 
+        "build/counter48.v": "output-7013bc8c38811539fc54e5016eb9eb7b", 
+        "counter48.py": "input-99b664343d49b87d0d39d0f13db3c00b"
+    }, 
+    "python counter96.py build/counter96": {
+        "build/counter96.pcf": "output-d0f9688b50dbf201786bebcc4e7594d2", 
+        "build/counter96.v": "output-4d61e76bc889b24da629eaf2ff7ac7a8", 
+        "counter96.py": "input-381a5d448f6efdcee3634cb8123e12e6"
+    }, 
+    "python j1j3.py build/j1j3": {
+        "build/j1j3.pcf": "output-22802cd800c1e59bf43cf9fe2033c8bf", 
+        "build/j1j3.v": "output-61dc6e18b06940569455c41c154598be", 
+        "j1j3.py": "input-2d7af987510edb48c53919065621c5ac"
+    }, 
+    "python pmod.py build/pmod": {
+        "build/pmod.pcf": "output-f5638c788b84f960eac9bd97485bbc10", 
+        "build/pmod.v": "output-3988a5098665c02d1627e0f23a374c24", 
+        "pmod.py": "input-4ab46c5e212151de91ae615e77df0b0b"
+    }
+}

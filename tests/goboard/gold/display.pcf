@@ -1,0 +1,14 @@
+set_io Digit0[5] 1
+set_io Digit0[6] 2
+set_io Digit0[0] 3
+set_io Digit0[1] 4
+set_io Digit1[5] 8
+set_io Digit0[4] 90
+set_io Digit0[3] 91
+set_io Digit0[2] 93
+set_io Digit1[4] 94
+set_io Digit1[3] 95
+set_io Digit1[6] 96
+set_io Digit1[2] 97
+set_io Digit1[1] 99
+set_io Digit1[0] 100

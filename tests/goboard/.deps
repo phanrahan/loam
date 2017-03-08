@@ -1,0 +1,58 @@
+{
+    ".deps_version": 2, 
+    "cmp build/counter.pcf gold/counter.pcf": {
+        "build/counter.pcf": "input-ffaf3c96331f11bc08c604d3d6d38511", 
+        "gold/counter.pcf": "input-ffaf3c96331f11bc08c604d3d6d38511"
+    }, 
+    "cmp build/display.pcf gold/display.pcf": {
+        "build/display.pcf": "input-6c94a54d035be707f70df9f1c4a83ffc", 
+        "gold/display.pcf": "input-6c94a54d035be707f70df9f1c4a83ffc"
+    }, 
+    "cmp build/display.v gold/display.v": {
+        "build/display.v": "input-12d52f0d199c68a8d1461a0074d98faa", 
+        "gold/display.v": "input-12d52f0d199c68a8d1461a0074d98faa"
+    }, 
+    "cmp build/inout.pcf gold/inout.pcf": {
+        "build/inout.pcf": "input-742f719792325bc7639359239795705f", 
+        "gold/inout.pcf": "input-742f719792325bc7639359239795705f"
+    }, 
+    "cmp build/inout.v gold/inout.v": {
+        "build/inout.v": "input-82d6033ce38b569b2061f1d80ea8c529", 
+        "gold/inout.v": "input-82d6033ce38b569b2061f1d80ea8c529"
+    }, 
+    "cmp build/out.pcf gold/out.pcf": {
+        "bake": "input-994c21ec9be06073d16eb8610fb651f3", 
+        "build/out.pcf": "input-2da1d76b35eab4f6ce6b8a839add851f", 
+        "counter.py": "input-0fdbb7a6daa297623588ff810deb4e10", 
+        "gold/display.pcf": "input-6c94a54d035be707f70df9f1c4a83ffc", 
+        "gold/out.pcf": "input-2da1d76b35eab4f6ce6b8a839add851f", 
+        "gold/out.v": "input-87e4116a0a0efb83caf4a46e9d8266e9"
+    }, 
+    "cmp build/out.v gold/out.v": {
+        "build/counter.v": "input-f69613738727236b0be5da4f43110eb0", 
+        "build/out.v": "input-87e4116a0a0efb83caf4a46e9d8266e9", 
+        "gold/inout.pcf": "input-742f719792325bc7639359239795705f", 
+        "gold/inout.v": "input-82d6033ce38b569b2061f1d80ea8c529", 
+        "gold/out.v": "input-87e4116a0a0efb83caf4a46e9d8266e9"
+    }, 
+    "python counter.py build/counter": {
+        "build/counter.pcf": "output-ffaf3c96331f11bc08c604d3d6d38511", 
+        "build/counter.v": "output-f69613738727236b0be5da4f43110eb0", 
+        "counter.py": "input-0fdbb7a6daa297623588ff810deb4e10"
+    }, 
+    "python display.py build/display": {
+        "build/display.pcf": "output-6c94a54d035be707f70df9f1c4a83ffc", 
+        "build/display.v": "output-12d52f0d199c68a8d1461a0074d98faa", 
+        "display.py": "input-215a2c7e1536421786fd14b15321ed72"
+    }, 
+    "python inout.py build/inout": {
+        "build/inout.pcf": "output-742f719792325bc7639359239795705f", 
+        "build/inout.v": "output-82d6033ce38b569b2061f1d80ea8c529", 
+        "inout.py": "input-06aec9b812765c71679c6ec6659d0837"
+    }, 
+    "python out.py build/out": {
+        "build/out.pcf": "output-2da1d76b35eab4f6ce6b8a839add851f", 
+        "build/out.v": "output-87e4116a0a0efb83caf4a46e9d8266e9", 
+        "out.py": "input-b1bd840a0729d1587962af053d826242"
+    }
+}

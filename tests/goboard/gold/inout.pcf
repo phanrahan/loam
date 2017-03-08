@@ -1,0 +1,8 @@
+set_io S2 51
+set_io S4 52
+set_io S1 53
+set_io S3 54
+set_io D1 56
+set_io D2 57
+set_io D3 59
+set_io D4 60
