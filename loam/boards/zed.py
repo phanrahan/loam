@@ -1,12 +1,11 @@
 from magma import *
 from mantle import *
+#from mantle.peripherals.timer import Timer
 
-from parts.xilinx.zynq.zynq import XC7Z020
+from loam.parts.xilinx.zynq import XC7Z020
+from loam.parts.generic.switch import Switches
+from loam.parts.generic.led import LEDs
 
-from parts.generic.switch import Switches
-from parts.generic.led import LEDs
-
-#from peripherals.timer import Timer
 
 class Zed(Board):
 

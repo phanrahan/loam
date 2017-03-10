@@ -1,16 +1,16 @@
 from magma import *
+from mantle.peripherals.display import DisplayRefresh
 
-from boards.papilio import PapilioOne, PapilioPro
+from loam.boards.papilio import PapilioOne, PapilioPro
 
-from parts.generic.switch import Switches
-from parts.generic.led import LEDs
-from parts.generic.joystick import Joystick
-from parts.generic.display import Display
+from loam.parts.generic.switch import Switches
+from loam.parts.generic.led import LEDs
+from loam.parts.generic.joystick import Joystick
+from loam.parts.generic.display import Display
 
-from peripherals.display import DisplayRefresh
 
-#from audio import Audio
-#rom vga import VGA
+#from .audio import Audio
+#from .vga import VGA
 
 class MegaWing(Board):
 

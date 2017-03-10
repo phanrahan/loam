@@ -1,16 +1,15 @@
 from magma import *
 from mantle import *
+from mantle.peripherals.timer import Timer
 
-from parts.xilinx.spartan3 import spartan3
-from parts.xilinx.spartan6 import spartan6
+from loam.parts.xilinx.spartan3 import XC3S250E
+from loam.parts.xilinx.spartan6 import XC6SLX9
 
-from parts.generic.crystal import Crystal
-#from parts.generic.sdram import SDRAM
-#from parts.generic.flash import Flash
+from loam.parts.generic.crystal import Crystal
+from loam.parts.ftdi.ft232r import FT232R
+#from ..parts.generic.sdram import SDRAM
+#from ..parts.generic.flash import Flash
 
-from parts.ftdi.ft232r import FT232R
-
-from peripherals.timer import Timer
 
 class _Papilio(Board):
     def __init__(self, name):
@@ -45,7 +44,7 @@ class _Papilio(Board):
 #
 class PapilioOne(_Papilio):
 
-    def __init__(self, fpga=spartan3.XC3S250E):
+    def __init__(self, fpga=XC3S250E):
         super(PapilioOne,self).__init__("PapilioOne")
 
         # Need to define the interface ...
@@ -217,7 +216,7 @@ def sdram(self):
 #
 class PapilioPro(_Papilio):
 
-    def __init__(self, fpga = spartan6.XC6SLX9):
+    def __init__(self, fpga = XC6SLX9):
         super(PapilioPro,self).__init__("PapilioPro")
 
         # Need to define the interface ...

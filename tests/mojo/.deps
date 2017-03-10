@@ -1,0 +1,43 @@
+{
+    ".deps_version": 2, 
+    "cmp build/blink.ucf gold/blink.ucf": {
+        "build/blink.ucf": "input-7abd1cfa886a62a22163f7e87fa39770", 
+        "gold/blink.ucf": "input-7abd1cfa886a62a22163f7e87fa39770"
+    }, 
+    "cmp build/blink.v gold/blink.v": {
+        "build/blink.v": "input-3cb6bc432b5893fc0408a14f25bc35eb", 
+        "gold/blink.v": "input-3cb6bc432b5893fc0408a14f25bc35eb"
+    }, 
+    "cmp build/inout.ucf gold/inout.ucf": {
+        "build/inout.ucf": "input-41c06f738051ddda4f0269337601c04f", 
+        "gold/inout.ucf": "input-41c06f738051ddda4f0269337601c04f"
+    }, 
+    "cmp build/inout.v gold/inout.v": {
+        "build/inout.v": "input-4263f9d6b122ef6c15429dfdff762d5b", 
+        "gold/inout.v": "input-4263f9d6b122ef6c15429dfdff762d5b"
+    }, 
+    "cmp build/out.ucf gold/out.ucf": {
+        "build/out.ucf": "input-e07e4b1cfdd7eb2d1294a05e492c5ba5", 
+        "gold/blink.v": "input-3cb6bc432b5893fc0408a14f25bc35eb", 
+        "gold/out.ucf": "input-e07e4b1cfdd7eb2d1294a05e492c5ba5"
+    }, 
+    "cmp build/out.v gold/out.v": {
+        "build/out.v": "input-0b5ef42b6beb531f218a54903837cbd1", 
+        "gold/out.v": "input-0b5ef42b6beb531f218a54903837cbd1"
+    }, 
+    "python blink.py build/blink": {
+        "blink.py": "input-9e372998113e60311624b355f78737e2", 
+        "build/blink.ucf": "output-7abd1cfa886a62a22163f7e87fa39770", 
+        "build/blink.v": "output-3cb6bc432b5893fc0408a14f25bc35eb"
+    }, 
+    "python inout.py build/inout": {
+        "build/inout.ucf": "output-41c06f738051ddda4f0269337601c04f", 
+        "build/inout.v": "output-4263f9d6b122ef6c15429dfdff762d5b", 
+        "inout.py": "input-9f7bc886fc78cc3f1befabd32a1e7df6"
+    }, 
+    "python out.py build/out": {
+        "build/out.ucf": "output-e07e4b1cfdd7eb2d1294a05e492c5ba5", 
+        "build/out.v": "output-0b5ef42b6beb531f218a54903837cbd1", 
+        "out.py": "input-e7476760ddfc65174f4c32a06c7d848e"
+    }
+}

@@ -1,4 +1,4 @@
-from magma import *
+from magma import Part, Bit
 
 #
 # Papilio Audio Interface

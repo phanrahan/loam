@@ -1,5 +1,5 @@
 from magma import *
-from peripherals.debounce import debounce
+from mantle.peripherals.debounce import debounce
 from mantle.util.edge import falling
 
 class VGA(Part):

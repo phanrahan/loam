@@ -1,10 +1,8 @@
 from magma import *
 from mantle import *
-
-from parts.xilinx.zynq.zynq import XC7Z020
-
-from parts.generic.crystal import Crystal
-from peripherals.timer import Timer
+from mantle.peripherals.timer import Timer
+from loam.parts.xilinx.zynq import XC7Z020
+from loam.parts.generic.crystal import Crystal
 
 class Clock(Peripheral):
     def __init__(self, fpga, crystal):

@@ -65,8 +65,8 @@ class IceStick(Board):
         # self.DTR = fpga.PIO3_04
         # self.CTS = fpga.PIO3_05
         # self.RTS = fpga.PIO3_06
-        # self.TX = fpga.PIO3_07
-        # self.TX.rename('TX').output()
+        self.TX = fpga.PIO3_07
+        self.TX.rename('TX').output()
         # self.RX = fpga.PIO3_08
         # self.RX.rename('RX').input()
 

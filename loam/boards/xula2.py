@@ -1,14 +1,13 @@
 from magma import *
 from mantle import *
-
-import parts.xilinx.spartan6.spartan6 as spartan6
-from parts.generic.crystal import Crystal
-from peripherals.timer import Timer
+from mantle.peripherals.timer import Timer
+from loam.parts.xilinx.spartan6 import XC6SLX9
+from loam.parts.generic.crystal import Crystal
 
 class Xula2(Board):
     vendor = 'xess'
 
-    def __init__(self, fpga=spartan6.XC6SLX9):
+    def __init__(self, fpga=XC6SLX9):
         super(Xula2,self).__init__("Xula2")
 
         # LX9  XC6SLX9-2-FTG256

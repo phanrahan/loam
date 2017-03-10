@@ -1,1 +1,1 @@
-from shields.megawing.megawing import MegaWing
+from .megawing import MegaWing

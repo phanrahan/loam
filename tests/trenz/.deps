@@ -1,0 +1,12 @@
+{
+    ".deps_version": 2, 
+    "cmp build/out.v gold/out.v": {
+        "build/out.v": "input-b8ae05029d47c3f8bad447988183cced", 
+        "gold/out.v": "input-b8ae05029d47c3f8bad447988183cced"
+    }, 
+    "python out.py build/out": {
+        "build/out.ucf": "output-9199b4c675c2ef490a3e01bb9a9e6832", 
+        "build/out.v": "output-b8ae05029d47c3f8bad447988183cced", 
+        "out.py": "input-8741dee77cb5758dfecf6ca338db10ab"
+    }
+}

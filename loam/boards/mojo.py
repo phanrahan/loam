@@ -1,10 +1,10 @@
 from magma import *
 from mantle import *
-
-import parts.xilinx.spartan6.spartan6 as spartan6
-from parts.generic.crystal import Crystal
-from parts.ftdi.ft232r import FT232R
-from peripherals.timer import Timer
+from mantle.peripherals.timer import Timer
+import mantle.xilinx.spartan6 as spartan6
+from loam.parts.xilinx.spartan6 import XC6SLX9
+from loam.parts.generic.crystal import Crystal
+from loam.parts.ftdi.ft232r import FT232R
 
 class Mojo(Board):
 
@@ -15,7 +15,7 @@ class Mojo(Board):
 
         assert FAMILY == 'spartan6'
 
-        self.fpga = fpga = spartan6.XC6SLX9(board=self)
+        self.fpga = fpga = XC6SLX9(board=self)
 
         self.CLKIN = fpga.P56
         self.CLKIN.rename('CLKIN')

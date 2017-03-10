@@ -1,17 +1,14 @@
 from magma import *
 from mantle import *
+#from mantle.peripherals.timer import Timer
 
-from parts.altera.cyclone4 import EP4CE22F17C6
+from ..parts.altera.cyclone4 import EP4CE22F17C6
+from ..parts.generic.crystal import Crystal
+from ..parts.generic.button import Button
+from ..parts.generic.switch import Switch
+from ..parts.generic.led import LED
+from ..parts.ftdi.ft232r import FT232R
 
-from parts.generic.crystal import Crystal
-
-from parts.generic.button import Button
-from parts.generic.switch import Switch
-from parts.generic.led import LED
-
-from parts.ftdi.ft232r import FT232R
-
-from peripherals.timer import Timer
 
 class DE0Nano(Board):
 
@@ -33,7 +30,7 @@ class DE0Nano(Board):
         self.Clock = fpga.clock
         wire(self.CLKIN.O, self.Clock.I)
 
-        self.Timer = Timer(fpga, name='systimer')
+        #self.Timer = Timer(fpga, name='systimer')
 
         leds = ["A15", "A13", "B13", "A11", "D1", "F3", "B1", "L3"]
         for i,k in enumerate(leds):
