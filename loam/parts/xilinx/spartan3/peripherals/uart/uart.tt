@@ -1,0 +1,101 @@
+ready
+
+v s r (run, start, send/valid)
+
+0 0 0 0
+0 0 1 0
+0 1 0 0
+0 1 1 0
+1 0 0 1 /run and /start => stop
+1 0 1 0
+1 1 0 0
+1 1 1 0
+
+alternatively: ready = stop & send
+
+start
+
+s r t b (start, ready, stop, bit)
+
+0 0 0 0 0
+0 0 0 1 0
+0 0 1 0 0
+0 0 1 1 0
+0 1 0 0 1 ready & /stop & /bit -> start // doesn't occur??
+0 1 0 1 0
+0 1 1 0 0
+0 1 1 1 1 ready &  stop &  bit -> start
+
+1 0 0 0 1 start & /valid & /stop & /bit -> start
+1 0 0 1 0 start & (ready | stop | bit) -> /start # start lasts for 1 cycle
+1 0 1 0 0
+1 0 1 1 0
+1 1 0 0 0
+1 1 0 1 0
+1 1 1 0 0
+1 1 1 1 0
+
+run 
+
+r s b c (run, start, bit, carry)
+
+start
+0 0 0 0 0
+0 0 0 1 0
+0 0 1 0 0
+0 0 1 1 0
+0 1 0 0 0 
+0 1 0 1 0
+0 1 1 0 1 start & bit -> run
+0 1 1 1 0 
+
+run & !carry
+1 0 0 0 1 
+1 0 0 1 0 run & carry -> /run
+1 0 1 0 1 
+1 0 1 1 0 run % carry -> /run
+1 1 0 0 1 
+1 1 0 1 0 run & (carry | bit) -> /run
+1 1 1 0 0
+1 1 1 1 0
+
+stop // can only change state on bit
+
+s r c t (stop, run, carry, stop)
+
+0 0 0 0 0
+0 0 0 1 0
+0 0 1 0 0
+0 0 1 1 0
+0 1 0 0 0 
+0 1 0 1 0
+0 1 1 0 0 
+0 1 1 1 1 run & carry & bit -> stop 
+
+1 0 0 0 1 stop -> stop
+1 0 0 1 0 * -> /stop
+1 0 1 0 0
+1 0 1 1 0
+1 1 0 0 0 
+1 1 0 1 0
+1 1 1 0 0
+
+
+bit 0x94
+hot = ready | bit
+
+b r s (bit, ready, stop)
+
+0 0 0 0
+0 0 1 0
+0 1 0 1 ready & /stop -> bit
+0 1 1 0
+
+1 0 0 1 bit -> bit
+1 0 1 0 
+1 1 0 0
+1 1 1 1 bit & run & stop -> bit
+
+
+complete = carry and baud
+
