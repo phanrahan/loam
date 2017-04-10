@@ -1,0 +1,13 @@
+{
+    ".deps_version": 2, 
+    "python3 inout.py build/inout": {
+        "build/inout.pcf": "output-38987c2b0bbfd1286759dd1ab966744f", 
+        "build/inout.v": "output-4bd80f2124ef62da9e8db08470737b39", 
+        "inout.py": "input-7de426a8fd6f38eeb5f844499c21b2c1"
+    }, 
+    "python3 out.py build/out": {
+        "build/out.pcf": "output-6bfb1bb8f849b1f67beba259bbf5c364", 
+        "build/out.v": "output-1c1df7a641c2af43a73034c843f33650", 
+        "out.py": "input-b7b29f9fdc8871c0625fdbefaf85af66"
+    }
+}

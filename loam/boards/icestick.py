@@ -67,8 +67,8 @@ class IceStick(Board):
         # self.RTS = fpga.PIO3_06
         self.TX = fpga.PIO3_07
         self.TX.rename('TX').output()
-        # self.RX = fpga.PIO3_08
-        # self.RX.rename('RX').input()
+        self.RX = fpga.PIO3_08
+        self.RX.rename('RX').input()
 
         # create usart part
         # self.usart = FT232R(board=self)
