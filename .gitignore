@@ -88,3 +88,9 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# bake dependencies
+.deps
+
+# max osx garbage
+.DS_Store`
