@@ -1,0 +1,22 @@
+language: python
+python:
+    - "2.7"
+    - "3.3"
+    - "3.4"
+    - "3.5"
+
+before_install:
+    - sudo apt-get -qq update
+
+install: 
+    - pip install -r requirements.txt
+    - git clone git@github.com:phanrahan/magmacore.git
+    - pip install -e magmacore
+    - git clone git@github.com:phanrahan/loam.git
+    - pip install -e loam
+    - pip install pytest-cov
+    - pip install fabricate
+    - pip install -e .
+
+script: 
+    - if [[ $TRAVIS_PYTHON_VERSION == 3.5 ]]; then py.test --cov=mantle tests;else pytest --cov=mantle tests; fi
