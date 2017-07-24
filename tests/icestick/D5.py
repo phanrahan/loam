@@ -1,6 +1,5 @@
 import sys
-from magma import *
-from mantle import *
+from magma import wire, compile
 from loam.boards.icestick import IceStick
 
 icestick = IceStick()

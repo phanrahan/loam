@@ -1,7 +1,6 @@
 import sys
-from magma import *
-from mantle import *
-from loam.boards.goboard import GoBoard
+from magma import wire, compile
+from loam.boards.goboard import GoBoard, Counter
 
 board = GoBoard()
 board.Clock.on()
