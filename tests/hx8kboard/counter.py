@@ -1,7 +1,6 @@
 import sys
-from magma import *
-from mantle import Counter
-from loam.boards.hx8kboard import HX8KBoard
+from magma import wire, compile
+from loam.boards.hx8kboard import HX8KBoard, Counter
 
 board = HX8KBoard()
 board.Clock.on()

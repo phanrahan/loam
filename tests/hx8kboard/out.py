@@ -1,5 +1,5 @@
 import sys
-from magma import *
+from magma import wire, compile
 from loam.boards.hx8kboard import HX8KBoard
 
 board = HX8KBoard()

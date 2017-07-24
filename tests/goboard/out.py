@@ -1,6 +1,5 @@
 import sys
-from magma import *
-from mantle import *
+from magma import wire, compile
 from loam.boards.goboard import GoBoard
 
 goboard = GoBoard()
