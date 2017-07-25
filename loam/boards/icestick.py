@@ -1,3 +1,7 @@
+import os
+os.environ['MANTLE'] = 'lattice'
+os.environ['MANTLE_TARGET'] = 'ice40'
+
 from magma import *
 from mantle import *
 from mantle.peripherals.timer import Timer
