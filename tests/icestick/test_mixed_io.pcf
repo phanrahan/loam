@@ -1,0 +1,9 @@
+set_io J1i[0] 112
+set_io J1i[1] 113
+set_io J1i[2] 114
+set_io J1i[3] 115
+set_io J1o[0] 116
+set_io J1o[1] 117
+set_io J1o[2] 118
+set_io J1o[3] 119
+set_io CLKIN 21
