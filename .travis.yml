@@ -11,7 +11,7 @@ before_install:
 install: 
     - pip install -r requirements.txt
     - git clone git@github.com:phanrahan/magma.git
-    - pip install -e magmacore
+    - pip install -e magma
     - git clone git@github.com:phanrahan/mantle.git
     - pip install -e mantle
     - pip install pytest-cov
