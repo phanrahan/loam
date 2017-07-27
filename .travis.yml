@@ -20,4 +20,4 @@ install:
     - pip install -e .
 
 script: 
-    - if [[ $TRAVIS_PYTHON_VERSION == 3.5 ]]; then py.test --cov=mantle tests;else pytest --cov=mantle tests; fi
+    - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pytest --cov=mantle tests;else py.test --cov=mantle tests; fi
