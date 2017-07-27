@@ -10,7 +10,7 @@ before_install:
 
 install: 
     - pip install -r requirements.txt
-    - git clone git@github.com:phanrahan/magmacore.git
+    - git clone git@github.com:phanrahan/magma.git
     - pip install -e magmacore
     - git clone git@github.com:phanrahan/mantle.git
     - pip install -e mantle
