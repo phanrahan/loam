@@ -64,11 +64,16 @@ class IceStick(Board):
 
 
         # USART
-        # self.DCD = fpga.PIO3_02
-        # self.DSR = fpga.PIO3_03
-        # self.DTR = fpga.PIO3_04
-        # self.CTS = fpga.PIO3_05
-        # self.RTS = fpga.PIO3_06
+        self.DCD = fpga.PIO3_02
+        self.DCD.rename('DCD').output()
+        self.DSR = fpga.PIO3_03
+        self.DSR.rename('DSR').output()
+        self.DTR = fpga.PIO3_04
+        self.DTR.rename('DTR').input()
+        self.CTS = fpga.PIO3_05
+        self.CTS.rename('CTS').output()
+        self.RTS = fpga.PIO3_06
+        self.RTS.rename('RTS').input()
         self.TX = fpga.PIO3_07
         self.TX.rename('TX').output()
         self.RX = fpga.PIO3_08

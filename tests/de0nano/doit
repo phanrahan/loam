@@ -1,4 +1,0 @@
-export MANTLE=altera
-export MANTLE_TARGET=cyclone4
-./bake clean
-./bake

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 import os, glob
 
-#tests = glob.glob('*')
-tests = ['icestick', 'goboard', 'hx8kboard']
+tests = glob.glob('*')
+#tests = ['icestick', 'goboard', 'hx8kboard']
 
 def build():
     for test in tests:
