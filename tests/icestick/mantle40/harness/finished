@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+import sys
+import serial
+
+#port = '/dev/tty.usbserial-141B' # Apple driver
+
+# reading dsr and cts only works with the FTDI driver
+port = '/dev/tty.usbserial-00003014B' # FTDI driver
+ser = serial.Serial(port)
+
+# the dsr and cts signals are inverted by the FT2232H
+
+while ser.dsr:
+    pass
+
+sys.exit(int(not ser.cts))

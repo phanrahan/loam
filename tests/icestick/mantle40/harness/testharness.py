@@ -48,12 +48,18 @@ def test(circuit, func):
     wire( 1, romb.RCLKE )
     wire( counter.O, romb.RADDR )
 
-    args = [romb.RDATA[i] for i in range(nfuncargs)]
-    circuit(*args)
+    circuit(*[romb.RDATA[i] for i in range(nfuncargs)])
 
     xor = XOr(2)
     xor(circuit.O, romb.RDATA[nfuncargs])
+
     orr = Or(2)
     error = DFF()
-    return error(orr(xor.O, error.O))
+    e =  error(orr(xor.O, error.O))
+
+    orr = Or(2)
+    finished = DFF()
+    f = finished(orr(counter.COUT, finished.O))
+
+    return f, e
 
