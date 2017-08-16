@@ -1,4 +1,8 @@
-NAME ?= counter
+#NAME ?= counter
+#NAME ?= D5
+#NAME ?= D1234
+#NAME ?= dtr_rts
+NAME ?= dsr_cts
 
 PCF = $(NAME).pcf
 
@@ -14,9 +18,7 @@ upload: $(NAME).bin
 	iceprog $(NAME).bin
 
 upload_mac: $(NAME).bin
-	sudo kextunload -b com.apple.driver.AppleUSBFTDI
 	iceprog $(NAME).bin
-	sudo kextload -b com.apple.driver.AppleUSBFTDI
 
 clean:
 	rm -f *.bin *.txt *.blif *.rpt

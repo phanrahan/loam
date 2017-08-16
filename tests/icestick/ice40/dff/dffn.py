@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick
 from mantle.lattice.ice40.PLB import SB_DFFN
 
@@ -14,4 +13,4 @@ dff = SB_DFFN()
 wire(main.I0, dff.D)
 wire(dff.Q, main.D0)
 
-compile(sys.argv[1], main)
+EndCircuit()

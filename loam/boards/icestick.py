@@ -63,7 +63,7 @@ class IceStick(Board):
              self.J3[i].rename( "J3[%d]" % i )
 
 
-        # USART
+        # USART is connected to port B on the ftdi2232H
         self.DCD = fpga.PIO3_02
         self.DCD.rename('DCD').output()
         self.DSR = fpga.PIO3_03

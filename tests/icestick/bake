@@ -21,6 +21,6 @@ def gold():
             if not test[0] == '_' and not test.startswith('test_'):
                 os.system('cd %s; ./bake gold; cd ..' % test)
 
-clean()
-build()
-#gold()
+#clean()
+#build()
+gold()

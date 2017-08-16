@@ -1,0 +1,4 @@
+set_io D2 98
+set_io D1 99
+set_io DTR 3
+set_io RTS 7

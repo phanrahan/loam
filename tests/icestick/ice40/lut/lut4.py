@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick
 from mantle.lattice.ice40.PLB import SB_LUT4
 
@@ -20,4 +19,4 @@ wire(main.I2, lut.I2)
 wire(main.I3, lut.I3)
 wire(lut.O, main.D0)
 
-compile(sys.argv[1], main)
+EndCircuit()

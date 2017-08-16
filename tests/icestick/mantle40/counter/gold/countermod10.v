@@ -1,22 +1,27 @@
-module Addcout4 (input [3:0] I0, input [3:0] I1, output [3:0] O, output  COUT);
+module FullAdder (input  I0, input  I1, input  CIN, output  O, output  COUT);
 wire  inst0_O;
 wire  inst1_CO;
+SB_LUT4 #(.LUT_INIT(16'h9696)) inst0 (.I0(I0), .I1(I1), .I2(CIN), .I3(1'b0), .O(inst0_O));
+SB_CARRY inst1 (.I0(I0), .I1(I1), .CI(CIN), .CO(inst1_CO));
+assign O = inst0_O;
+assign COUT = inst1_CO;
+endmodule
+
+module Addcout4 (input [3:0] I0, input [3:0] I1, output [3:0] O, output  COUT);
+wire  inst0_O;
+wire  inst0_COUT;
+wire  inst1_O;
+wire  inst1_COUT;
 wire  inst2_O;
-wire  inst3_CO;
-wire  inst4_O;
-wire  inst5_CO;
-wire  inst6_O;
-wire  inst7_CO;
-SB_LUT4 #(.LUT_INIT(16'hC33C)) inst0 (.I0(1'b0), .I1(I0[0]), .I2(I1[0]), .I3(1'b0), .O(inst0_O));
-SB_CARRY inst1 (.I0(I0[0]), .I1(I1[0]), .CI(1'b0), .CO(inst1_CO));
-SB_LUT4 #(.LUT_INIT(16'hC33C)) inst2 (.I0(1'b0), .I1(I0[1]), .I2(I1[1]), .I3(inst1_CO), .O(inst2_O));
-SB_CARRY inst3 (.I0(I0[1]), .I1(I1[1]), .CI(inst1_CO), .CO(inst3_CO));
-SB_LUT4 #(.LUT_INIT(16'hC33C)) inst4 (.I0(1'b0), .I1(I0[2]), .I2(I1[2]), .I3(inst3_CO), .O(inst4_O));
-SB_CARRY inst5 (.I0(I0[2]), .I1(I1[2]), .CI(inst3_CO), .CO(inst5_CO));
-SB_LUT4 #(.LUT_INIT(16'hC33C)) inst6 (.I0(1'b0), .I1(I0[3]), .I2(I1[3]), .I3(inst5_CO), .O(inst6_O));
-SB_CARRY inst7 (.I0(I0[3]), .I1(I1[3]), .CI(inst5_CO), .CO(inst7_CO));
-assign O = {inst6_O,inst4_O,inst2_O,inst0_O};
-assign COUT = inst7_CO;
+wire  inst2_COUT;
+wire  inst3_O;
+wire  inst3_COUT;
+FullAdder inst0 (.I0(I0[0]), .I1(I1[0]), .CIN(1'b0), .O(inst0_O), .COUT(inst0_COUT));
+FullAdder inst1 (.I0(I0[1]), .I1(I1[1]), .CIN(inst0_COUT), .O(inst1_O), .COUT(inst1_COUT));
+FullAdder inst2 (.I0(I0[2]), .I1(I1[2]), .CIN(inst1_COUT), .O(inst2_O), .COUT(inst2_COUT));
+FullAdder inst3 (.I0(I0[3]), .I1(I1[3]), .CIN(inst2_COUT), .O(inst3_O), .COUT(inst3_COUT));
+assign O = {inst3_O,inst2_O,inst1_O,inst0_O};
+assign COUT = inst3_COUT;
 endmodule
 
 module Register4R (input [3:0] I, output [3:0] O, input  CLK, input  RESET);

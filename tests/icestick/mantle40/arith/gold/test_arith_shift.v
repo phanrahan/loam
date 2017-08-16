@@ -1,4 +1,4 @@
-module Addcout22 (input [21:0] I0, input [21:0] I1, output [21:0] O, output  COUT);
+module Addcout23 (input [22:0] I0, input [22:0] I1, output [22:0] O, output  COUT);
 wire  inst0_O;
 wire  inst1_CO;
 wire  inst2_O;
@@ -43,6 +43,8 @@ wire  inst40_O;
 wire  inst41_CO;
 wire  inst42_O;
 wire  inst43_CO;
+wire  inst44_O;
+wire  inst45_CO;
 SB_LUT4 #(.LUT_INIT(16'hC33C)) inst0 (.I0(1'b0), .I1(I0[0]), .I2(I1[0]), .I3(1'b0), .O(inst0_O));
 SB_CARRY inst1 (.I0(I0[0]), .I1(I1[0]), .CI(1'b0), .CO(inst1_CO));
 SB_LUT4 #(.LUT_INIT(16'hC33C)) inst2 (.I0(1'b0), .I1(I0[1]), .I2(I1[1]), .I3(inst1_CO), .O(inst2_O));
@@ -87,11 +89,13 @@ SB_LUT4 #(.LUT_INIT(16'hC33C)) inst40 (.I0(1'b0), .I1(I0[20]), .I2(I1[20]), .I3(
 SB_CARRY inst41 (.I0(I0[20]), .I1(I1[20]), .CI(inst39_CO), .CO(inst41_CO));
 SB_LUT4 #(.LUT_INIT(16'hC33C)) inst42 (.I0(1'b0), .I1(I0[21]), .I2(I1[21]), .I3(inst41_CO), .O(inst42_O));
 SB_CARRY inst43 (.I0(I0[21]), .I1(I1[21]), .CI(inst41_CO), .CO(inst43_CO));
-assign O = {inst42_O,inst40_O,inst38_O,inst36_O,inst34_O,inst32_O,inst30_O,inst28_O,inst26_O,inst24_O,inst22_O,inst20_O,inst18_O,inst16_O,inst14_O,inst12_O,inst10_O,inst8_O,inst6_O,inst4_O,inst2_O,inst0_O};
-assign COUT = inst43_CO;
+SB_LUT4 #(.LUT_INIT(16'hC33C)) inst44 (.I0(1'b0), .I1(I0[22]), .I2(I1[22]), .I3(inst43_CO), .O(inst44_O));
+SB_CARRY inst45 (.I0(I0[22]), .I1(I1[22]), .CI(inst43_CO), .CO(inst45_CO));
+assign O = {inst44_O,inst42_O,inst40_O,inst38_O,inst36_O,inst34_O,inst32_O,inst30_O,inst28_O,inst26_O,inst24_O,inst22_O,inst20_O,inst18_O,inst16_O,inst14_O,inst12_O,inst10_O,inst8_O,inst6_O,inst4_O,inst2_O,inst0_O};
+assign COUT = inst45_CO;
 endmodule
 
-module Register22 (input [21:0] I, output [21:0] O, input  CLK);
+module Register23 (input [22:0] I, output [22:0] O, input  CLK);
 wire  inst0_Q;
 wire  inst1_Q;
 wire  inst2_Q;
@@ -114,6 +118,7 @@ wire  inst18_Q;
 wire  inst19_Q;
 wire  inst20_Q;
 wire  inst21_Q;
+wire  inst22_Q;
 SB_DFF inst0 (.C(CLK), .D(I[0]), .Q(inst0_Q));
 SB_DFF inst1 (.C(CLK), .D(I[1]), .Q(inst1_Q));
 SB_DFF inst2 (.C(CLK), .D(I[2]), .Q(inst2_Q));
@@ -136,51 +141,52 @@ SB_DFF inst18 (.C(CLK), .D(I[18]), .Q(inst18_Q));
 SB_DFF inst19 (.C(CLK), .D(I[19]), .Q(inst19_Q));
 SB_DFF inst20 (.C(CLK), .D(I[20]), .Q(inst20_Q));
 SB_DFF inst21 (.C(CLK), .D(I[21]), .Q(inst21_Q));
-assign O = {inst21_Q,inst20_Q,inst19_Q,inst18_Q,inst17_Q,inst16_Q,inst15_Q,inst14_Q,inst13_Q,inst12_Q,inst11_Q,inst10_Q,inst9_Q,inst8_Q,inst7_Q,inst6_Q,inst5_Q,inst4_Q,inst3_Q,inst2_Q,inst1_Q,inst0_Q};
+SB_DFF inst22 (.C(CLK), .D(I[22]), .Q(inst22_Q));
+assign O = {inst22_Q,inst21_Q,inst20_Q,inst19_Q,inst18_Q,inst17_Q,inst16_Q,inst15_Q,inst14_Q,inst13_Q,inst12_Q,inst11_Q,inst10_Q,inst9_Q,inst8_Q,inst7_Q,inst6_Q,inst5_Q,inst4_Q,inst3_Q,inst2_Q,inst1_Q,inst0_Q};
 endmodule
 
-module Counter22 (output [21:0] O, output  COUT, input  CLK);
-wire [21:0] inst0_O;
+module Counter23 (output [22:0] O, output  COUT, input  CLK);
+wire [22:0] inst0_O;
 wire  inst0_COUT;
-wire [21:0] inst1_O;
-Addcout22 inst0 (.I0(inst1_O), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1}), .O(inst0_O), .COUT(inst0_COUT));
-Register22 inst1 (.I(inst0_O), .O(inst1_O), .CLK(CLK));
+wire [22:0] inst1_O;
+Addcout23 inst0 (.I0(inst1_O), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1}), .O(inst0_O), .COUT(inst0_COUT));
+Register23 inst1 (.I(inst0_O), .O(inst1_O), .CLK(CLK));
 assign O = inst1_O;
 assign COUT = inst0_COUT;
 endmodule
 
-module SIPO8CE_0001 (input  I, output [7:0] O, input  CLK, input  CE);
+module Register5CE (input [4:0] I, output [4:0] O, input  CLK, input  CE);
 wire  inst0_Q;
-wire  inst1_O;
-wire  inst2_O;
+wire  inst1_Q;
+wire  inst2_Q;
 wire  inst3_Q;
 wire  inst4_Q;
-wire  inst5_Q;
-wire  inst6_Q;
-wire  inst7_Q;
-wire  inst8_Q;
-wire  inst9_Q;
-SB_DFFE inst0 (.C(CLK), .E(CE), .D(inst1_O), .Q(inst0_Q));
-SB_LUT4 #(.LUT_INIT(16'h5555)) inst1 (.I0(I), .I1(1'b0), .I2(1'b0), .I3(1'b0), .O(inst1_O));
-SB_LUT4 #(.LUT_INIT(16'h5555)) inst2 (.I0(inst0_Q), .I1(1'b0), .I2(1'b0), .I3(1'b0), .O(inst2_O));
-SB_DFFE inst3 (.C(CLK), .E(CE), .D(inst2_O), .Q(inst3_Q));
-SB_DFFE inst4 (.C(CLK), .E(CE), .D(inst3_Q), .Q(inst4_Q));
-SB_DFFE inst5 (.C(CLK), .E(CE), .D(inst4_Q), .Q(inst5_Q));
-SB_DFFE inst6 (.C(CLK), .E(CE), .D(inst5_Q), .Q(inst6_Q));
-SB_DFFE inst7 (.C(CLK), .E(CE), .D(inst6_Q), .Q(inst7_Q));
-SB_DFFE inst8 (.C(CLK), .E(CE), .D(inst7_Q), .Q(inst8_Q));
-SB_DFFE inst9 (.C(CLK), .E(CE), .D(inst8_Q), .Q(inst9_Q));
-assign O = {inst9_Q,inst8_Q,inst7_Q,inst6_Q,inst5_Q,inst4_Q,inst3_Q,inst2_O};
+SB_DFFE inst0 (.C(CLK), .E(CE), .D(I[0]), .Q(inst0_Q));
+SB_DFFE inst1 (.C(CLK), .E(CE), .D(I[1]), .Q(inst1_Q));
+SB_DFFE inst2 (.C(CLK), .E(CE), .D(I[2]), .Q(inst2_Q));
+SB_DFFE inst3 (.C(CLK), .E(CE), .D(I[3]), .Q(inst3_Q));
+SB_DFFE inst4 (.C(CLK), .E(CE), .D(I[4]), .Q(inst4_Q));
+assign O = {inst4_Q,inst3_Q,inst2_Q,inst1_Q,inst0_Q};
 endmodule
 
-module main (output [7:0] J3, input  CLKIN);
-wire [21:0] inst0_O;
+module ShiftRightArithmetic_w5_a1 (input [4:0] I, output [4:0] O);
+assign O = {I[4],I[4],I[3],I[2],I[1]};
+endmodule
+
+module main (output  D5, output  D4, output  D3, output  D2, output  D1, input  CLKIN);
+wire [22:0] inst0_O;
 wire  inst0_COUT;
-wire [7:0] inst1_O;
-wire  inst2_O;
-Counter22 inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
-SIPO8CE_0001 inst1 (.I(inst2_O), .O(inst1_O), .CLK(CLKIN), .CE(inst0_COUT));
-SB_LUT4 #(.LUT_INIT(16'h6996)) inst2 (.I0(inst1_O[7]), .I1(inst1_O[5]), .I2(inst1_O[4]), .I3(inst1_O[3]), .O(inst2_O));
-assign J3 = inst1_O;
+wire [4:0] inst1_O;
+wire [4:0] inst2_O;
+wire  inst3_O;
+Counter23 inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
+Register5CE inst1 (.I(inst2_O), .O(inst1_O), .CLK(CLKIN), .CE(inst0_COUT));
+ShiftRightArithmetic_w5_a1 inst2 (.I({inst3_O,inst1_O[3],inst1_O[2],inst1_O[1],inst1_O[0]}), .O(inst2_O));
+SB_LUT4 #(.LUT_INIT(16'h5555)) inst3 (.I0(inst1_O[0]), .I1(1'b0), .I2(1'b0), .I3(1'b0), .O(inst3_O));
+assign D5 = inst1_O[0];
+assign D4 = inst1_O[1];
+assign D3 = inst1_O[2];
+assign D2 = inst1_O[3];
+assign D1 = inst1_O[4];
 endmodule
 

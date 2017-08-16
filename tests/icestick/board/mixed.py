@@ -1,3 +1,4 @@
+import sys
 from magma import wire, compile
 from loam.boards.icestick import IceStick
 
@@ -10,5 +11,5 @@ for i in range(4, 8):
 
 main = icestick.main()
 wire(1, main.J1o[0])
-compile("test_mixed_io", main)
+compile(sys.argv[1], main)
 

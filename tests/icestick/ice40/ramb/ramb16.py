@@ -1,5 +1,4 @@
-import sys
-from magma import array, wire, compile
+from magma import array, wire, compile, EndCircuit
 from loam.boards.icestick import IceStick
 from mantle.lattice.ice40.RAMB import RAMB
 
@@ -30,7 +29,7 @@ for i in range(M):
     rom[i] = i & 0xffff
 
 ramb = RAMB( rom )
-print(ramb.interface)
+#print(ramb.interface)
 
 wire( WE, ramb.WE    )
 wire( 1, ramb.WCLKE )
@@ -42,4 +41,4 @@ wire( 1, ramb.RCLKE )
 wire( RADDR, ramb.RADDR )
 wire( ramb.RDATA[0:2], O)
 
-compile(sys.argv[1], main)
+EndCircuit()
