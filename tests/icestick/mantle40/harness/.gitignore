@@ -1,0 +1,5 @@
+*.bin
+*.txt
+*.blif
+*.pcf
+*.v

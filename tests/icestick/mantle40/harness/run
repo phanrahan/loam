@@ -1,0 +1,10 @@
+#!/bin/bash -x
+#make -C build NAME=$1 clean upload
+yosys -q -p "synth_ice40 -top main -blif $1.blif" $1.v
+arachne-pnr -q -d 1k -o $1.txt -p $1.pcf $1.blif
+icepack $1.txt $1.bin
+sudo kextunload -b com.FTDI.driver.FTDIUSBSerialDriver
+iceprog $1.bin
+sudo kextload -b com.FTDI.driver.FTDIUSBSerialDriver
+./finished
+
