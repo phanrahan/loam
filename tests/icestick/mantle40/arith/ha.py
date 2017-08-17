@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick, HalfAdder
 
 icestick = IceStick()
@@ -20,4 +19,4 @@ ha(A, B)
 wire(ha.O, main.D1)
 wire(ha.COUT, main.D2)
 
-compile(sys.argv[1], main)
+EndCircuit()

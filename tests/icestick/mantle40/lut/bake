@@ -6,6 +6,8 @@ from fabricate import main, autoclean, run
 BUILD = 'build'
 GOLD = 'gold'
 
+BOARD = 'icestick'
+
 tests = glob.glob('*.py')
 
 def build():
@@ -19,7 +21,7 @@ def compile(base):
     v = base+'.v'
     buildu, goldu = join(BUILD,u), join(GOLD,u)
     buildv, goldv = join(BUILD,v), join(GOLD,v)
-    run('python3',base+'.py', join(BUILD,base))
+    run('magma','-b',BOARD,base)
     if exists(goldu):
         run('cmp',buildu,goldu)
     if exists(goldv):

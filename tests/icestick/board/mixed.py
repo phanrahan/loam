@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick
 
 icestick = IceStick()
@@ -11,5 +10,6 @@ for i in range(4, 8):
 
 main = icestick.main()
 wire(1, main.J1o[0])
-compile(sys.argv[1], main)
+
+EndCircuit()
 

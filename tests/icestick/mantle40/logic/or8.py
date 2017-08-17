@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick, ReduceOr
 
 icestick = IceStick()
@@ -13,4 +12,4 @@ or8 = ReduceOr(8)
 or8(main.J1)
 wire(or8.O, main.D5)
 
-compile(sys.argv[1], main)
+EndCircuit()

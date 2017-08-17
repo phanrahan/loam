@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick, Counter, PISO
 
 icestick = IceStick()
@@ -20,4 +19,4 @@ piso = PISO(4, init=1, has_ce=True)
 piso(SI, PI, LOAD, ce=clock.COUT)
 wire( piso.O, main.D0 )
 
-compile(sys.argv[1], main)
+EndCircuit()

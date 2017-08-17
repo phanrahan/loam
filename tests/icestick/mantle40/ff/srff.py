@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick, SRFF
 
 icestick = IceStick()
@@ -16,4 +15,4 @@ srff(main.I0, main.I1)
 
 wire(srff, main.D5)
 
-compile(sys.argv[1], main)
+EndCircuit()

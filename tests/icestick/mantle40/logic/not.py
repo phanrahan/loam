@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick, Not
 
 icestick = IceStick()
@@ -12,4 +11,4 @@ n = Not()
 n(main.I0)
 wire(n.O, main.D5)
 
-compile(sys.argv[1], main)
+EndCircuit()

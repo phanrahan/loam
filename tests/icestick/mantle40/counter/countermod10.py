@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick, CounterModM
 
 icestick = IceStick()
@@ -15,4 +14,4 @@ wire( main.CLKIN, main.J3[0])
 wire( counter.O, main.J3[1:5] )
 wire( counter.COUT, main.J3[5])
 
-compile(sys.argv[1], main)
+EndCircuit()

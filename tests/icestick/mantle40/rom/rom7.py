@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick, ROM7
 
 icestick = IceStick()
@@ -14,4 +13,4 @@ rom = ROM7(127*[0]+[1])
 rom(main.J1)
 wire(rom.O, main.D0)
 
-compile(sys.argv[1], main)
+EndCircuit()

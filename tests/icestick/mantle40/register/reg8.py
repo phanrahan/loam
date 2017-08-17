@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick, Register
 
 N = 8
@@ -15,4 +14,4 @@ main = icestick.main()
 reg = Register(N)
 wire( reg(main.J1), main.J3 )
 
-compile(sys.argv[1], main)
+EndCircuit()

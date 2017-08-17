@@ -1,5 +1,4 @@
-import sys
-from magma import wire, compile
+from magma import wire, compile, EndCircuit
 from loam.boards.icestick import IceStick, Counter
 from mantle.util.lfsr import LFSR
 
@@ -16,6 +15,4 @@ lfsr = LFSR(8, has_ce=True)
 
 wire( lfsr( ce=clock.COUT ), main.J3 )
 
-compile(sys.argv[1], main)
-
-
+EndCircuit()

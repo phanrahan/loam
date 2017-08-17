@@ -1,5 +1,4 @@
-import sys
-from magma import array, wire, compile
+from magma import array, wire, compile, EndCircuit
 from loam.boards.icestick import IceStick, UGE
 
 icestick = IceStick()
@@ -18,4 +17,4 @@ uge = UGE(8, loc=(4,1))
 uge(A, B)
 wire(uge.O, main.D1)
 
-compile(sys.argv[1], main)
+EndCircuit()
