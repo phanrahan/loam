@@ -22,10 +22,10 @@ icestick.J3[6].rename('D6').output().on()
 icestick.J3[7].rename('D7').output().on()
 
 main = icestick.main()
-I = array(main.I0, main.I1, main.I2, main.I3,
-          main.I4, main.I5, main.I6, main.I7, 0)
-O = array(main.D0, main.D1, main.D2, main.D3,
-          main.D4, main.D5, main.D6, main.D7)
+I = array([main.I0, main.I1, main.I2, main.I3,
+           main.I4, main.I5, main.I6, main.I7, 0])
+O = array([main.D0, main.D1, main.D2, main.D3,
+           main.D4, main.D5, main.D6, main.D7])
 
 
 N = 8

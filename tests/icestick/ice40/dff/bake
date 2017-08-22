@@ -21,6 +21,7 @@ def compile(base):
     v = base+'.v'
     buildu, goldu = join(BUILD,u), join(GOLD,u)
     buildv, goldv = join(BUILD,v), join(GOLD,v)
+    run('echo', '\$DYLD_LIBRARY_PATH')
     run('magma','-b',BOARD,base)
     if exists(goldu):
         run('cmp',buildu,goldu)

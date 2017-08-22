@@ -1,5 +1,5 @@
 from magma import wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, NAnd
+from loam.boards.icestick import IceStick, ReduceNAnd, array
 
 icestick = IceStick()
 for i in range(2):
@@ -8,8 +8,8 @@ icestick.D5.on()
 
 main = icestick.main()
 
-nand2 = NAnd(2)
-nand2(main.J1[0], main.J1[1])
+nand2 = ReduceNAnd(2)
+nand2(array([main.J1[0], main.J1[1]]))
 wire(nand2.O, main.D5)
 
 EndCircuit()

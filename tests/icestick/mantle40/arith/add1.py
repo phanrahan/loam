@@ -9,9 +9,9 @@ icestick.D1.on()
 icestick.D2.on()
 
 main = icestick.main()
-A = array(main.A0)
-B = array(main.B0)
-O = array(main.D1)
+A = array([main.A0])
+B = array([main.B0])
+O = array([main.D1])
 
 add = Add(1)
 add(A, B)

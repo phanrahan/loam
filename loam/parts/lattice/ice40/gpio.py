@@ -14,7 +14,7 @@ class Pin(Peripheral):
 
 
 class GPIO(Pin):
-    IO = ['input I', In(Bit), 'output O', Out(Bit)]
+    IO = ['I', In(Bit), 'O', Out(Bit)]
 
     def __init__(self, fpga, name, pin):
         Pin.__init__(self, fpga, name, pin)

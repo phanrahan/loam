@@ -9,11 +9,11 @@ icestick.J1[3].rename('B1').input().on()
 icestick.D1.on()
 
 main = icestick.main()
-A = array(main.A0,main.A1,0,0,0,0,0,0)
-B = array(main.B0,main.B1,0,0,0,0,0,0)
+A = array([main.A0,main.A1,0,0,0,0,0,0])
+B = array([main.B0,main.B1,0,0,0,0,0,0])
 O = main.D1
 
-ugt = UGT(8, loc=(4,1))
+ugt = UGT(8)
 ugt(A, B)
 wire(ugt.O, main.D1)
 

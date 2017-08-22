@@ -4,7 +4,7 @@ from magma import *
 class Button(Part):
 
     name = 'button'
-    IO = ["output O", Bit]
+    IO = ["O", Out(Bit)]
 
     def __init__(self, name='button', board=None):
         super(Button, self).__init__(name, board)

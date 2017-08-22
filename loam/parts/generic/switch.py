@@ -1,10 +1,9 @@
 from magma import *
 
-
 class Switch(Part):
 
     name = 'switch'
-    IO = ["output O", Bit]
+    IO = ["O", Out(Bit)]
 
     def __init__(self, name='switch', board=None):
         super(Switch, self).__init__(name, board)
@@ -15,13 +14,12 @@ class Switch(Part):
         Part.on(self)
         return self
 
-
 def Switches(n, name='switches', board=None):
 
     class _Switches(Part):
 
         name = 'switch'+str(n)
-        IO = ["output O", Array(n, Bit)]
+        IO = ["O", Out(Bits(n))]
 
         def __init__(self):
             super(_Switches, self).__init__(name, board)

@@ -8,7 +8,7 @@ icestick.J1[2].rename('S').input().on()
 icestick.D1.on()
 
 main = icestick.main()
-I = array(main.I0, main.I1)
+I = array([main.I0, main.I1])
 S = main.S
 
 mux = Mux(2)

@@ -3,7 +3,7 @@ from mantle import *
 
 class FT232R(Part):
     name = 'ft232r'
-    IO = ["input RX", Bit, "output TX", Bit]
+    IO = ["RX", In(Bit), "TX", Out(Bit)]
 
     def __init__(self, name='console', board=None):
         Part.__init__(self, name, board)

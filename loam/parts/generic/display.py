@@ -3,7 +3,7 @@ from magma import *
 class Display(Part):
     name = 'Display'
 
-    IO = ["input cathodes", Array(8,Bit), "input anodes", Array(4,Bit)]
+    IO = ["cathodes", In(Bits(8)), "anodes", In(Bits(4)]
 
     def __init__(self, name='display', board=None): 
         super(Display, self).__init__(name, board)

@@ -1,10 +1,9 @@
 from magma import *
 
-
 class LED(Part):
 
     name = 'LED'
-    IO = ["input I", Bit]
+    IO = ["I", In(Bit)]
 
     def __init__(self, name='LED', board=None):
         super(LED, self).__init__(name, board)
@@ -15,13 +14,12 @@ class LED(Part):
         Part.on(self)
         return self
 
-
 def LEDs(n, name='LED', board=None):
 
     class _LEDs(Part):
 
         name = 'LEDs'
-        IO = ["input I", Array(n, Bit)]
+        IO = ["I", In(Bits(n))]
 
         def __init__(self):
             super(_LEDs, self).__init__(name, board)

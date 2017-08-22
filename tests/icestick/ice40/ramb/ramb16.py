@@ -15,11 +15,11 @@ icestick.J3[0].rename('D0').output().on()
 icestick.J3[1].rename('D1').output().on()
 
 main = icestick.main()
-WDATA = array(main.I0, main.I1, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0)
-WADDR = array(main.I2, main.I3, 0,0,0,0,0,0)
-RADDR = array(main.I4, main.I5, 0,0,0,0,0,0)
+WDATA = array([main.I0, main.I1, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0])
+WADDR = array([main.I2, main.I3, 0,0,0,0,0,0])
+RADDR = array([main.I4, main.I5, 0,0,0,0,0,0])
 WE = main.I6
-O = array(main.D0, main.D1)
+O = array([main.D0, main.D1])
 
 
 N = 16

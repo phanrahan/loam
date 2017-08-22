@@ -18,9 +18,9 @@ icestick.J3[2].rename('D2').output().on()
 icestick.J3[3].rename('D3').output().on()
 
 main = icestick.main()
-I = array(main.I0, main.I1, main.I2, main.I3,
-          main.I4, main.I5, main.I6, main.I7, 0, 0)
-O = array(main.D0, main.D1, main.D2, main.D3)
+I = array([main.I0, main.I1, main.I2, main.I3,
+          main.I4, main.I5, main.I6, main.I7, 0, 0])
+O = array([main.D0, main.D1, main.D2, main.D3])
 
 N = 4
 M = 4096//N

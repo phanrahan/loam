@@ -3,7 +3,7 @@ from magma import *
 
 class Crystal(Part):
     name = 'Crystal'
-    IO = ['output O', Bit]
+    IO = ['O', Out(Bit)]
 
     def __init__(self, freq, name='Crystal', board=None):
         super(Crystal, self).__init__(name, board)

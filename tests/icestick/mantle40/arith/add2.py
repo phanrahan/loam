@@ -11,9 +11,9 @@ icestick.D2.on()
 icestick.D3.on()
 
 main = icestick.main()
-A = array(main.A0, main.A1)
-B = array(main.B0, main.B1)
-O = array(main.D1, main.D2)
+A = array([main.A0, main.A1])
+B = array([main.B0, main.B1])
+O = array([main.D1, main.D2])
 
 add = Add(2)
 

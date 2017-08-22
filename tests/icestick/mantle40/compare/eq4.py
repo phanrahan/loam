@@ -9,8 +9,8 @@ icestick.J1[3].rename('I3').input().on()
 icestick.D1.on()
 
 main = icestick.main()
-I0 = array(main.I0, main.I1, main.I2, main.I3)
-I1 = array(0, 1, 0, 1)
+I0 = array([main.I0, main.I1, main.I2, main.I3])
+I1 = array([0, 1, 0, 1])
 
 eq4 = EQ(4)
 eq4(I0,I1)

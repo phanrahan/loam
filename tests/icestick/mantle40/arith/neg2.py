@@ -8,8 +8,8 @@ icestick.D1.on()
 icestick.D2.on()
 
 main = icestick.main()
-I = array(main.I0, main.I1)
-O = array(main.D1, main.D2)
+I = array([main.I0, main.I1])
+O = array([main.D1, main.D2])
 
 neg = Negate(2)
 

@@ -1,14 +1,13 @@
 from magma import *
 
-
 class Joystick(Part):
     name = 'joystick'
 
-    IO = ["output SELECT", Bit,
-          "output UP",     Bit,
-          "output DOWN",   Bit,
-          "output LEFT",   Bit,
-          "output RIGHT",  Bit]
+    IO = ["SELECT", Out(Bit),
+          "UP",     Out(Bit),
+          "DOWN",   Out(Bit),
+          "LEFT",   Out(Bit),
+          "RIGHT",  Out(Bit)]
 
     def __init__(self, name='Joystick', board=None):
         super(Joystick, self).__init__(name, board)
