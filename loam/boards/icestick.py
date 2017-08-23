@@ -1,6 +1,6 @@
-#import os
-#os.environ['MANTLE'] = 'lattice'
-#os.environ['MANTLE_TARGET'] = 'ice40'
+import os
+os.environ['MANTLE_TARGET'] = 'ice40'
+
 from magma import *
 from mantle import *
 from loam.peripherals.timer import Timer
