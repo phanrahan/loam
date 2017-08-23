@@ -1,4 +1,5 @@
-from magma import *
+from magma import INPUT, OUTPUT, In, Out, Bit
+from loam import Peripheral
 
 class Pin(Peripheral):
     def __init__(self, fpga, name, pin):

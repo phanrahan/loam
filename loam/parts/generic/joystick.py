@@ -1,4 +1,5 @@
-from magma import *
+from magma import Bit, Out
+from loam import Part
 
 class Joystick(Part):
     name = 'joystick'

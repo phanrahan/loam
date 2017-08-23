@@ -1,4 +1,5 @@
-from magma import *
+from magma import Bit, In, Out
+from loam import Peripheral
 
 class USART(Peripheral):
     name = 'usart'

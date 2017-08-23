@@ -1,4 +1,5 @@
-from magma import *
+from magma import Bit, In, Out, wire
+from loam import Peripheral
 from mantle.lattice.ice40 import SB_PLL
 
 class Clock(Peripheral):

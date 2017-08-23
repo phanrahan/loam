@@ -1,5 +1,5 @@
-from magma import *
-
+from magma import Bit, Out
+from loam import Part
 
 class Crystal(Part):
     name = 'Crystal'

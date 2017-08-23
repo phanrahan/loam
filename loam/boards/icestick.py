@@ -3,13 +3,12 @@
 #os.environ['MANTLE_TARGET'] = 'ice40'
 from magma import *
 from mantle import *
+from loam.peripherals.timer import Timer
 from loam.parts.lattice.ice40 import ICE40HX1K
-
-from mantle.peripherals.timer import Timer
-
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.led import LED
 from loam.parts.ftdi.ft232r import FT232R
+from loam import Board
 
 
 class IceStick(Board):

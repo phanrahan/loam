@@ -1,5 +1,4 @@
-from magma import FPGA
-
+from loam import FPGA
 from .lattice import Lattice
 from .gpio import Pin, GPIO
 from .clock import Clock

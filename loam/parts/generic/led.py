@@ -1,4 +1,5 @@
-from magma import *
+from magma import Bit, In
+from loam import Part
 
 class LED(Part):
 

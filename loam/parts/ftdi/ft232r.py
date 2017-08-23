@@ -1,5 +1,5 @@
-from magma import *
-from mantle import *
+from magma import Bit, In, Out
+from loam import Part
 
 class FT232R(Part):
     name = 'ft232r'

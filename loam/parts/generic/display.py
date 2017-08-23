@@ -1,4 +1,5 @@
-from magma import *
+from magma import Bits, In
+from loam import Part
 
 class Display(Part):
     name = 'Display'

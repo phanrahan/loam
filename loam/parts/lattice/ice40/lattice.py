@@ -1,4 +1,4 @@
-from magma import FPGA
+from loam import FPGA
 
 __all__ = ['Lattice']
 

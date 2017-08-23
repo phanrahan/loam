@@ -1,4 +1,4 @@
-from magma import *
+from magma import Circuit
 
 class Primitive(Circuit):
 

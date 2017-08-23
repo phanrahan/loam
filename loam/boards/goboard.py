@@ -4,15 +4,14 @@ os.environ['MANTLE_TARGET'] = 'ice40'
 
 from magma import *
 from mantle import *
-from mantle.peripherals.timer import Timer
-
+from loam.peripherals.timer import Timer
 from loam.parts.lattice.ice40 import ICE40HX1K, ICE40HX8K
-
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.switch import Switch
 from loam.parts.generic.led import LED, LEDs
 from loam.parts.generic.button import Button
 from loam.parts.ftdi.ft232r import FT232R
+from loam import Board
 
 
 class GoBoard(Board):
