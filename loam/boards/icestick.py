@@ -99,8 +99,11 @@ class IceStick(Board):
         #self.IRSD = fpga.PIO1_20
         #self.IRSD.rename('SD').output()
     
+    def DefineMain(self):
+        return self.fpga.DefineMain()
+
     def main(self):
-        return self.fpga.main()
+        return self.DefineMain()
 
 
 if __name__ == '__main__':

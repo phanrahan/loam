@@ -2,6 +2,8 @@ import re
 from magma import INPUT, OUTPUT, In, Out, Bit, Bits, Array, DefineCircuit
 from .part import Part
 
+__all__ = ['FPGA']
+
 class FPGA(Part):
 
     """An FPGA"""
@@ -17,7 +19,7 @@ class FPGA(Part):
         self.peripherals.append(peripheral)
         peripheral.fpga = self
 
-    def main(self):
+    def DefineMain(self):
         arrays = {}
         # form arrays
         for p in self.pins:
@@ -60,3 +62,5 @@ class FPGA(Part):
                 p.setup(D)
         return D
 
+    def main():
+        return DefineMain()

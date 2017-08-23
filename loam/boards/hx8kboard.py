@@ -103,6 +103,9 @@ class HX8KBoard(Board):
         # self.SCLK = fpga.PIOS_02
         # self.CS   = fpga.PIOS_03
 
+    def DefineMain(self):
+        return self.fpga.DefineMain()
+
     def main(self):
-        return self.fpga.main()
+        return self.DefineMain()
 

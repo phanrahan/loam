@@ -1,5 +1,7 @@
 from magma import CircuitType
 
+__all__ = ['Peripheral']
+
 class Peripheral(CircuitType):
 
     """A single peripheral on an fpga  (like a Clock, a Timer, or a USART)"""

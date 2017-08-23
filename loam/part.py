@@ -1,5 +1,7 @@
 from magma import CircuitType
 
+__all__ = ['Part']
+
 class Part(CircuitType):
 
     """A single component (like a LED, transistor, IC, MCU, FPGA)"""
