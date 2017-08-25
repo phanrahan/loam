@@ -1,5 +1,5 @@
 from magma import wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, Counter
+from loam.boards.icestick import IceStick, DownCounter
 
 icestick = IceStick()
 icestick.Clock.on()
@@ -16,7 +16,7 @@ main = icestick.main()
 
 N = 22+8
 
-counter = Counter(N)
+counter = DownCounter(N)
 print( counter.interface )
 wire(counter.O[N-8:N], main.D)
 
