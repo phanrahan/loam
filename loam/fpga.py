@@ -1,5 +1,5 @@
 import re
-from magma import INPUT, OUTPUT, In, Out, Bit, Bits, Array, DefineCircuit
+from magma import INPUT, OUTPUT, In, Out, Clock, Bit, Bits, Array, DefineCircuit
 from .part import Part
 
 __all__ = ['FPGA']
@@ -52,7 +52,11 @@ class FPGA(Part):
                         args.append(In(T) if p.direction == INPUT else Out(T))
                 else:
                     args.append(p.name)
-                    args.append(In(Bit) if p.direction == INPUT else Out(Bit))
+                    if p.name == 'CLKIN':
+                        assert p.direction == INPUT
+                        args.append(In(Clock))
+                    else:
+                        args.append(In(Bit) if p.direction == INPUT else Out(Bit))
 
         D = DefineCircuit('main',*args)
         D.fpga = self
