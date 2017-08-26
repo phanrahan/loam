@@ -176,10 +176,10 @@ assign O = inst1_O;
 assign COUT = inst0_COUT;
 endmodule
 
-module main (output [7:0] D, input  CLKIN);
+module main (output [7:0] J3, input  CLKIN);
 wire [29:0] inst0_O;
 wire  inst0_COUT;
 Counter30 inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
-assign D = {inst0_O[29],inst0_O[28],inst0_O[27],inst0_O[26],inst0_O[25],inst0_O[24],inst0_O[23],inst0_O[22]};
+assign J3 = {inst0_O[29],inst0_O[28],inst0_O[27],inst0_O[26],inst0_O[25],inst0_O[24],inst0_O[23],inst0_O[22]};
 endmodule
 

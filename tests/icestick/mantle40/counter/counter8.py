@@ -1,5 +1,5 @@
 from magma import wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, Counter, Ring
+from loam.boards.icestick import IceStick, Counter
 
 N = 8
 
@@ -10,10 +10,7 @@ for i in range(N):
 
 main = icestick.main()
 
-clock = Counter(22)
-
-ring = Ring(N, has_ce=True)
-
-wire( ring( ce=clock.COUT ), main.J3 )
+counter = Counter(N)
+wire(counter, main.J3)
 
 EndCircuit()

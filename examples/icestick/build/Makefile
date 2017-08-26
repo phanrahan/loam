@@ -1,7 +1,8 @@
-NAME ?= upcounter
-#NAME ?= downcounter
-#NAME ?= counter4
-#NAME ?= counter8
+#NAME ?= square
+#NAME ?= sawtooth
+#NAME ?= triangle
+#NAME ?= pwm
+NAME ?= sine
 
 PCF = $(NAME).pcf
 
