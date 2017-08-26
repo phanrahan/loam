@@ -1,4 +1,4 @@
-NAME ?= counter
+NAME ?= blink
 
 PCF = $(NAME).pcf
 

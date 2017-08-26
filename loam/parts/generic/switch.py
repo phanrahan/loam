@@ -1,4 +1,4 @@
-from magma import Bit, Out
+from magma import Bits, Bit, Out
 from loam import Part
 
 class Switch(Part):

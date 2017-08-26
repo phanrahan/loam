@@ -1,5 +1,4 @@
-import sys
-from magma import wire, array, compile
+from magma import wire, bits, compile
 from loam.boards.goboard import GoBoard
 
 goboard = GoBoard()
@@ -8,9 +7,8 @@ goboard.Digit1.on()
 
 main = goboard.main()
 
-zero = array(0,0,0,0,0,0,1)
+zero = bits(1,n=7)
 
 wire( zero, main.Digit0 )
 wire( zero, main.Digit1 )
 
-compile(sys.argv[1], main)

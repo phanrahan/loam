@@ -1,8 +1,12 @@
-#NAME ?= counter
+NAME ?= blink
+#NAME ?= blink48Mhz
+#NAME ?= blink96Mhz
+#NAME ?= blink192Mhz
+
 #NAME ?= D5
 #NAME ?= D1234
 #NAME ?= dtr_rts
-NAME ?= dsr_cts
+#NAME ?= dsr_cts
 
 PCF = $(NAME).pcf
 

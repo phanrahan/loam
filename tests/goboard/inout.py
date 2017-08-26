@@ -1,4 +1,3 @@
-import sys
 from magma import wire, compile
 from loam.boards.goboard import GoBoard
 
@@ -19,4 +18,3 @@ wire( main.S2, main.D2 )
 wire( main.S3, main.D3 )
 wire( main.S4, main.D4 )
 
-compile(sys.argv[1], main)

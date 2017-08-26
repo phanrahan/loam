@@ -162,12 +162,12 @@ wire  inst0_PLLOUTGLOBAL;
 wire [25:0] inst1_O;
 wire  inst1_COUT;
 SB_PLL40_CORE #(.DIVF(7'b0111111),
-.DIVQ(3'b011),
+.DIVQ(3'b010),
 .DIVR(4'b0000),
 .FEEDBACK_PATH("SIMPLE"),
 .FILTER_RANGE(3'b001),
 .PLLOUT_SELECT("GENCLK")) inst0 (.REFERENCECLK(CLKIN), .RESETB(1'b1), .BYPASS(1'b0), .PLLOUTCORE(inst0_PLLOUTCORE), .PLLOUTGLOBAL(inst0_PLLOUTGLOBAL));
-Counter26 inst1 (.O(inst1_O), .COUT(inst1_COUT), .CLK(inst0_PLLOUTGLOBAL));
+Counter26 inst1 (.O(inst1_O), .COUT(inst1_COUT), .CLK(CLKIN));
 assign D5 = inst1_O[25];
 endmodule
 
