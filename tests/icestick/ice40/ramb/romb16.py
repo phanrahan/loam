@@ -37,7 +37,6 @@ romb = ROMB( rom )
 #print(romb.interface)
 
 wire( 1, romb.RE    )
-wire( 1, romb.RCLKE )
 wire( I, romb.RADDR )
 wire( romb.RDATA[0:8], O)
 

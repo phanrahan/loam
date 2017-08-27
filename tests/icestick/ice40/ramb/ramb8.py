@@ -32,12 +32,10 @@ ramb = RAMB( rom )
 #print(romb.interface)
 
 wire( WE, ramb.WE    )
-wire( 1, ramb.WCLKE )
 wire( WADDR, ramb.WADDR )
 wire( WDATA, ramb.WDATA )
 
 wire( 1, ramb.RE    )
-wire( 1, ramb.RCLKE )
 wire( RADDR, ramb.RADDR )
 wire( ramb.RDATA[0:2], O)
 
