@@ -27,7 +27,7 @@ assign O = inst0_O;
 assign COUT = inst1_CO;
 endmodule
 
-module Addcincout8 (input [7:0] I0, input [7:0] I1, input  CIN, output [7:0] O, output  COUT);
+module AdderCinCout8 (input [7:0] I0, input [7:0] I1, input  CIN, output [7:0] O, output  COUT);
 wire  inst0_O;
 wire  inst0_COUT;
 wire  inst1_O;
@@ -61,7 +61,7 @@ wire [7:0] inst0_O;
 wire [7:0] inst1_O;
 wire  inst1_COUT;
 Invert8 inst0 (.I({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,B1,B0}), .O(inst0_O));
-Addcincout8 inst1 (.I0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,A1,A0}), .I1(inst0_O), .CIN(1'b1), .O(inst1_O), .COUT(inst1_COUT));
+AdderCinCout8 inst1 (.I0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,A1,A0}), .I1(inst0_O), .CIN(1'b1), .O(inst1_O), .COUT(inst1_COUT));
 assign D1 = inst1_COUT;
 endmodule
 
