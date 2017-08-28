@@ -77,16 +77,21 @@ class HX8KBoard(Board):
 
 
         # USART
-        #self.DCD = fpga.PIO0_01
-        #self.DSR = fpga.PIO0_03
-        #self.DTR = fpga.PIO0_07
-        #self.CTS = fpga.PIO0_08
-        #self.RTS = fpga.PIO0_09
+        self.DCD = fpga.PIO0_01
+        self.DCD.rename('DCD').output()
+        self.DSR = fpga.PIO0_03
+        self.DSR.rename('DSR').output()
+        self.DTR = fpga.PIO0_07
+        self.DTR.rename('DTR').input()
+        self.CTS = fpga.PIO0_08
+        self.CTS.rename('CTS').output()
+        self.RTS = fpga.PIO0_09
+        self.RTS.rename('RTS').input()
 
-        #self.TX = fpga.PIO0_13
-        #self.TX.rename('TX').output()
-        #self.RX = fpga.PIO0_14
-        #self.RX.rename('RX').input()
+        self.TX = fpga.PIO0_13
+        self.TX.rename('TX').output()
+        self.RX = fpga.PIO0_14
+        self.RX.rename('RX').input()
 
         # create usart part
         #self.usart = FT232R(board=self)

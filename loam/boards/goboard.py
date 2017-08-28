@@ -57,14 +57,14 @@ class GoBoard(Board):
              setattr(self, name, button)
 
         # USART
-        #self.TX = fpga.IOR_74
-        #self.TX.rename('TX').output()
-        #self.RX = fpga.IOR_73
-        #self.RX.rename('RX').input()
+        self.TX = fpga.IOR_74
+        self.TX.rename('TX').output()
+        self.RX = fpga.IOR_73
+        self.RX.rename('RX').input()
 
-        #self.usart = FT232R(self)
-        #wire(self.TX, self.usart.RX)
-        #wire(self.usart.TX, self.TX)
+        self.usart = FT232R(self)
+        wire(self.TX, self.usart.RX)
+        wire(self.usart.TX, self.TX)
 
         # 7 Segment Displays
         # Cathodes for digit1

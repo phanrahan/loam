@@ -1,6 +1,6 @@
-# Lattice Icestick
+# Lattice HX8K Board
 
-![icestick](images/icestick.jpg)
+![Lattice HX8K Board](images/hx8k.jpg)
 
 ## Pins
 
@@ -23,9 +23,9 @@ RX
 ## Headers
 ```
 J1
+J2
 J3
-PMOD0
-PMOD1
+J4
 ```
 
 ## Peripherals
@@ -38,6 +38,11 @@ Clock
 Timer
 ```
 Timer
+```
+
+8 LEDs
+```
+leds
 ```
 
 FT232R USART
