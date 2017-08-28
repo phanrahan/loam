@@ -1,3 +1,6 @@
+# Loam
+[![Build Status](https://travis-ci.org/phanrahan/loam.svg?branch=master)](https://travis-ci.org/phanrahan/loam)
+
 Loam is part of the Magma ecosystem
 of python programming tools for FPGAs.
 
