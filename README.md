@@ -102,3 +102,27 @@ iceprog blink.bin
 
 It is that easy to make an LED blink using an FPGA!
 
+
+# Setup
+* Follow [these instructions](https://github.com/phanrahan/magma#setup) to install magma
+* Follow [these instructions](https://github.com/phanrahan/mantle#setup) to install mantle
+```
+$ git clone https://github.com/phanrahan/loam
+$ cd loam
+$ pip install -r requirements.txt
+$ pip install pytest
+$ pip install -e .
+$ pytest tests
+```
+
+You should see something like
+```
+==================================== test session starts =====================================
+platform darwin -- Python 3.6.2, pytest-3.1.3, py-1.4.34, pluggy-0.4.0
+rootdir: .../loam, inifile:
+collected 1 item s
+
+tests/icestick/board/test_icestick.py .
+
+================================== 1 passed in 2.96 seconds ==================================
+```
