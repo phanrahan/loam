@@ -1,4 +1,4 @@
-from magma import wire, compile, EndCircuit
+from magma import wire, EndCircuit
 from loam.boards.icestick import IceStick, Counter
 
 icestick = IceStick()
