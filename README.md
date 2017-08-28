@@ -98,6 +98,7 @@ using the open source icestorm tools.
 $ make upload
 iceprog blink.bin
 ...
+```
 
 It is that easy to make an LED blink using an FPGA!
 
