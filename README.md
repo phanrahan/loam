@@ -48,7 +48,7 @@ The IceStick board contains built-in drivers for the USART and LEDs.
 This makes it very easy to build an application running on a particular board.
 
 For example, here is a complete application to blink an LED on the IceStick.
-```
+```python
 from magma import wire, EndDefine
 from mantle import Counter
 from loam.boards.icestick import IceStick
