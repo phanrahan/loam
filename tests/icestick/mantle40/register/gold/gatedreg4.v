@@ -13,7 +13,7 @@ endmodule
 module main (input [4:0] J1, output [3:0] J3, input  CLKIN);
 wire [3:0] inst0_O;
 wire  inst1_out;
-Register4 inst0 (.O(inst0_O), .CLK(inst1_out));
+Register4 inst0 (.I({J1[3],J1[2],J1[1],J1[0]}), .O(inst0_O), .CLK(inst1_out));
 coreir_bitand inst1 (.in0(CLKIN), .in1(J1[4]), .out(inst1_out));
 assign J3 = inst0_O;
 endmodule

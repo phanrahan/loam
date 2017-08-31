@@ -12,6 +12,6 @@ main = icestick.main()
 
 reg = Register(4)
 wire( clock( bit(main.CLK) & main.J1[4] ), reg.CLK ) 
-wire( reg(main.J1), main.J3 )
+wire( reg(main.J1[0:4]), main.J3 )
 
 EndCircuit()
