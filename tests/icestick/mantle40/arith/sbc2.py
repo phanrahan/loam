@@ -19,8 +19,8 @@ O = array([main.D1, main.D2])
 
 sub = SubC(2)
 
-sub(A, B)
-wire(main.CIN, sub.CIN)
+sub(A, B, main.CIN)
+#wire(main.CIN, sub.CIN)
 
 wire(sub.O[0], main.D1)
 wire(sub.O[1], main.D2)

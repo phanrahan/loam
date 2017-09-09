@@ -11,6 +11,6 @@ for i in range(N):
 main = icestick.main()
 
 counter = Counter(N)
-wire(counter, main.J3)
+wire(counter.O, main.J3)
 
 EndCircuit()

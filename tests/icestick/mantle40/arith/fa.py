@@ -19,10 +19,10 @@ B1 = main.B1
 add0 = FullAdder()
 add1 = FullAdder()
 
-add0(A0, B0)
-wire(0, add0.CIN)
-add1(A1, B1)
-wire(add0.COUT, add1.CIN)
+add0(A0, B0, 0)
+#wire(0, add0.CIN)
+add1(A1, B1, add0.COUT)
+#wire(add0.COUT, add1.CIN)
 
 wire(add0.O, main.D1)
 wire(add1.O, main.D2)

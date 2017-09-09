@@ -27,7 +27,7 @@ assign O = inst0_O;
 assign COUT = inst1_CO;
 endmodule
 
-module AdderCinCout8 (input [7:0] I0, input [7:0] I1, input  CIN, output [7:0] O, output  COUT);
+module AdderCout8 (input [7:0] I0, input [7:0] I1, output [7:0] O, output  COUT);
 wire  inst0_O;
 wire  inst0_COUT;
 wire  inst1_O;
@@ -44,7 +44,7 @@ wire  inst6_O;
 wire  inst6_COUT;
 wire  inst7_O;
 wire  inst7_COUT;
-FullAdder inst0 (.I0(I0[0]), .I1(I1[0]), .CIN(CIN), .O(inst0_O), .COUT(inst0_COUT));
+FullAdder inst0 (.I0(I0[0]), .I1(I1[0]), .CIN(1'b0), .O(inst0_O), .COUT(inst0_COUT));
 FullAdder inst1 (.I0(I0[1]), .I1(I1[1]), .CIN(inst0_COUT), .O(inst1_O), .COUT(inst1_COUT));
 FullAdder inst2 (.I0(I0[2]), .I1(I1[2]), .CIN(inst1_COUT), .O(inst2_O), .COUT(inst2_COUT));
 FullAdder inst3 (.I0(I0[3]), .I1(I1[3]), .CIN(inst2_COUT), .O(inst3_O), .COUT(inst3_COUT));
@@ -61,7 +61,7 @@ wire [7:0] inst0_O;
 wire [7:0] inst1_O;
 wire  inst1_COUT;
 Invert8 inst0 (.I({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,A1,A0}), .O(inst0_O));
-AdderCinCout8 inst1 (.I0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,B1,B0}), .I1(inst0_O), .CIN(1'b1), .O(inst1_O), .COUT(inst1_COUT));
+AdderCout8 inst1 (.I0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,B1,B0}), .I1(inst0_O), .O(inst1_O), .COUT(inst1_COUT));
 assign D1 = inst1_COUT;
 endmodule
 

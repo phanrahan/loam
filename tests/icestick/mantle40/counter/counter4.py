@@ -10,7 +10,7 @@ main = icestick.main()
 
 counter = Counter(4)
 wire( main.CLKIN, main.J3[0])
-wire(counter, main.J3[1:5])
+wire(counter.O, main.J3[1:5])
 wire(counter.COUT, main.J3[5])
 
 EndCircuit()

@@ -19,6 +19,6 @@ clock = Counter(22)
 
 counter = Counter(8, has_ce=True, has_reset=True)
 counter(reset=main.R, ce=clock.COUT)
-wire(counter, main.D)
+wire(counter.O, main.D)
 
 EndCircuit()

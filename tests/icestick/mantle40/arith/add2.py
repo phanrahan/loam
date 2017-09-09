@@ -17,10 +17,6 @@ O = array([main.D1, main.D2])
 
 add = Add(2)
 
-add(A, B)
-
-wire(add.O[0], main.D1)
-wire(add.O[1], main.D2)
-wire(add.COUT, main.D3)
+wire( add(A, B), O )
 
 EndCircuit()

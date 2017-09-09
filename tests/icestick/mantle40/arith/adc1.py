@@ -16,8 +16,8 @@ O = array([main.D1])
 
 add = AddC(1)
 
-add(A, B)
-wire(main.CIN, add.CIN)
+add(A, B, main.CIN)
+#wire(main.CIN, add.CIN)
 
 wire(add.O[0], main.D1)
 wire(add.COUT, main.D2)
