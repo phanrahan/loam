@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+import os, glob
+from os.path import join, exists
+from fabricate import main, autoclean, run
+
+BOARD = 'icestick'
+
+tests = glob.glob('*.py')
+excluded = ['wallace.py', 'dadda.py', 'compressor.py', 'pop.py']
+
+def build():
+    for test in tests:
+        if not test.startswith('_') and test not in excluded:
+            base, suffix = test.split('.')
+            compile(base)
+
+def compile(base):
+    run('magma','-b','icestick',base)
+
+def clean():
+    autoclean()
+
+def gold():
+    os.system('cp %s/*{.v,.ucf} %s' % (BUILD, GOLD))
+
+main()
