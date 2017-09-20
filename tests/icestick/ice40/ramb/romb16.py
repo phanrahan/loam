@@ -33,7 +33,7 @@ rom = M * [0]
 for i in range(M):
     rom[i] = i & 0xffff
 
-romb = ROMB( rom )
+romb = ROMB( M, N, rom )
 #print(romb.interface)
 
 wire( 1, romb.RE    )

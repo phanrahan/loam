@@ -7,7 +7,7 @@ assign O = inst0_O;
 assign COUT = inst1_CO;
 endmodule
 
-module Adder2 (input [1:0] I0, input [1:0] I1, output [1:0] O);
+module Add2 (input [1:0] I0, input [1:0] I1, output [1:0] O);
 wire  inst0_O;
 wire  inst0_COUT;
 wire  inst1_O;
@@ -19,7 +19,7 @@ endmodule
 
 module main (input  A0, input  A1, input  B0, input  B1, output  D3, output  D2, output  D1);
 wire [1:0] inst0_O;
-Adder2 inst0 (.I0({A1,A0}), .I1({B1,B0}), .O(inst0_O));
+Add2 inst0 (.I0({A1,A0}), .I1({B1,B0}), .O(inst0_O));
 assign D2 = inst0_O[1];
 assign D1 = inst0_O[0];
 endmodule

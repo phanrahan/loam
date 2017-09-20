@@ -1,5 +1,5 @@
 from magma import array, wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, AddC
+from loam.boards.icestick import IceStick, Add
 
 icestick = IceStick()
 icestick.Clock.on()
@@ -17,8 +17,7 @@ A = array([main.A0, main.A1])
 B = array([main.B0, main.B1])
 O = array([main.D1, main.D2])
 
-add = AddC(2)
-#wire(main.CIN, add.CIN)
+add = Add(2, True, True)
 
 add(A, B, main.CIN)
 

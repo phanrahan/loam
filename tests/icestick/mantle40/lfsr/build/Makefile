@@ -1,4 +1,4 @@
-NAME ?= lfsr
+NAME ?= lfsr8
 
 PCF = $(NAME).pcf
 

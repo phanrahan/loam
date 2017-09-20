@@ -7,7 +7,7 @@ assign O = inst0_O;
 assign COUT = inst1_CO;
 endmodule
 
-module AdderCout30 (input [29:0] I0, input [29:0] I1, output [29:0] O, output  COUT);
+module Add30Cout (input [29:0] I0, input [29:0] I1, output [29:0] O, output  COUT);
 wire  inst0_O;
 wire  inst0_COUT;
 wire  inst1_O;
@@ -170,7 +170,7 @@ module Counter30 (output [29:0] O, output  COUT, input  CLK);
 wire [29:0] inst0_O;
 wire  inst0_COUT;
 wire [29:0] inst1_O;
-AdderCout30 inst0 (.I0(inst1_O), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1}), .O(inst0_O), .COUT(inst0_COUT));
+Add30Cout inst0 (.I0(inst1_O), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1}), .O(inst0_O), .COUT(inst0_COUT));
 Register30 inst1 (.I(inst0_O), .O(inst1_O), .CLK(CLK));
 assign O = inst1_O;
 assign COUT = inst0_COUT;

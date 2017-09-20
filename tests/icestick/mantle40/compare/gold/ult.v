@@ -27,7 +27,7 @@ assign O = inst0_O;
 assign COUT = inst1_CO;
 endmodule
 
-module AdderCout8 (input [7:0] I0, input [7:0] I1, output [7:0] O, output  COUT);
+module Add8CinCout (input [7:0] I0, input [7:0] I1, input  CIN, output [7:0] O, output  COUT);
 wire  inst0_O;
 wire  inst0_COUT;
 wire  inst1_O;
@@ -44,7 +44,7 @@ wire  inst6_O;
 wire  inst6_COUT;
 wire  inst7_O;
 wire  inst7_COUT;
-FullAdder inst0 (.I0(I0[0]), .I1(I1[0]), .CIN(1'b0), .O(inst0_O), .COUT(inst0_COUT));
+FullAdder inst0 (.I0(I0[0]), .I1(I1[0]), .CIN(CIN), .O(inst0_O), .COUT(inst0_COUT));
 FullAdder inst1 (.I0(I0[1]), .I1(I1[1]), .CIN(inst0_COUT), .O(inst1_O), .COUT(inst1_COUT));
 FullAdder inst2 (.I0(I0[2]), .I1(I1[2]), .CIN(inst1_COUT), .O(inst2_O), .COUT(inst2_COUT));
 FullAdder inst3 (.I0(I0[3]), .I1(I1[3]), .CIN(inst2_COUT), .O(inst3_O), .COUT(inst3_COUT));
@@ -56,14 +56,22 @@ assign O = {inst7_O,inst6_O,inst5_O,inst4_O,inst3_O,inst2_O,inst1_O,inst0_O};
 assign COUT = inst7_COUT;
 endmodule
 
+module Sub8Cout (input [7:0] I0, input [7:0] I1, output [7:0] O, output  COUT);
+wire [7:0] inst0_O;
+wire [7:0] inst1_O;
+wire  inst1_COUT;
+Invert8 inst0 (.I(I1), .O(inst0_O));
+Add8CinCout inst1 (.I0(I0), .I1(inst0_O), .CIN(1'b1), .O(inst1_O), .COUT(inst1_COUT));
+assign O = inst1_O;
+assign COUT = inst1_COUT;
+endmodule
+
 module main (input  A0, input  A1, input  B0, input  B1, output  D1);
 wire  inst0_O;
 wire [7:0] inst1_O;
-wire [7:0] inst2_O;
-wire  inst2_COUT;
-SB_LUT4 #(.LUT_INIT(16'h5555)) inst0 (.I0(inst2_COUT), .I1(1'b0), .I2(1'b0), .I3(1'b0), .O(inst0_O));
-Invert8 inst1 (.I({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,B1,B0}), .O(inst1_O));
-AdderCout8 inst2 (.I0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,A1,A0}), .I1(inst1_O), .O(inst2_O), .COUT(inst2_COUT));
+wire  inst1_COUT;
+SB_LUT4 #(.LUT_INIT(16'h5555)) inst0 (.I0(inst1_COUT), .I1(1'b0), .I2(1'b0), .I3(1'b0), .O(inst0_O));
+Sub8Cout inst1 (.I0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,A1,A0}), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,B1,B0}), .O(inst1_O), .COUT(inst1_COUT));
 assign D1 = inst0_O;
 endmodule
 

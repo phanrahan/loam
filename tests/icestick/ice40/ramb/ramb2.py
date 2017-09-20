@@ -27,7 +27,7 @@ rom = M * [0]
 for i in range(M):
     rom[i] = i & 0x3
 
-ramb = RAMB( rom )
+ramb = RAMB( M, N, rom )
 #print(ramb.interface)
 
 wire( WE, ramb.WE    )

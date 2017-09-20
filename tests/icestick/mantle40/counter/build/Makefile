@@ -1,7 +1,7 @@
 NAME ?= upcounter
 #NAME ?= downcounter
 #NAME ?= counter4
-#NAME ?= counter8
+NAME ?= counter8
 
 PCF = $(NAME).pcf
 

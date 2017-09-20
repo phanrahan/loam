@@ -7,7 +7,7 @@ assign O = inst0_O;
 assign COUT = inst1_CO;
 endmodule
 
-module AdderCout4 (input [3:0] I0, input [3:0] I1, output [3:0] O, output  COUT);
+module Add4Cout (input [3:0] I0, input [3:0] I1, output [3:0] O, output  COUT);
 wire  inst0_O;
 wire  inst0_COUT;
 wire  inst1_O;
@@ -40,13 +40,13 @@ module Counter4R (output [3:0] O, output  COUT, input  CLK, input  RESET);
 wire [3:0] inst0_O;
 wire  inst0_COUT;
 wire [3:0] inst1_O;
-AdderCout4 inst0 (.I0(inst1_O), .I1({1'b0,1'b0,1'b0,1'b1}), .O(inst0_O), .COUT(inst0_COUT));
+Add4Cout inst0 (.I0(inst1_O), .I1({1'b0,1'b0,1'b0,1'b1}), .O(inst0_O), .COUT(inst0_COUT));
 Register4R inst1 (.I(inst0_O), .O(inst1_O), .CLK(CLK), .RESET(RESET));
 assign O = inst1_O;
 assign COUT = inst0_COUT;
 endmodule
 
-module CounterModM4 (output [3:0] O, output  COUT, input  CLK);
+module Counter4Mod10 (output [3:0] O, output  COUT, input  CLK);
 wire [3:0] inst0_O;
 wire  inst0_COUT;
 wire  inst1_O;
@@ -59,7 +59,7 @@ endmodule
 module main (output [5:0] J3, input  CLKIN);
 wire [3:0] inst0_O;
 wire  inst0_COUT;
-CounterModM4 inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
+Counter4Mod10 inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
 assign J3 = {inst0_COUT,inst0_O[3],inst0_O[2],inst0_O[1],inst0_O[0],CLKIN};
 endmodule
 

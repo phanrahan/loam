@@ -1,4 +1,4 @@
-NAME ?= lhca
+NAME ?= lhca8
 
 PCF = $(NAME).pcf
 

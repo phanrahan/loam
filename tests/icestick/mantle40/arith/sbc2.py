@@ -1,5 +1,5 @@
 from magma import array, wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, SubC
+from loam.boards.icestick import IceStick, Sub
 
 icestick = IceStick()
 icestick.Clock.on()
@@ -17,10 +17,9 @@ A = array([main.A0, main.A1])
 B = array([main.B0, main.B1])
 O = array([main.D1, main.D2])
 
-sub = SubC(2)
+sub = Sub(2, cin=True, cout=True)
 
 sub(A, B, main.CIN)
-#wire(main.CIN, sub.CIN)
 
 wire(sub.O[0], main.D1)
 wire(sub.O[1], main.D2)

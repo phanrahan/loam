@@ -15,22 +15,28 @@ assign O = inst0_O;
 assign COUT = inst1_CO;
 endmodule
 
-module Adder2 (input [1:0] I0, input [1:0] I1, output [1:0] O);
+module Add2Cin (input [1:0] I0, input [1:0] I1, input  CIN, output [1:0] O);
 wire  inst0_O;
 wire  inst0_COUT;
 wire  inst1_O;
 wire  inst1_COUT;
-FullAdder inst0 (.I0(I0[0]), .I1(I1[0]), .CIN(1'b0), .O(inst0_O), .COUT(inst0_COUT));
+FullAdder inst0 (.I0(I0[0]), .I1(I1[0]), .CIN(CIN), .O(inst0_O), .COUT(inst0_COUT));
 FullAdder inst1 (.I0(I0[1]), .I1(I1[1]), .CIN(inst0_COUT), .O(inst1_O), .COUT(inst1_COUT));
 assign O = {inst1_O,inst0_O};
 endmodule
 
-module main (input  A0, input  A1, input  B0, input  B1, output  D2, output  D1);
+module Sub2 (input [1:0] I0, input [1:0] I1, output [1:0] O);
 wire [1:0] inst0_O;
 wire [1:0] inst1_O;
-Invert2 inst0 (.I({B1,B0}), .O(inst0_O));
-Adder2 inst1 (.I0({A1,A0}), .I1(inst0_O), .O(inst1_O));
-assign D2 = inst1_O[1];
-assign D1 = inst1_O[0];
+Invert2 inst0 (.I(I1), .O(inst0_O));
+Add2Cin inst1 (.I0(I0), .I1(inst0_O), .CIN(1'b1), .O(inst1_O));
+assign O = inst1_O;
+endmodule
+
+module main (input  A0, input  A1, input  B0, input  B1, output  D2, output  D1);
+wire [1:0] inst0_O;
+Sub2 inst0 (.I0({A1,A0}), .I1({B1,B0}), .O(inst0_O));
+assign D2 = inst0_O[1];
+assign D1 = inst0_O[0];
 endmodule
 

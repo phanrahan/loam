@@ -7,7 +7,7 @@ assign O = inst0_O;
 assign COUT = inst1_CO;
 endmodule
 
-module Adder1 (input [0:0] I0, input [0:0] I1, output [0:0] O);
+module Add1 (input [0:0] I0, input [0:0] I1, output [0:0] O);
 wire  inst0_O;
 wire  inst0_COUT;
 FullAdder inst0 (.I0(I0[0]), .I1(I1[0]), .CIN(1'b0), .O(inst0_O), .COUT(inst0_COUT));
@@ -16,7 +16,7 @@ endmodule
 
 module main (input  A0, input  B0, output  D1, input  CLKIN);
 wire [0:0] inst0_O;
-Adder1 inst0 (.I0({A0}), .I1({B0}), .O(inst0_O));
+Add1 inst0 (.I0({A0}), .I1({B0}), .O(inst0_O));
 assign D1 = inst0_O[0];
 endmodule
 
