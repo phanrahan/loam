@@ -3,10 +3,6 @@ python:
     - "3.6"
 
 install:
-    - git clone https://github.com/phanrahan/magma
-    - pip install -e magma
-    - git clone https://github.com/phanrahan/mantle
-    - pip install -e mantle
     - pip install pytest-cov
     - pip install fabricate
     - pip install -e .
