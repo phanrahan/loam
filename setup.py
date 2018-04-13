@@ -7,6 +7,10 @@ setup(
     packages=["loam"],
     install_requires=[
         "six",
+        "magma",
+        "mantle"
+    ],
+    dependency_links=[
         "git+git://github.com/phanrahan/magma.git#egg=magma",
         "git+git://github.com/phanrahan/mantle.git#egg=mantle"
     ],
