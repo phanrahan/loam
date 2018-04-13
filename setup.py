@@ -11,8 +11,8 @@ setup(
         "mantle"
     ],
     dependency_links=[
-        "git+git://github.com/phanrahan/magma.git#egg=magma",
-        "git+git://github.com/phanrahan/mantle.git#egg=mantle"
+        "git+https://github.com/phanrahan/magma.git#egg=magma",
+        "git+https://github.com/phanrahan/mantle.git#egg=mantle"
     ],
     url='https://github.com/phanrahan/mantle',
     author='Leonard Truong',
