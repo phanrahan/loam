@@ -6,7 +6,9 @@ setup(
     description='Model boards and parts using Magma',
     packages=["loam"],
     install_requires=[
-        "six"
+        "six",
+        "git+git://github.com/phanrahan/magma.git#egg=magma",
+        "git+git://github.com/phanrahan/mantle.git#egg=mantle"
     ],
     url='https://github.com/phanrahan/mantle',
     author='Leonard Truong',
