@@ -1,7 +1,5 @@
 from setuptools import setup
 
-reqs = [str(ir.req) for ir in install_reqs]
-
 setup(
     name='loam',
     version='0.1-alpha',
