@@ -1,10 +1,12 @@
+import os, csv
 from loam import FPGA
 from .lattice import Lattice
 from .gpio import Pin, GPIO
 from .clock import Clock
 from .usart import USART
 
-__all__ = ['ICE40HX1K", "ICE40HX8K']
+__all__  = ['ICE40HX1K', 'ICE40HX8K']
+__all__ += ['ICE40LP1K', 'ICE40LP8K']
 
 
 class HX(Lattice):
@@ -24,11 +26,24 @@ class HX(Lattice):
         #
         # The lattice names are different: see iCE40PinoutHX1K.xlsx
 
-        # Bank L
-        GPIO(self, 'IOL_1', 1)
-        GPIO(self, 'IOL_2', 2)
-        GPIO(self, 'IOL_3', 3)
-        GPIO(self, 'IOL_4', 4)
+        GPIO(self, 'IOL_2A', 'B1')
+        GPIO(self, 'IOL_2B', 'B2')
+        GPIO(self, 'IOL_4A', "C4")
+        GPIO(self, 'IOL_4B', "C3")
+        GPIO(self, 'IOL_5A', "C2")
+        GPIO(self, 'IOL_5B', "C1")
+        GPIO(self, 'IOL_8A', "E1")
+        GPIO(self, 'IOL_8B', "D1")
+        GPIO(self, 'IOL_9A', "D2")
+        GPIO(self, 'IOL_9B', "D3")
+        GPIO(self, 'IOL_10A', "E2")
+        GPIO(self, 'IOL_10B', "E3")
+        GPIO(self, 'IOL_12A', "F1")
+        GPIO(self, 'IOL_12B', "F2")
+        GPIO(self, 'IOL_13A', "F4")
+        GPIO(self, 'IOL_13B', "F3")
+        GPIO(self, 'IOL_14A', "G1")
+        GPIO(self, 'IOL_14B', "G2")
         # 5 6
         GPIO(self, 'IOL_7', 8)
         GPIO(self, 'IOL_8', 8)
@@ -293,3 +308,54 @@ class ICE40HX8K(HX):
         if   package == 'ct256':
             self.CT256()
 
+
+
+class LP(Lattice):
+    family = 'ice40'
+
+    def __init__(self, name, board):
+        super(LP,self).__init__(name, board)
+
+        self.clock = Clock(self)
+
+        self.USART = USART
+
+
+    def readpins(self, package):
+        dir = os.path.join(os.path.dirname(__file__), 'pins')
+        filename = os.path.join(dir,package+'.csv')
+
+        f = open(filename, 'r')
+        row = csv.reader(f)
+
+        '''
+        iCE40-LP8K-CM81
+        pin,bank,type,name
+        C2,3,IO,IOL_2A
+        '''
+        header = next(row)
+        for data in row:
+            if data[2] == 'IO':
+                #print(data[3], data[0])
+                GPIO(self, data[3], data[0])
+
+    def CM81(self):
+        self.package = 'CM81'
+        self.readpins('lp8kcm81')
+
+class ICE40LP1K(LP):
+    part = 'ice40lp1k'
+    def __init__(self, name='lp1k', board=None, package='cm81'):
+        assert package in ['cm81']
+        super(ICE40LP1K,self).__init__(name, board)
+        if   package == 'cm81':
+            self.CM81()
+
+
+class ICE40LP8K(LP):
+    part = 'ice40lp8k'
+    def __init__(self, name='lp8k', board=None, package='cm81'):
+        assert package in ['cm81']
+        super(ICE40LP8K,self).__init__(name, board)
+        if   package == 'cm81':
+            self.CM81()

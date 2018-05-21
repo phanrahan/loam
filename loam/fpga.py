@@ -48,6 +48,7 @@ class FPGA(Part):
                     i = int(i)
                     if name in arrays and i == 0:
                         args.append(name)
+                        n = arrays[name]
                         T = Bits(arrays[name]+1)
                         args.append(In(T) if p.direction == INPUT else Out(T))
                 else:
