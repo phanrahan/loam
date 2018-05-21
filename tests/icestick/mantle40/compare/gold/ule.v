@@ -66,10 +66,16 @@ assign O = inst1_O;
 assign COUT = inst1_COUT;
 endmodule
 
-module main (input  A0, input  A1, input  B0, input  B1, output  D1);
+module ULE8 (input [7:0] I0, input [7:0] I1, output  O);
 wire [7:0] inst0_O;
 wire  inst0_COUT;
-Sub8Cout inst0 (.I0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,B1,B0}), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,A1,A0}), .O(inst0_O), .COUT(inst0_COUT));
-assign D1 = inst0_COUT;
+Sub8Cout inst0 (.I0(I1), .I1(I0), .O(inst0_O), .COUT(inst0_COUT));
+assign O = inst0_COUT;
+endmodule
+
+module main (input [3:0] J1, output  D1);
+wire  inst0_O;
+ULE8 inst0 (.I0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,J1[1],J1[0]}), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,J1[3],J1[2]}), .O(inst0_O));
+assign D1 = inst0_O;
 endmodule
 

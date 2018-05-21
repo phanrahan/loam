@@ -1,20 +1,18 @@
-from magma import array, wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, UGE
+from magma import uint, bits, concat, wire, compile, EndCircuit
+from mantle import UGE
+from loam.boards.icestick import IceStick
 
 icestick = IceStick()
-icestick.J1[0].rename('A0').input().on()
-icestick.J1[1].rename('A1').input().on()
-icestick.J1[2].rename('B0').input().on()
-icestick.J1[3].rename('B1').input().on()
+for i in range(4):
+    icestick.J1[i].input().on()
 icestick.D1.on()
 
 main = icestick.main()
-A = array([main.A0,main.A1,0,0,0,0,0,0])
-B = array([main.B0,main.B1,0,0,0,0,0,0])
+A = uint(concat(main.J1[0:2], bits(0,6)))
+B = uint(concat(main.J1[2:4], bits(0,6)))
 O = main.D1
 
 uge = UGE(8)
-uge(A, B)
-wire(uge.O, main.D1)
+wire( uge(A, B), main.D1 )
 
 EndCircuit()

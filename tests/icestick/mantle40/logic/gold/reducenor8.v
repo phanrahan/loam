@@ -1,4 +1,4 @@
-module FlatCascade8x2_B (input [7:0] I, output  O);
+module NOr8 (input [7:0] I, output  O);
 wire  inst0_O;
 wire  inst1_O;
 wire  inst2_O;
@@ -7,7 +7,7 @@ wire  inst4_O;
 wire  inst5_O;
 wire  inst6_O;
 wire  inst7_O;
-SB_LUT4 #(.LUT_INIT(16'hBBBB)) inst0 (.I0(1'b0), .I1(I[0]), .I2(1'b0), .I3(1'b0), .O(inst0_O));
+SB_LUT4 #(.LUT_INIT(16'hBBBB)) inst0 (.I0(1'b1), .I1(I[0]), .I2(1'b0), .I3(1'b0), .O(inst0_O));
 SB_LUT4 #(.LUT_INIT(16'hBBBB)) inst1 (.I0(inst0_O), .I1(I[1]), .I2(1'b0), .I3(1'b0), .O(inst1_O));
 SB_LUT4 #(.LUT_INIT(16'hBBBB)) inst2 (.I0(inst1_O), .I1(I[2]), .I2(1'b0), .I3(1'b0), .O(inst2_O));
 SB_LUT4 #(.LUT_INIT(16'hBBBB)) inst3 (.I0(inst2_O), .I1(I[3]), .I2(1'b0), .I3(1'b0), .O(inst3_O));
@@ -20,7 +20,7 @@ endmodule
 
 module main (input [7:0] J1, output  D5);
 wire  inst0_O;
-FlatCascade8x2_B inst0 (.I(J1), .O(inst0_O));
+NOr8 inst0 (.I(J1), .O(inst0_O));
 assign D5 = inst0_O;
 endmodule
 

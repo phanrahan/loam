@@ -66,12 +66,18 @@ assign O = inst1_O;
 assign COUT = inst1_COUT;
 endmodule
 
-module main (input  A0, input  A1, input  B0, input  B1, output  D1);
+module ULT8 (input [7:0] I0, input [7:0] I1, output  O);
+wire [7:0] inst0_O;
+wire  inst0_COUT;
+wire  inst1_O;
+Sub8Cout inst0 (.I0(I0), .I1(I1), .O(inst0_O), .COUT(inst0_COUT));
+SB_LUT4 #(.LUT_INIT(16'h5555)) inst1 (.I0(inst0_COUT), .I1(1'b0), .I2(1'b0), .I3(1'b0), .O(inst1_O));
+assign O = inst1_O;
+endmodule
+
+module main (input [3:0] J1, output  D1);
 wire  inst0_O;
-wire [7:0] inst1_O;
-wire  inst1_COUT;
-SB_LUT4 #(.LUT_INIT(16'h5555)) inst0 (.I0(inst1_COUT), .I1(1'b0), .I2(1'b0), .I3(1'b0), .O(inst0_O));
-Sub8Cout inst1 (.I0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,A1,A0}), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,B1,B0}), .O(inst1_O), .COUT(inst1_COUT));
+ULT8 inst0 (.I0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,J1[1],J1[0]}), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,J1[3],J1[2]}), .O(inst0_O));
 assign D1 = inst0_O;
 endmodule
 

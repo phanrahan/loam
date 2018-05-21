@@ -1,4 +1,4 @@
-NAME ?= and2
+NAME ?= rand8
 
 PCF = $(NAME).pcf
 

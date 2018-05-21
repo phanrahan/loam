@@ -1,5 +1,6 @@
 from magma import wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, ReduceNOr
+from mantle import ReduceOr
+from loam.boards.icestick import IceStick
 
 icestick = IceStick()
 for i in range(8):
@@ -8,8 +9,8 @@ icestick.D5.on()
 
 main = icestick.main()
 
-nor8 = ReduceNOr(8)
-nor8(main.J1)
-wire(nor8.O, main.D5)
+or8 = ReduceOr(8)
+or8(main.J1)
+wire(or8.O, main.D5)
 
 EndCircuit()

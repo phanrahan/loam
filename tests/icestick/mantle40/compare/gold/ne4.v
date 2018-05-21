@@ -1,4 +1,4 @@
-module Cascade4x2_E (input [3:0] I0, input [3:0] I1, output  O);
+module NE4 (input [3:0] I0, input [3:0] I1, output  O);
 wire  inst0_O;
 wire  inst1_O;
 wire  inst2_O;
@@ -12,7 +12,7 @@ endmodule
 
 module main (input  I0, input  I1, input  I2, input  I3, output  D1);
 wire  inst0_O;
-Cascade4x2_E inst0 (.I0({I3,I2,I1,I0}), .I1({1'b1,1'b0,1'b1,1'b0}), .O(inst0_O));
+NE4 inst0 (.I0({I3,I2,I1,I0}), .I1({1'b1,1'b0,1'b1,1'b0}), .O(inst0_O));
 assign D1 = inst0_O;
 endmodule
 

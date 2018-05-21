@@ -1,5 +1,5 @@
-set_io A0 112
-set_io A1 113
-set_io B0 114
-set_io B1 115
+set_io J1[0] 112
+set_io J1[1] 113
+set_io J1[2] 114
+set_io J1[3] 115
 set_io D1 99

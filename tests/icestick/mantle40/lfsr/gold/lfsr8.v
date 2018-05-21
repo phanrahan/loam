@@ -160,14 +160,26 @@ SB_DFFE inst9 (.C(CLK), .E(CE), .D(inst8_Q), .Q(inst9_Q));
 assign O = {inst9_Q,inst8_Q,inst7_Q,inst6_Q,inst5_Q,inst4_Q,inst3_Q,inst2_O};
 endmodule
 
+module XOr4 (input [3:0] I, output  O);
+wire  inst0_O;
+SB_LUT4 #(.LUT_INIT(16'h6996)) inst0 (.I0(I[0]), .I1(I[1]), .I2(I[2]), .I3(I[3]), .O(inst0_O));
+assign O = inst0_O;
+endmodule
+
+module lfsr81True (output [7:0] O, input  CLK, input  CE);
+wire [7:0] inst0_O;
+wire  inst1_O;
+SIPO8CE_0001 inst0 (.I(inst1_O), .O(inst0_O), .CLK(CLK), .CE(CE));
+XOr4 inst1 (.I({inst0_O[3],inst0_O[4],inst0_O[5],inst0_O[7]}), .O(inst1_O));
+assign O = inst0_O;
+endmodule
+
 module main (output [7:0] J3, input  CLKIN);
 wire [21:0] inst0_O;
 wire  inst0_COUT;
 wire [7:0] inst1_O;
-wire  inst2_O;
 Counter22 inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
-SIPO8CE_0001 inst1 (.I(inst2_O), .O(inst1_O), .CLK(CLKIN), .CE(inst0_COUT));
-SB_LUT4 #(.LUT_INIT(16'h6996)) inst2 (.I0(inst1_O[7]), .I1(inst1_O[5]), .I2(inst1_O[4]), .I3(inst1_O[3]), .O(inst2_O));
+lfsr81True #(.ce(COUT)) inst1 (.O(inst1_O), .CLK(CLKIN));
 assign J3 = inst1_O;
 endmodule
 

@@ -1,5 +1,6 @@
 from magma import wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, Buf
+from mantle import Buf
+from loam.boards.icestick import IceStick
 
 icestick = IceStick()
 icestick.J1[0].rename('I0').input().on()

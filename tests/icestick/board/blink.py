@@ -1,5 +1,6 @@
 from magma import wire, EndCircuit
-from loam.boards.icestick import IceStick, Counter
+from mantle import Counter
+from loam.boards.icestick import IceStick
 
 icestick = IceStick()
 icestick.Clock.on()

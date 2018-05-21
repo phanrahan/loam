@@ -24,6 +24,12 @@ SB_DFFE inst10 (.C(CLK), .E(CE), .D(inst9_Q), .Q(inst10_Q));
 assign O = {inst10_Q,inst9_Q,inst8_Q,inst7_Q,inst6_Q,inst5_Q,inst4_Q,inst3_Q,inst2_O};
 endmodule
 
+module And2 (input [1:0] I, output  O);
+wire  inst0_O;
+SB_LUT4 #(.LUT_INIT(16'h8888)) inst0 (.I0(I[0]), .I1(I[1]), .I2(1'b0), .I3(1'b0), .O(inst0_O));
+assign O = inst0_O;
+endmodule
+
 module Ring7CE_0001 (output [6:0] O, input  CLK, input  CE);
 wire  inst0_Q;
 wire  inst1_O;
@@ -87,19 +93,19 @@ wire [6:0] inst12_O;
 wire  inst13_O;
 wire [7:0] inst14_O;
 Ring9CE_0001 inst0 (.O(inst0_O), .CLK(CLKIN), .CE(1'b1));
-SB_LUT4 #(.LUT_INIT(16'h8888)) inst1 (.I0(1'b1), .I1(inst0_O[8]), .I2(1'b0), .I3(1'b0), .O(inst1_O));
+And2 inst1 (.I({inst0_O[8],1'b1}), .O(inst1_O));
 Ring9CE_0001 inst2 (.O(inst2_O), .CLK(CLKIN), .CE(inst1_O));
-SB_LUT4 #(.LUT_INIT(16'h8888)) inst3 (.I0(inst1_O), .I1(inst2_O[8]), .I2(1'b0), .I3(1'b0), .O(inst3_O));
+And2 inst3 (.I({inst2_O[8],inst1_O}), .O(inst3_O));
 Ring9CE_0001 inst4 (.O(inst4_O), .CLK(CLKIN), .CE(inst3_O));
-SB_LUT4 #(.LUT_INIT(16'h8888)) inst5 (.I0(inst3_O), .I1(inst4_O[8]), .I2(1'b0), .I3(1'b0), .O(inst5_O));
+And2 inst5 (.I({inst4_O[8],inst3_O}), .O(inst5_O));
 Ring9CE_0001 inst6 (.O(inst6_O), .CLK(CLKIN), .CE(inst5_O));
-SB_LUT4 #(.LUT_INIT(16'h8888)) inst7 (.I0(inst5_O), .I1(inst6_O[8]), .I2(1'b0), .I3(1'b0), .O(inst7_O));
+And2 inst7 (.I({inst6_O[8],inst5_O}), .O(inst7_O));
 Ring9CE_0001 inst8 (.O(inst8_O), .CLK(CLKIN), .CE(inst7_O));
-SB_LUT4 #(.LUT_INIT(16'h8888)) inst9 (.I0(inst7_O), .I1(inst8_O[8]), .I2(1'b0), .I3(1'b0), .O(inst9_O));
+And2 inst9 (.I({inst8_O[8],inst7_O}), .O(inst9_O));
 Ring9CE_0001 inst10 (.O(inst10_O), .CLK(CLKIN), .CE(inst9_O));
-SB_LUT4 #(.LUT_INIT(16'h8888)) inst11 (.I0(inst9_O), .I1(inst10_O[8]), .I2(1'b0), .I3(1'b0), .O(inst11_O));
+And2 inst11 (.I({inst10_O[8],inst9_O}), .O(inst11_O));
 Ring7CE_0001 inst12 (.O(inst12_O), .CLK(CLKIN), .CE(inst11_O));
-SB_LUT4 #(.LUT_INIT(16'h8888)) inst13 (.I0(inst11_O), .I1(inst12_O[6]), .I2(1'b0), .I3(1'b0), .O(inst13_O));
+And2 inst13 (.I({inst12_O[6],inst11_O}), .O(inst13_O));
 Ring8CE_0001 inst14 (.O(inst14_O), .CLK(CLKIN), .CE(inst13_O));
 assign J3 = inst14_O;
 endmodule

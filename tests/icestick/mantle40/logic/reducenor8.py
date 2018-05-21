@@ -1,6 +1,5 @@
-import sys
-from magma import *
-from mantle import *
+from magma import wire, compile, EndCircuit
+from mantle import ReduceNOr
 from loam.boards.icestick import IceStick
 
 icestick = IceStick()
@@ -10,9 +9,8 @@ icestick.D5.on()
 
 main = icestick.main()
 
-and8 = ReduceAnd(8)
-print(and8.interface)
-and8(main.J1)
-wire(and8.O, main.D5)
+nor8 = ReduceNOr(8)
+nor8(main.J1)
+wire(nor8.O, main.D5)
 
-compile(sys.argv[1], main)
+EndCircuit()

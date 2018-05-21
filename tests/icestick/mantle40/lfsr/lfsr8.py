@@ -1,6 +1,7 @@
 from magma import wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, Counter
-from mantle.util.lfsr import LFSR
+from mantle.util.lfsr import DefineLFSR
+from mantle import Counter
+from loam.boards.icestick import IceStick
 
 icestick = IceStick()
 icestick.Clock.on()
@@ -11,7 +12,7 @@ main = icestick.main()
 
 clock = Counter(22)
 
-lfsr = LFSR(8, has_ce=True)
+lfsr = DefineLFSR(8, has_ce=True)
 
 wire( lfsr( ce=clock.COUT ), main.J3 )
 

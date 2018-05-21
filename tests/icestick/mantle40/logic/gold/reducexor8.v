@@ -1,4 +1,4 @@
-module FlatCascade8x2_6 (input [7:0] I, output  O);
+module XOr8 (input [7:0] I, output  O);
 wire  inst0_O;
 wire  inst1_O;
 wire  inst2_O;
@@ -20,7 +20,7 @@ endmodule
 
 module main (input [7:0] J1, output  D5);
 wire  inst0_O;
-FlatCascade8x2_6 inst0 (.I(J1), .O(inst0_O));
+XOr8 inst0 (.I(J1), .O(inst0_O));
 assign D5 = inst0_O;
 endmodule
 

@@ -1,5 +1,6 @@
 from magma import wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, Invert
+from mantle import Invert
+from loam.boards.icestick import IceStick
 
 icestick = IceStick()
 for i in range(2):
