@@ -1,6 +1,7 @@
-from magma import wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, Counter
+import magma as m
+from mantle import Counter
 from mantle.util.lhca import LHCA
+from loam.boards.icestick import IceStick
 
 icestick = IceStick()
 icestick.Clock.on()
@@ -13,6 +14,6 @@ clock = Counter(22)
 
 lhca = LHCA(8, has_ce=True)
 
-wire( lhca( ce=clock.COUT ), main.J3 )
+m.wire( lhca( ce=clock.COUT ), main.J3 )
 
-EndCircuit()
+m.EndCircuit()

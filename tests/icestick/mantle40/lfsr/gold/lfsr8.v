@@ -166,7 +166,7 @@ SB_LUT4 #(.LUT_INIT(16'h6996)) inst0 (.I0(I[0]), .I1(I[1]), .I2(I[2]), .I3(I[3])
 assign O = inst0_O;
 endmodule
 
-module lfsr81True (output [7:0] O, input  CLK, input  CE);
+module LFSR8_1CE (output [7:0] O, input  CLK, input  CE);
 wire [7:0] inst0_O;
 wire  inst1_O;
 SIPO8CE_0001 inst0 (.I(inst1_O), .O(inst0_O), .CLK(CLK), .CE(CE));
@@ -179,7 +179,7 @@ wire [21:0] inst0_O;
 wire  inst0_COUT;
 wire [7:0] inst1_O;
 Counter22 inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
-lfsr81True #(.ce(COUT)) inst1 (.O(inst1_O), .CLK(CLKIN));
+LFSR8_1CE inst1 (.O(inst1_O), .CLK(CLKIN), .CE(inst0_COUT));
 assign J3 = inst1_O;
 endmodule
 
