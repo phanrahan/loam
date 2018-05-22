@@ -30,27 +30,30 @@ class FPGA(Part):
                 if match:
                     name, i = match[0]
                     i = int(i)
-                    # keep track of the maximum index
+                    # keep track of the indices
                     if name in arrays:
-                        arrays[name] = max(arrays[name], i)
+                        arrays[name].append(i)
                     else:
-                        arrays[name] = i
+                        arrays[name] = [i]
 
         # collect top level module arguments
         args = []
         for p in self.pins:
             if p.used:
-                # find names of the form %s[%d]
-                #  these are considered arrays
                 match = re.findall('(.*)\[(\d+)\]', p.name)
                 if match:
                     name, i = match[0]
-                    i = int(i)
-                    if name in arrays and i == 0:
+                    assert name in arrays
+                    if len(arrays[name]) == 1:
+                        p.rename(name)
                         args.append(name)
-                        n = arrays[name]
-                        T = Bits(arrays[name]+1)
-                        args.append(In(T) if p.direction == INPUT else Out(T))
+                        args.append(In(Bit) if p.direction == INPUT else Out(Bit))
+                    else:
+                        i = int(i)
+                        if i == max(arrays[name]):
+                            args.append(name)
+                            T = Bits(i+1)
+                            args.append(In(T) if p.direction == INPUT else Out(T))
                 else:
                     args.append(p.name)
                     if p.name == 'CLKIN':

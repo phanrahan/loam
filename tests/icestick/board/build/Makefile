@@ -1,4 +1,4 @@
-NAME ?= blink
+NAME ?= j1
 #NAME ?= blink48Mhz
 #NAME ?= blink96Mhz
 #NAME ?= blink192Mhz
