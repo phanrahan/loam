@@ -1,5 +1,6 @@
-from magma import wire
-from loam.boards.icestick import IceStick, Counter
+import magma as m
+from mantle import Counter
+from loam.boards.icestick import IceStick
 
 N = 8
 
@@ -11,7 +12,8 @@ for i in range(N):
 main = icestick.main()
 
 counter = Counter(32)
-sawtooth = counter.O[8:8+N]
+sawtooth = counter.O[8:16]
 
-wire( sawtooth, main.J3 )
+m.wire( sawtooth, main.J3 )
+
 

@@ -1,7 +1,7 @@
 import math
-from magma import wire, col, fork, EndCircuit
+from magma import wire, col, fork, uncurry, EndCircuit
 from magma.bitutils import int2seq
-from loam.boards.icestick import IceStick, Counter, ROM6
+from loam.boards.icestick import IceStick, Counter, LUT6
 
 N = 8
 
@@ -25,7 +25,7 @@ print(len(sintab))
 print(len(sintab[0]))
 
 def ROM(y):
-    return ROM6(sintab[y])
+    return uncurry(LUT6(sintab[y]))
 
 rom = fork(col(ROM, N))
 

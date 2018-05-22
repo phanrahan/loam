@@ -1,15 +1,16 @@
-from magma import wire, bits
-from loam.boards.icestick import IceStick, Counter
+import magma as m
+from mantle import Counter
+from loam.boards.icestick import IceStick
 
 icestick = IceStick()
 icestick.Clock.on()
-for i in range(8):
-    icestick.J3[i].output().on()
+icestick.J3[0].output().on()
 
 main = icestick.main()
 
 counter = Counter(32)
-square = bits([counter.O[9], 0, 0, 0, 0, 0, 0, 0])
+square = counter.O[9]
 
-wire( square, main.J3 )
+m.wire( square, main.J3 )
+
 
