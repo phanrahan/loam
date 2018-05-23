@@ -10,35 +10,6 @@ from loam.parts.generic.led import LED
 from loam.parts.ftdi.ft232r import FT232R
 from loam import Board
 
-'''
-### left side of board
-set_io --warn-no-port pin1_usb_dp A3
-set_io --warn-no-port pin2_usb_dn A4
-set_io --warn-no-port pin3_clk_16mhz B4
-set_io --warn-no-port pin4 B2
-set_io --warn-no-port pin5 A2
-set_io --warn-no-port pin6 A1
-set_io --warn-no-port pin7 B1
-set_io --warn-no-port pin8 C1
-set_io --warn-no-port pin9 D1
-set_io --warn-no-port pin10 E1
-set_io --warn-no-port pin11 G1
-set_io --warn-no-port pin12 H1
-set_io --warn-no-port pin13 J1
-
-### right side of board
-set_io --warn-no-port pin14_sdo G6
-set_io --warn-no-port pin15_sdi H7
-set_io --warn-no-port pin16_sck G7
-set_io --warn-no-port pin17_ss F7
-set_io --warn-no-port pin18 D9
-set_io --warn-no-port pin19 C9
-set_io --warn-no-port pin20 E8
-set_io --warn-no-port pin21 A9
-set_io --warn-no-port pin22 A8
-set_io --warn-no-port pin23 A7
-set_io --warn-no-port pin24 A6
-'''
 class B2(Board):
 
     def __init__(self):
@@ -48,6 +19,44 @@ class B2(Board):
         # Need to define the interface ...
 
         self.fpga = fpga = ICE40LP8K(board=self, package='cm81')
+
+        self.header = [
+           None,
+
+           fpga.IOT_217, # A3 USB DP
+           fpga.IOT_208, # A4 USB DN
+           fpga.IOT_211, # B4 CLK
+
+           fpga.IOL_2B,  # B2 
+           fpga.IOT_221, # A2 
+           fpga.IOT_224, # A1 
+           fpga.IOL_3A,  # B1 
+           fpga.IOL_3B,  # C1 
+           fpga.IOL_10A, # D1 
+           fpga.IOL_10B, # E1 
+           fpga.IOL_24B, # G1 
+           fpga.IOB_54,  # H1 
+           fpga.IOB_55,  # J1 
+
+           fpga.IOB_105_SDO, # G6 
+           fpga.IOB_106_SDI, # H7 
+           fpga.IOB_107_SCK, # G7 
+           fpga.IOB_108_SS,  # F7 
+
+           fpga.IOR_119,  # D9 
+           fpga.IOR_148,  # C9 
+           fpga.IOR_140_GBIN3, # E8 
+           fpga.IOR_116, # A9 
+           fpga.IOT_174, # A8 
+           fpga.IOT_177, # A7 
+           fpga.IOT_185 # A6 
+        ]
+
+        for i in range(1,25):
+            name = "PIN{}".format(i)
+            pin = self.header[i]
+            pin.rename( name )
+            setattr(self, name, pin )
 
         self.CLKIN = fpga.IOT_211
         self.CLKIN.rename('CLKIN')
@@ -60,7 +69,20 @@ class B2(Board):
 
         self.Timer = Timer(fpga, name='systimer')
 
-        self.IOR_119 = fpga.IOR_119
+        self.SDO = fpga.IOB_105_SDO # G6 
+        self.SDO.rename('SDO').output()
+        self.SDI = fpga.IOB_106_SDI # H7 
+        self.SDI.rename('SDI').input()
+        self.SCK = fpga.IOB_107_SCK # G7 
+        self.SCK.rename('SCK').output()
+        self.SS  = fpga.IOB_108_SS  # F7 
+        self.SS.rename('SS').output()
+
+        self.USB_DP = fpga.IOT_217 # A3 USB DP
+        self.USB_DP.rename('USB_DP').inout()
+        self.USB_DN = fpga.IOT_208 # A4 USB DN
+        self.USB_DN.rename('USB_DN').inout()
+
 
     def DefineMain(self):
         return self.fpga.DefineMain()

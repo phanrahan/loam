@@ -1,4 +1,4 @@
-from magma import INPUT, OUTPUT, In, Out, Bit
+from magma import INPUT, OUTPUT, INOUT, In, Out, Bit
 from loam import Peripheral
 
 class Pin(Peripheral):
