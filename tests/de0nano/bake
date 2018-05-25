@@ -24,7 +24,7 @@ def magma(base):
     run('magma','-b',BOARD,base)
 
 def regress(base):
-    u = base+'.ucf'
+    u = base+'.qsf'
     v = base+'.v'
     buildu, goldu = join(BUILD,u), join(GOLD,u)
     buildv, goldv = join(BUILD,v), join(GOLD,v)
@@ -35,7 +35,7 @@ def regress(base):
 
 def gold():
     os.system('cp %s/*.v %s' % (BUILD, GOLD))
-    os.system('cp %s/*.ucf %s' % (BUILD, GOLD))
+    os.system('cp %s/*.qsf %s' % (BUILD, GOLD))
 
 def check():
     return int(outofdate(build))

@@ -24,7 +24,7 @@ class GoBoard(Board):
 
         self.fpga = fpga = fpga(board=self, package='vq100')
 
-        self.CLKIN = fpga.IOL_15
+        self.CLKIN = fpga.IOL_7A
         self.CLKIN.rename('CLKIN')
 
         self.Crystal = Crystal(25000000, board=self)
@@ -68,8 +68,8 @@ class GoBoard(Board):
 
         # 7 Segment Displays
         # Cathodes for digit1
-        cathodes = ["IOL_3", "IOL_4", "IOT_93", "IOT_91", 
-                    "IOT_90", "IOL_1", "IOL_2"]
+        cathodes = ["IOL_2A", "IOL_2B", "IOT_93", "IOT_91", 
+                    "IOT_90", "IOL_1A", "IOL_1B"]
         self.Digit0 = LEDs(len(cathodes), name='Digit0', board=self)
         for i,k in enumerate(cathodes):
              name = "Digit0[%d]" % i
@@ -78,7 +78,7 @@ class GoBoard(Board):
              wire(pin, self.Digit0.I[i])
 
         cathodes = [ "IOT_100", "IOT_99", "IOT_97", "IOT_95",
-                      "IOT_94", "IOL_8", "IOT_96"]
+                      "IOT_94", "IOL_3B", "IOT_96"]
         self.Digit1 = LEDs(len(cathodes), name='Digit1', board=self)
         for i,k in enumerate(cathodes):
              name = "Digit1[%d]" % i
@@ -91,8 +91,4 @@ class GoBoard(Board):
         # Pmod connector
         self.PMOD = [fpga.IOR_65,fpga.IOR_64,fpga.IOR_63,fpga.IOR_62,None,None,
                      fpga.IOT_78,fpga.IOT_79,fpga.IOT_80,fpga.IOT_81,None,None]
-
-    def main(self):
-        return self.DefineMain()
-
 

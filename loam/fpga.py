@@ -70,5 +70,5 @@ class FPGA(Part):
                 p.setup(D)
         return D
 
-    def main():
-        return DefineMain()
+    def main(self):
+        return self.DefineMain()

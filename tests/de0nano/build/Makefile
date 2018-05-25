@@ -12,5 +12,5 @@ upload: $(TARGET).sof
 	quartus_pgm --mode=jtag -o "p;$(TARGET).sof"
 
 clean:
-	rm -rf incremental_db db output_files *.qpf *.sof
+	rm -rf incremental_db db output_files *.qpf *.sof *.qsf *.v
 

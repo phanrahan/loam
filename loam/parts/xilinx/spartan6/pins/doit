@@ -1,0 +1,6 @@
+for part in *.txt; \
+do
+   base=${part%pkg.txt}
+   echo $base
+   awk 'NF > 0' $part | sed -e '1d' -e '$d' -e 's/	/,/g' > $base.csv
+done

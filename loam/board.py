@@ -14,3 +14,6 @@ class Board(CircuitType):
     def DefineMain(self):
         return self.fpga.DefineMain()
 
+    def main(self):
+        return self.DefineMain()
+

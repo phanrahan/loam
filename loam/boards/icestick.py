@@ -99,9 +99,6 @@ class IceStick(Board):
         #self.IRSD = fpga.PIO1_20
         #self.IRSD.rename('SD').output()
     
-    def main(self):
-        return self.DefineMain()
-
 
 if __name__ == '__main__':
     icestick = IceStick()

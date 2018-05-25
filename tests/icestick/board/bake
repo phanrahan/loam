@@ -5,7 +5,6 @@ from fabricate import main, autoclean, outofdate, run
 
 BUILD = 'build'
 GOLD = 'gold'
-
 BOARD = 'icestick'
 
 tests = glob.glob('*.py')

@@ -10,3 +10,4 @@ def build():
                 os.system('cd %s; ./bake; cd ..' % test)
 
 build()
+#gold()

@@ -10,7 +10,7 @@ from loam.parts.generic.button import Button
 from loam.parts.generic.switch import Switch
 from loam.parts.generic.led import LED
 from loam.parts.ftdi.ft232r import FT232R
-from loam.peripherals.timer import Timer
+#from loam.peripherals.timer import Timer
 from loam import Board
 
 
@@ -18,10 +18,6 @@ class DE0Nano(Board):
 
     def __init__(self):
         super(DE0Nano,self).__init__("DE0Nano")
-
-        # Need to define the interface ...
-
-        #assert FAMILY == 'ice40'
 
         self.fpga = fpga = EP4CE22F17C6(board=self, package='lbga256')
 
@@ -208,7 +204,4 @@ class DE0Nano(Board):
         #I2C_SDAT = fpga.F1
         #G_SENSOR_INT = fpga.M2
         #G_SENSOR_CS_N = fpga.G5
-
-    def main(self):
-        return self.DefineMain()
 

@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+import sys
+from mako.template import Template
+
+import os
+import csv
+
+class Pin:
+    def __init__(self,name):
+        self.name = name
+        self.gpio = False
+        self.clock = False
+
+def readpins(part, package, n):
+    name = part + '_' + package + '.csv'
+    dir = os.path.join(os.path.dirname(__file__), 'pins')
+    filename = os.path.join(dir,name)
+
+    f = open(filename)
+    row = csv.reader(f)
+
+    header = row.__next__()
+    #print(header)
+
+    pins = []
+    for data in row:
+        name = data[1]
+        pin = Pin(name)
+        if data[3] == 'GCLK':
+            pin.clock = True
+        if data[3] == 'I/O':
+            pin.gpio = True
+        if data[3].startswith('DUAL'):
+            pin.gpio = True
+        if data[2].startswith('IO'):
+            pin.gpio = True
+        #if data[2].startswith('IP'):
+        #    if data[2].find('CLK') != -1 and not data[2].find('RDWR') != -1:
+        #        pin.clock = True
+        #if data[2].startswith('IO'):
+        #    pin.gpio = True
+        pins.append(pin)
+
+    return pins
+
+
+def main():
+    argc = len(sys.argv)
+    if argc < 3:
+        print( "usage: prep file.t file.py" )
+        sys.exit(0)
+
+    temp = sys.argv[1]
+    file = sys.argv[2]
+
+    pins = readpins('XC3S250E','vq100', 100)
+
+    temp = Template(open(temp).read())
+    temp = temp.render(pins=pins)
+
+    file = open(file, 'w')
+    file.write(temp)
+
+if __name__ == "__main__":
+    main()

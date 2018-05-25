@@ -84,9 +84,3 @@ class B2(Board):
         self.USB_DN.rename('USB_DN').inout()
 
 
-    def main(self):
-        return self.DefineMain()
-
-
-if __name__ == '__main__':
-    icestick = IceStick()

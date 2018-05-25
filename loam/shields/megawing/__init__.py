@@ -1,0 +1,1 @@
+from .megawing import MegaWing

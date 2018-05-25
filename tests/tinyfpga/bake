@@ -3,10 +3,10 @@ import os, glob
 from os.path import join, exists
 from fabricate import main, autoclean, outofdate, run
 
+BOARD = 'tinyfpga'
+
 BUILD = 'build'
 GOLD = 'gold'
-
-BOARD = 'tinyfpga'
 
 tests = glob.glob('*.py')
 
