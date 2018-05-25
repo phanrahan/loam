@@ -84,9 +84,6 @@ class B2(Board):
         self.USB_DN.rename('USB_DN').inout()
 
 
-    def DefineMain(self):
-        return self.fpga.DefineMain()
-
     def main(self):
         return self.DefineMain()
 

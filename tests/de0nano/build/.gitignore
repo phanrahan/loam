@@ -1,0 +1,9 @@
+incremental_db 
+db 
+output_files 
+*.ucf
+*.qpf 
+*.qsf
+*.v
+*.sof
+

@@ -1,13 +1,17 @@
+import os
+os.environ['MANTLE_TARGET'] = 'cyclone4'
+
 from magma import *
 from mantle import *
-#from mantle.peripherals.timer import Timer
 
-from ..parts.altera.cyclone4 import EP4CE22F17C6
-from ..parts.generic.crystal import Crystal
-from ..parts.generic.button import Button
-from ..parts.generic.switch import Switch
-from ..parts.generic.led import LED
-from ..parts.ftdi.ft232r import FT232R
+from loam.parts.altera.cyclone4 import EP4CE22F17C6
+from loam.parts.generic.crystal import Crystal
+from loam.parts.generic.button import Button
+from loam.parts.generic.switch import Switch
+from loam.parts.generic.led import LED
+from loam.parts.ftdi.ft232r import FT232R
+from loam.peripherals.timer import Timer
+from loam import Board
 
 
 class DE0Nano(Board):
@@ -206,5 +210,5 @@ class DE0Nano(Board):
         #G_SENSOR_CS_N = fpga.G5
 
     def main(self):
-        return self.fpga.main()
+        return self.DefineMain()
 

@@ -1,4 +1,5 @@
-from magma import *
+from magma import INPUT, OUTPUT, INOUT, In, Out, Bit
+from loam import Peripheral
 
 class Clock(Peripheral):
     name = 'clock'

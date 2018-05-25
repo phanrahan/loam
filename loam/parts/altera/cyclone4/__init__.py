@@ -1,5 +1,6 @@
 from magma import *
 from mantle import *
+from loam import FPGA
 
 from ..gpio import GPIO, Pin, Clock
 from ..clock import Clock as ClockPeripheral

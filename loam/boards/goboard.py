@@ -92,9 +92,6 @@ class GoBoard(Board):
         self.PMOD = [fpga.IOR_65,fpga.IOR_64,fpga.IOR_63,fpga.IOR_62,None,None,
                      fpga.IOT_78,fpga.IOT_79,fpga.IOT_80,fpga.IOT_81,None,None]
 
-    def DefineMain(self):
-        return self.fpga.DefineMain()
-
     def main(self):
         return self.DefineMain()
 

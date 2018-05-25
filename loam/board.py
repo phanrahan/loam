@@ -11,4 +11,6 @@ class Board(CircuitType):
         self.parts.append(part)
         part.board = self
 
+    def DefineMain(self):
+        return self.fpga.DefineMain()
 
