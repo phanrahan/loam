@@ -1,52 +1,76 @@
-# Makefile to compile verilog
-# DO THIS FIRST:
-# source /opt/Xilinx/13.2/ISE_DS/settings32.sh
-#
+# Makefile to compile and download a simple Verilog program
 
-TARGET=test
-
-#DEVICE?=xc3s250e
-#DEVICE?=xc3s500e
-DEVICE?=xc6slx9
-SPEED=3
-PACKAGE=tqg144
+DEVICE=XC6SLX9
+SPEED=2
+PACKAGE=TQG144
 PART=${DEVICE}-${SPEED}-${PACKAGE}
 
-PROG=papilio-prog
-BSCAN=bscan_spi_${DEVICE}.bit
+TARGET=main
+SRC=main.v 
 
+default: ${TARGET}.bit
 
-test.bit: test.route.ncd
-	bitgen  -intstyle silent -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g ConfigRate:6 \
-    -g ProgPin:PullUp \
-	-g DonePin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp \
-	-g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF \
-	-g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 \
-	-g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:No \
-	-g DriveDone:No test.route.ncd test.bit
+${TARGET}.prj: ${SRC}
+	rm -fr ${TARGET}.prj
+	for f in ${SRC}; do \
+	    echo "verilog work $$f" >> ${TARGET}.prj ;\
+	done 
 
-test.route.ncd: test.ncd
-	par -w test.ncd test.route.ncd fpga.pcf #//-nopad 
-	xdl -ncd2xdl test.route.ncd test.route.xdl
+${TARGET}.ngc: ${TARGET}.prj
+	@echo 'run'                 > xst.cmd
+	@echo '-ifn $(TARGET).prj' >> xst.cmd
+	@echo '-ifmt mixed'        >> xst.cmd
+	@echo '-top main'          >> xst.cmd
+	@echo '-ofn $(TARGET).ngc' >> xst.cmd
+	@echo '-ofmt NGC' 	   >> xst.cmd
+	@echo '-p $(PART)'         >> xst.cmd
+	@echo '-opt_mode Speed'	   >> xst.cmd
+	@echo '-opt_level 1'	   >> xst.cmd
+	xst -ifn xst.cmd
 
-test.ncd: fpga.ncd
-	cp fpga.ncd test.ncd
+${TARGET}.ngd: ${TARGET}.ngc ${TARGET}.ucf
+	ngdbuild -p $(PART) -uc ${TARGET}.ucf ${TARGET}.ngc
 
-fpga.ncd: fpga.xdl
-	xdl >xdl.log -xdl2ncd fpga
+${TARGET}.ncd: ${TARGET}.ngd
+	map -w -detail -pr b ${TARGET}.ngd
 
-#burn: test.bit
-#	impact >impact.log  -batch impact.cmd
+${TARGET}.pcf: ${TARGET}.ngd
+	map -w -detail -pr b ${TARGET}.ngd
 
-upload: test.bit
-	${PROG} -v -f test.bit -b ${BSCAN} -sa -r
-	${PROG} -c
+parout.ncd: ${TARGET}.ncd
+	par -w ${TARGET}.ncd parout.ncd ${TARGET}.pcf
+	xdl -ncd2xdl parout.ncd parout.xdl
 
-clean:
-	rm -rf *.v *.ucf ${TARGET}.* fpga.xdl fpga.pcf fpga.ncd \
-        xdl.log netlist.lst parout.ncd parout.pad parout_pad.csv \
-        parout_pad.txt parout.par parout.ptwx parout.unroutes \
-        usage_statistics_webtalk.html  webtalk.log \
-        parout.xpi xlnx_auto_0.ise xlnx_auto_0_xdb xst _xmsgs xst.cmd xst.srp \
-        *.html *.xrpt test_bitgen.xwbt  xilinx_device_details.xml
+${TARGET}.bit: parout.ncd
+	bitgen -w -g CRC:Enable -g StartUpClk:CClk \
+   	  parout.ncd ${TARGET}.bit ${TARGET}.pcf
+
+upload: 
+	papilio-prog -v -f ${TARGET}.bit -b ../bscan_spi_lx9_qfp144.bit -sa -r
+	papilio-prog -c
+
+clean: cruft 
+	rm -rf \
+	${TARGET}.prj \
+	${TARGET}.ngc \
+	${TARGET}.ngd \
+	${TARGET}.ncd ${TARGET}.pcf \
+	parout.ncd \
+	${TARGET}.bit 
+
+cruft:
+	rm -rf \
+	${TARGET}.lso  ${TARGET}.ngc_xst.xrpt xst.srp xst.rpt xst xst.cmd \
+	${TARGET}.bld ${TARGET}_ngdbuild.xrpt netlist.lst \
+	xlnx_auto_0.ise xlnx_auto_0_xdb \
+	${TARGET}.map ${TARGET}.mrp ${TARGET}.ngm \
+	${TARGET}_map.xrpt ${TARGET}_summary.xml ${TARGET}_usage.xml \
+	parout_pad.txt parout.pad parout_pad.csv \
+	parout.xpi parout.par parout.ptwx parout.unroutes \
+	par_usage_statistics.html \
+	${TARGET}_par.xrpt \
+        ${TARGET}.bgn ${TARGET}.bin ${TARGET}.drc ${TARGET}.prm \
+	${TARGET}_bitgen.xwbt usage_statistics_webtalk.html  webtalk.log \
+	_xmsgs
+
 
