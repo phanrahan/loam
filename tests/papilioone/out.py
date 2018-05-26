@@ -1,5 +1,5 @@
 import magma as m
-from loam.boards.papilio import PapilioOne
+from loam.boards.papilioone import PapilioOne
 
 papilio = PapilioOne()
 papilio.C[8].rename('LED0').output().on()

@@ -2,14 +2,14 @@ import os
 os.environ['MANTLE_TARGET'] = 'cyclone4'
 
 from magma import *
-from mantle import *
+#from mantle import *
 
 from loam.parts.altera.cyclone4 import EP4CE22F17C6
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.button import Button
 from loam.parts.generic.switch import Switch
 from loam.parts.generic.led import LED
-from loam.parts.ftdi.ft232r import FT232R
+#from loam.parts.ftdi.ft232r import FT232R
 #from loam.peripherals.timer import Timer
 from loam import Board
 

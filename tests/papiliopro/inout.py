@@ -1,5 +1,5 @@
 import magma as m
-from loam.boards.papilio import PapilioPro
+from loam.boards.papiliopro import PapilioPro
 
 papilio = PapilioPro()
 papilio.C[0].rename('SWITCH0').input().on()

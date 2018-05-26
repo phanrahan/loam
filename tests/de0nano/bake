@@ -1,18 +1,18 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
+# fabricate only works with python2
+
 import os, glob
 from os.path import join, exists
-from fabricate import main, autoclean, outofdate, run
+from fabricate import main, autoclean, run
 
 BUILD = 'build'
-GOLD = 'gold'
-
-BOARD = 'de0nano'
+GOLD = 'gold' 
 
 tests = glob.glob('*.py')
 
 def build():
     for test in tests:
-        if test[0] != '_' and not test.startswith('test_'):
+        if not test.startswith('_'):
             base, suffix = test.split('.')
             compile(base)
 
@@ -21,30 +21,22 @@ def compile(base):
     regress(base)
 
 def magma(base):
-    run('magma','-b',BOARD,base)
+    run('magma', '-d', BUILD, base)
 
 def regress(base):
     u = base+'.qsf'
     v = base+'.v'
     buildu, goldu = join(BUILD,u), join(GOLD,u)
     buildv, goldv = join(BUILD,v), join(GOLD,v)
-    if exists(goldv):
-        run('cmp',buildv,goldv)
     if exists(goldu):
         run('cmp',buildu,goldu)
-
-def gold():
-    os.system('cp %s/*.v %s' % (BUILD, GOLD))
-    os.system('cp %s/*.qsf %s' % (BUILD, GOLD))
-
-def check():
-    return int(outofdate(build))
+    if exists(goldv):
+        run('cmp',buildv,goldv)
 
 def clean():
     autoclean()
 
-def rebuild():
-    clean()
-    build()
+def gold():
+    os.system('cp %s/*.{v,qsf} %s' % (BUILD, GOLD))
 
 main()

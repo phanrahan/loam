@@ -1,5 +1,5 @@
 from magma import *
-from mantle import *
+#from mantle import *
 from loam import FPGA
 
 from ..gpio import GPIO, Pin, Clock

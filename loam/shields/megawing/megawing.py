@@ -3,29 +3,22 @@ from magma import *
 from loam.parts.generic.switch import Switches
 from loam.parts.generic.led import LEDs
 from loam.parts.generic.joystick import Joystick
-from loam.parts.generic.display import Display
-from loam.peripherals.display import DisplayRefresh
+#from loam.parts.generic.display import Display
+#from loam.peripherals.display import DisplayRefresh
 from loam import Board
-from loam.boards.papilio import PapilioOne, PapilioPro
-
+from loam.boards.papilioone import PapilioOne
+from loam.boards.papiliopro import PapilioPro
 
 #from .audio import Audio
 #from .vga import VGA
 
 class MegaWing(Board):
 
-    def __init__(self, papilio=None):
+    def __init__(self, papilio):
         Board.__init__(self, "MegaWing")
 
-        if papilio is None:
-            target = os.getenv('MANTLE_TARGET')
-            assert target == 'spartan3' or target == 'spartan6'
-            if   target == 'spartan3':
-                papilio = PapilioOne()
-            elif target == 'spartan6':
-                papilio = PapilioPro()
-
-        self.papilio = papilio
+        self.papilio = papilio()
+        self.fpga = self.papilio.fpga
 
         A = self.papilio.A
         B = self.papilio.B
@@ -33,29 +26,29 @@ class MegaWing(Board):
 
         self.Clock = self.papilio.Clock
 
-        self.Timer = self.papilio.Timer
+        #self.Timer = self.papilio.Timer
 
-        self.usart = self.papilio.usart
+        #self.usart = self.papilio.usart
 
         # A header
 
-        self.Display = Display(board=self)
-        self.refresh = DisplayRefresh(self.papilio.fpga)
-        self.Display.peripheral(self.refresh)
+        #self.Display = Display(board=self)
+        #self.refresh = DisplayRefresh(self.papilio.fpga)
+        #self.Display.peripheral(self.refresh)
 
         #print('wiring cathodes')
-        cathodes = [A[7], A[10], A[5], A[6], A[3], A[4], A[9], A[ 1]]
-        for i in range(len(cathodes)):
-            cathodes[i].rename("CATHODES[%d]" % i).output()
-            wire(cathodes[i], self.Display.cathodes[i])
-            wire(self.refresh.cathodes[i], cathodes[i])
+        #cathodes = [A[7], A[10], A[5], A[6], A[3], A[4], A[9], A[ 1]]
+        #for i in range(len(cathodes)):
+            #cathodes[i].rename("CATHODES[%d]" % i).output()
+            #wire(cathodes[i], self.Display.cathodes[i])
+            #wire(self.refresh.cathodes[i], cathodes[i])
 
         #print('wiring anodes')
-        anodes = [A[11], A[8], A[2], A[0]]
-        for i in range(len(anodes)):
-            anodes[i].rename("ANODES[%d]" % i).output()
-            wire(anodes[i], self.Display.anodes[i])
-            wire(self.refresh.anodes[i], anodes[i])
+        #anodes = [A[11], A[8], A[2], A[0]]
+        #for i in range(len(anodes)):
+            #anodes[i].rename("ANODES[%d]" % i).output()
+            #wire(anodes[i], self.Display.anodes[i])
+            #wire(self.refresh.anodes[i], anodes[i])
 
         # self.SPI = 
         #A[12].rename('CS').output()
@@ -114,9 +107,3 @@ class MegaWing(Board):
         for i in range(8):
             C[8+i].rename("LED[%d]" % i).output()
             wire(C[8+i], self.LED.I[i])
-
-    def main(self):
-        return self.papilio.main()
-
-    def ucf(self):
-        return self.papilio.ucf()

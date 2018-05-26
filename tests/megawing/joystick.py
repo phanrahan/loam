@@ -1,7 +1,8 @@
 import magma as m
+from loam.boards.papilioone import PapilioOne
 from loam.shields.megawing import MegaWing
 
-megawing = MegaWing()
+megawing = MegaWing(PapilioOne)
 megawing.Joystick.init(select=True, up=True, down=True, left=True, right=True).on()
 megawing.LED.on(5)
 

@@ -3,8 +3,7 @@ from magma import *
 from ..spartan import Spartan
 from ..gpio import GPIO, Pin, Clock
 from ..clock import Clock as ClockPeripheral
-from .usart import USART
-from .spi import SPI
+#from .usart import USART
 
 class Spartan3(Spartan):
     family = 'spartan3'
@@ -12,7 +11,7 @@ class Spartan3(Spartan):
     def __init__(self, name, board, speed):
         super(Spartan3,self).__init__(name, board, speed)
         self.clock = ClockPeripheral(self)
-        self.USART = USART
+        #self.USART = USART
 
     def VQ100(self):
         self.package = 'VQ100'
