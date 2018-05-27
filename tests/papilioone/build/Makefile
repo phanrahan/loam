@@ -40,18 +40,11 @@ ${TARGET}.bit: parout.ncd
    	  parout.ncd ${TARGET}.bit ${TARGET}.pcf
 
 upload: ${TARGET}.bit
-	${PROG} -v -f ${TARGET}.bit -b ../bscan_spi_xc3s250e.bit -sa -r
+	${PROG} -v -f ${TARGET}.bit -b etc/bscan_spi_${DEVICE}.bit -sa -r
 	${PROG} -c
 
 clean:
-	rm -rf \
-        ${TARGET}.bgn ${TARGET}.bin ${TARGET}.bit ${TARGET}.bld \
-	${TARGET}.drc ${TARGET}.map ${TARGET}_map.xrpt ${TARGET}.mrp \
-	${TARGET}.ncd ${TARGET}.ngc ${TARGET}.ngd ${TARGET}_ngdbuild.xrpt \
-	${TARGET}.ngm ${TARGET}_par.xrpt ${TARGET}.pcf ${TARGET}.prm \
-	${TARGET}_summary.xml ${TARGET}_usage.xml ${TARGET}_xst.xrpt \
-	${TARGET}.ngc_xst.xrpt \
-	${TARGET}_bitgen.xwbt \
+	rm -rf *.bit *.map *.xrpt *.ncd *.ngc *.pcf *.xml \
 	netlist.lst parout.ncd parout.pad parout_pad.csv \
 	parout_pad.txt parout.par parout.ptwx parout.unroutes \
 	usage_statistics_webtalk.html  webtalk.log \
