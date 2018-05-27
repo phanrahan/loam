@@ -1,2 +1,8 @@
 *.v
 *.qsf
+*.qpf
+*.sof
+db
+incremental_db
+output_files
+

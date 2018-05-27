@@ -1,6 +1,3 @@
-import os
-os.environ['MANTLE_TARGET'] = 'spartan6'
-
 from magma import *
 #from mantle import *
 
