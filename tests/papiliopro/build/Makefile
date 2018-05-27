@@ -5,14 +5,14 @@ SPEED=2
 PACKAGE=TQG144
 PART=${DEVICE}-${SPEED}-${PACKAGE}
 
-TARGET=main
-SRC=main.v 
+TARGET=out
+SOURCES=${TARGET}.v
 
 default: ${TARGET}.bit
 
-${TARGET}.prj: ${SRC}
+${TARGET}.prj: ${SOURCES}
 	rm -fr ${TARGET}.prj
-	for f in ${SRC}; do \
+	for f in ${SOURCES}; do \
 	    echo "verilog work $$f" >> ${TARGET}.prj ;\
 	done 
 
