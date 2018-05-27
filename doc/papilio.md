@@ -1,6 +1,6 @@
 # Papilio
 
-![Papilio One](images/papilioone.jpg)
+![Papilio One](images/papilioone.png)
 
 http://papilio.cc/index.php?n=Papilio.PapilioOne
 
