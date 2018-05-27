@@ -46,7 +46,7 @@ ${TARGET}.bit: parout.ncd
    	  parout.ncd ${TARGET}.bit ${TARGET}.pcf
 
 upload: 
-	papilio-prog -v -f ${TARGET}.bit -b ../bscan_spi_lx9_qfp144.bit -sa -r
+	papilio-prog -v -f ${TARGET}.bit -b etc/bscan_spi_lx9.bit -sa -r
 	papilio-prog -c
 
 clean: cruft 
@@ -59,18 +59,10 @@ clean: cruft
 	${TARGET}.bit 
 
 cruft:
-	rm -rf \
-	${TARGET}.lso  ${TARGET}.ngc_xst.xrpt xst.srp xst.rpt xst xst.cmd \
-	${TARGET}.bld ${TARGET}_ngdbuild.xrpt netlist.lst \
-	xlnx_auto_0.ise xlnx_auto_0_xdb \
-	${TARGET}.map ${TARGET}.mrp ${TARGET}.ngm \
-	${TARGET}_map.xrpt ${TARGET}_summary.xml ${TARGET}_usage.xml \
-	parout_pad.txt parout.pad parout_pad.csv \
-	parout.xpi parout.par parout.ptwx parout.unroutes \
-	par_usage_statistics.html \
-	${TARGET}_par.xrpt \
-        ${TARGET}.bgn ${TARGET}.bin ${TARGET}.drc ${TARGET}.prm \
-	${TARGET}_bitgen.xwbt usage_statistics_webtalk.html  webtalk.log \
-	_xmsgs
+	rm -rf *.xdl *.lso *.xrpt *.rpt \
+	*.cmd *.srp \
+	*.bgn *.drc *.ngm *.xwbt *.html *.par *.ptwx *.unroutes \
+	*.bld *.lst *.map *.xml *.txt *.pad *.csv *.ncd *.log *.xpi *.mrp \
+	xst _xmsgs xlnx_auto_0_xdb
 
 
