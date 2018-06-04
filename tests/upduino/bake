@@ -3,7 +3,7 @@ import os, glob
 from os.path import join, exists
 from fabricate import main, autoclean, run
 
-BOARD = 'icestick'
+BOARD = 'upduino'
 BUILD = 'build'
 GOLD = 'gold' 
 

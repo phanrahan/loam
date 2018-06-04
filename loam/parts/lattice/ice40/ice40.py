@@ -7,6 +7,7 @@ from .usart import USART
 
 __all__  = ['ICE40HX1K', 'ICE40HX8K']
 __all__ += ['ICE40LP1K', 'ICE40LP8K']
+__all__ += ['ICE40UP5K']
 
 
 class HX(Lattice):
@@ -340,3 +341,48 @@ class ICE40LP8K(LP):
         super(ICE40LP8K,self).__init__(name, board)
         if   package == 'cm81':
             self.CM81()
+
+
+# UltraScale Plus
+class UP(Lattice):
+    family = 'ice40'
+
+    def readpins(self, package):
+        dir = os.path.join(os.path.dirname(__file__), 'pins')
+        filename = os.path.join(dir,package+'.csv')
+
+        f = open(filename, 'r')
+        row = csv.reader(f)
+
+        '''
+        iCE40-LP8K-CM81
+        name,type,bank,pair,UW30,SG48
+        IOB_0a,PIO,2,,E5,46
+        '''
+        header = next(row)
+        for data in row:
+            if data[1].startswith('PIO') \
+            or data[1].startswith('DPIO') \
+            or data[1].startswith('LED'):
+                #print(data[1], data[0])
+                if   self.package == 'SG48' and data[5] != '-':
+                    GPIO(self, data[0], data[5])
+                elif self.package == 'UW30' and data[6] != '-':
+                    GPIO(self, data[0], data[6])
+
+    def SG48(self):
+        self.package = 'SG48'
+        self.readpins('up5k')
+
+    def UW30(self):
+        self.package = 'UW30'
+        self.readpins('up5k')
+
+class ICE40UP5K(UP):
+    part = 'ice40up5k'
+    def __init__(self, name='up5k', board=None, package='sg48'):
+        assert package in ['sg48']
+        super(ICE40UP5K,self).__init__(name, board)
+        if   package == 'sg48':
+            self.SG48()
+

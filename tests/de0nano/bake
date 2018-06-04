@@ -1,6 +1,4 @@
-#!/usr/bin/env python2
-# fabricate only works with python2
-
+#!/usr/bin/env python
 import os, glob
 from os.path import join, exists
 from fabricate import main, autoclean, run
