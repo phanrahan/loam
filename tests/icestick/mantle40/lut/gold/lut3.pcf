@@ -1,4 +1,4 @@
-set_io I0 112
-set_io I1 113
-set_io I2 114
+set_io J1[0] 112
+set_io J1[1] 113
+set_io J1[2] 114
 set_io D0 62

@@ -1,5 +1,4 @@
-# NAME ?= test_arith_shift
-NAME ?= test_arith_shift_by_two
+NAME ?= lut8
 
 PCF = $(NAME).pcf
 
