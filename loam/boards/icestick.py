@@ -1,7 +1,5 @@
-import os
-os.environ['MANTLE_TARGET'] = 'ice40'
-
 from magma import *
+set_mantle_target("ice40")
 from mantle import *
 from loam.parts.lattice.ice40 import ICE40HX1K
 from loam.parts.generic.crystal import Crystal
@@ -98,7 +96,7 @@ class IceStick(Board):
         #self.IRRX.rename('IRRX').input()
         #self.IRSD = fpga.PIO1_20
         #self.IRSD.rename('SD').output()
-    
+
 
 if __name__ == '__main__':
     icestick = IceStick()
