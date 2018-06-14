@@ -1,4 +1,14 @@
-from magma.testing import compile_and_regress
+import magma as m
+from magma.testing import check_files_equal
+
+m.set_mantle_target('spartan6')
+
+def compile_and_regress(name, vendor, main, *largs, **kwargs):
+    build = 'build/' + name
+    gold = 'gold/' + name
+    m.compile(build, main(*largs, **kwargs), vendor=vendor)
+    assert check_files_equal(__file__, build+'.v', gold+'.v')
+    assert check_files_equal(__file__, build+'.pcf', gold+'.pcf')
 
 def main(n):
     import magma as m
@@ -22,5 +32,5 @@ def main(n):
 
 def test_mantle6_lut():
     for n in range(8):
-        compile_and_regress(__file__, 'lut'+str(n+1), 'xilinx', main, n+1)
+        compile_and_regress('lut'+str(n+1), 'xilinx', main, n+1)
 
