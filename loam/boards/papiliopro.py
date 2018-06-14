@@ -1,4 +1,5 @@
 from magma import *
+set_mantle_target("spartan6")
 #from mantle import *
 
 from loam.parts.xilinx.spartan6 import XC6SLX9

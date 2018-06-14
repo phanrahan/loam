@@ -1,6 +1,6 @@
 from magma import *
+set_mantle_target("spartan3")
 #from mantle import *
-
 from loam.parts.xilinx.spartan3 import XC3S250E
 from loam.parts.generic.crystal import Crystal
 #from loam.parts.ftdi.ft232r import FT232R

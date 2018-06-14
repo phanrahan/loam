@@ -1,0 +1,3 @@
+for f in *.py; do
+    mv $f _$f
+done

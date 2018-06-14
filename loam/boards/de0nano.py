@@ -1,9 +1,6 @@
-import os
-os.environ['MANTLE_TARGET'] = 'cyclone4'
-
 from magma import *
+set_mantle_target("cyclone4")
 #from mantle import *
-
 from loam.parts.altera.cyclone4 import EP4CE22F17C6
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.button import Button

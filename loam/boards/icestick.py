@@ -1,6 +1,6 @@
 from magma import *
 set_mantle_target("ice40")
-from mantle import *
+#from mantle import *
 from loam.parts.lattice.ice40 import ICE40HX1K
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.led import LED

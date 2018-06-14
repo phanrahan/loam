@@ -1,8 +1,6 @@
-import os
-os.environ['MANTLE_TARGET'] = 'ice40'
-
 from magma import *
-from mantle import *
+set_mantle_target("ice40")
+#from mantle import *
 from loam.peripherals.timer import Timer
 from loam.parts.lattice.ice40 import ICE40LP8K
 from loam.parts.generic.crystal import Crystal
