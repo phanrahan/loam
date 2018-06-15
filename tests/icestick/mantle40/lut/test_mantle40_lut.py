@@ -6,7 +6,7 @@ m.set_mantle_target('ice40')
 def compile_and_regress(name, vendor, main, *largs, **kwargs):
     build = 'build/' + name
     gold = 'gold/' + name
-    m.compile(build, main(*largs, **kwargs), vendor=vendor)
+    m.compile(build, main(*largs, **kwargs))
     assert check_files_equal(__file__, build+'.v', gold+'.v')
     assert check_files_equal(__file__, build+'.pcf', gold+'.pcf')
 
