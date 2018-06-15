@@ -1,4 +1,4 @@
-from magma import wire, EndCircuit
+import magma as m
 from loam.boards.icestick import IceStick
 
 icestick = IceStick()
@@ -6,6 +6,6 @@ icestick.D5.on()
 
 main = icestick.main()
 
-wire( 1, main.D5 )
+m.wire( 1, main.D5 )
 
-EndCircuit()
+m.EndCircuit()

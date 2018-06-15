@@ -1,11 +1,9 @@
-from magma import *
-set_mantle_target("ice40")
-#from mantle import *
-from loam.peripherals.timer import Timer
+import magma as m
 from loam.parts.lattice.ice40 import ICE40LP8K
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.led import LED
 from loam.parts.ftdi.ft232r import FT232R
+#from loam.peripherals.timer import Timer
 from loam import Board
 
 class B2(Board):
@@ -17,6 +15,7 @@ class B2(Board):
         # Need to define the interface ...
 
         self.fpga = fpga = ICE40LP8K(board=self, package='cm81')
+        m.set_mantle_target(fpga.family)
 
         self.header = [
            None,
@@ -60,12 +59,12 @@ class B2(Board):
         self.CLKIN.rename('CLKIN')
 
         self.Crystal = Crystal(16000000, board=self)
-        wire(self.Crystal.O, self.CLKIN.I)
+        m.wire(self.Crystal.O, self.CLKIN.I)
 
         self.Clock = fpga.clock
-        wire(self.CLKIN.O, self.Clock.I)
+        m.wire(self.CLKIN.O, self.Clock.I)
 
-        self.Timer = Timer(fpga, name='systimer')
+        #self.Timer = Timer(fpga, name='systimer')
 
         self.SDO = fpga.IOB_105_SDO # G6 
         self.SDO.rename('SDO').output()

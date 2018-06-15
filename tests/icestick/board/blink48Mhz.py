@@ -1,5 +1,6 @@
-from magma import wire, EndCircuit
-from loam.boards.icestick import IceStick, Counter
+import magma as m
+from mantle import Counter
+from loam.boards.icestick import IceStick
 
 icestick = IceStick()
 icestick.Clock.frequency(48000000).on()
@@ -10,6 +11,6 @@ main = icestick.main()
 N = 24
 
 counter = Counter(N)
-wire(counter.O[N-1], main.D5)
+m.wire(counter.O[N-1], main.D5)
 
-EndCircuit()
+m.EndCircuit()

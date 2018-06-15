@@ -1,6 +1,4 @@
-from magma import *
-set_mantle_target("ice40")
-#from mantle import *
+import magma as m
 from loam.parts.lattice.ice40 import ICE40UP5K
 from loam import Board
 
@@ -11,6 +9,7 @@ class Upduino(Board):
         super(Upduino, self).__init__("Upduino")
 
         self.fpga = fpga = ICE40UP5K(board=self, package='sg48')
+        m.set_mantle_target(fpga.family)
 
         self.JP5 = [
            None,

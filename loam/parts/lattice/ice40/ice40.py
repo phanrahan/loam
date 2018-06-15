@@ -1,6 +1,6 @@
 import os, csv
 from loam import FPGA
-from .lattice import Lattice
+from ..lattice import Lattice
 from .gpio import Pin, GPIO
 from .clock import Clock
 from .usart import USART

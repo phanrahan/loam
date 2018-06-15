@@ -1,7 +1,8 @@
 import math
 from magma import wire, col, fork, uncurry, EndCircuit
 from magma.bitutils import int2seq
-from loam.boards.icestick import IceStick, Counter, LUT6
+from mantle import Counter, LUT6
+from loam.boards.icestick import IceStick
 
 N = 8
 

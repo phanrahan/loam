@@ -1,6 +1,4 @@
-from magma import *
-set_mantle_target("ice40")
-#from mantle import *
+import magma as m
 from loam.peripherals.timer import Timer
 from loam.parts.lattice.ice40 import ICE40HX1K, ICE40HX8K
 from loam.parts.generic.crystal import Crystal
@@ -19,15 +17,16 @@ class GoBoard(Board):
         # Need to define the interface ...
 
         self.fpga = fpga = fpga(board=self, package='vq100')
+        m.set_mantle_target(fpga.family)
 
         self.CLKIN = fpga.IOL_7A
         self.CLKIN.rename('CLKIN')
 
         self.Crystal = Crystal(25000000, board=self)
-        wire(self.Crystal.O, self.CLKIN.I)
+        m.wire(self.Crystal.O, self.CLKIN.I)
 
         self.Clock = fpga.clock
-        wire(self.CLKIN.O, self.Clock.I)
+        m.wire(self.CLKIN.O, self.Clock.I)
 
 
         self.Timer = Timer(fpga, name='systimer')
@@ -39,7 +38,7 @@ class GoBoard(Board):
              pin = getattr(fpga, k)
              pin.rename(name).output()
              led = LED(name=name, board=self)
-             wire(pin, led.I)
+             m.wire(pin, led.I)
              setattr(self, name, led)
 
         # Buttons
@@ -49,7 +48,7 @@ class GoBoard(Board):
              pin = getattr(fpga, k)
              pin.rename(name).input()
              button = Button(name=name, board=self)
-             wire(button.O, pin)
+             m.wire(button.O, pin)
              setattr(self, name, button)
 
         # USART
@@ -59,8 +58,8 @@ class GoBoard(Board):
         self.RX.rename('RX').input()
 
         self.usart = FT232R(self)
-        wire(self.TX, self.usart.RX)
-        wire(self.usart.TX, self.TX)
+        m.wire(self.TX, self.usart.RX)
+        m.wire(self.usart.TX, self.TX)
 
         # 7 Segment Displays
         # Cathodes for digit1
@@ -71,7 +70,7 @@ class GoBoard(Board):
              name = "Digit0[%d]" % i
              pin = getattr(fpga, k)
              pin.rename(name).output()
-             wire(pin, self.Digit0.I[i])
+             m.wire(pin, self.Digit0.I[i])
 
         cathodes = [ "IOT_100", "IOT_99", "IOT_97", "IOT_95",
                       "IOT_94", "IOL_3B", "IOT_96"]
@@ -80,7 +79,7 @@ class GoBoard(Board):
              name = "Digit1[%d]" % i
              pin = getattr(fpga, k)
              pin.rename(name).output()
-             wire(pin, self.Digit1.I[i])
+             m.wire(pin, self.Digit1.I[i])
 
         # VGA
 

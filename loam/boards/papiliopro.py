@@ -1,7 +1,4 @@
-from magma import *
-set_mantle_target("spartan6")
-#from mantle import *
-
+import magma as m
 from loam.parts.xilinx.spartan6 import XC6SLX9
 from loam.parts.generic.crystal import Crystal
 #from loam.parts.ftdi.ft232r import FT232R
@@ -38,6 +35,7 @@ class PapilioPro(Papilio):
         super(PapilioPro,self).__init__("PapilioPro")
 
         self.fpga = fpga = fpga(board=self)
+        m.set_mantle_target(fpga.family)
 
         self.A = [fpga.P48, fpga.P51, fpga.P56, fpga.P58, 
                   fpga.P61, fpga.P66, fpga.P67, fpga.P75,
@@ -60,10 +58,10 @@ class PapilioPro(Papilio):
         self.CLKIN.rename('CLKIN')
 
         self.Crystal = Crystal(32000000, board=self)
-        wire(self.Crystal.O, self.CLKIN.I)
+        m.wire(self.Crystal.O, self.CLKIN.I)
 
         self.Clock = fpga.clock
-        wire(self.CLKIN.O, self.Clock.I)
+        m.wire(self.CLKIN.O, self.Clock.I)
 
 
         # Timer setup
@@ -81,13 +79,13 @@ class PapilioPro(Papilio):
         self.TX.rename('TX').output()
 
         #self.usart = FT232R(board=self)
-        #wire(self.TX, self.usart.RX)
-        #wire(self.usart.TX, self.RX)
+        #m.wire(self.TX, self.usart.RX)
+        #m.wire(self.usart.TX, self.RX)
 
         #self.usart0 = fpga.USART(fpga)
         #self.usart.peripheral(self.usart0)
-        #wire(self.usart0.TX, self.TX)
-        #wire(self.RX, self.usart0.RX)
+        #m.wire(self.usart0.TX, self.TX)
+        #m.wire(self.RX, self.usart0.RX)
 
         # jtag
         #self.JTAG_TMS = fpga.P107
@@ -106,10 +104,10 @@ class PapilioPro(Papilio):
         #self.MOSI.rename('MOSI').output()
         #self.MISO.rename('MISO').output()
         #self.CS.  rename('CS')  .output()
-        #wire(self.SCLK, self.Flash.SCLK)
-        #wire(self.MOSI, self.Flash.MOSI)
-        #wire(self.Flash.MISO, self.MISO)
-        #wire(self.CS, self.Flash.CS)
+        #m.wire(self.SCLK, self.Flash.SCLK)
+        #m.wire(self.MOSI, self.Flash.MOSI)
+        #m.wire(self.Flash.MISO, self.MISO)
+        #m.wire(self.CS, self.Flash.CS)
 
         # sdram(self)
 

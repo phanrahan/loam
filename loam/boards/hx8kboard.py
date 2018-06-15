@@ -1,11 +1,9 @@
-from magma import *
-set_mantle_target("ice40")
-#from mantle import *
-from loam.peripherals.timer import Timer
+import magma as m
 from loam.parts.lattice.ice40.ice40 import ICE40HX8K
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.led import LED
 from loam.parts.ftdi.ft232r import FT232R
+#from loam.peripherals.timer import Timer
 from loam import Board
 
 
@@ -17,17 +15,18 @@ class HX8KBoard(Board):
         # Need to define the interface ...
 
         self.fpga = fpga = ICE40HX8K(board=self, package='ct256')
+        m.set_mantle_target(fpga.family)
 
         self.CLKIN = fpga.PIO3_26
         self.CLKIN.rename('CLKIN')
 
         self.Crystal = Crystal(12000000, board=self)
-        wire(self.Crystal.O, self.CLKIN.I)
+        m.wire(self.Crystal.O, self.CLKIN.I)
 
         self.Clock = fpga.clock
-        wire(self.CLKIN.O, self.Clock.I)
+        m.wire(self.CLKIN.O, self.Clock.I)
 
-        self.Timer = Timer(fpga, name='systimer')
+        #self.Timer = Timer(fpga, name='systimer')
 
         leds = ["PIO0_39", "PIO0_41", "PIO0_42", "PIO0_44",
                 "PIO0_45", "PIO0_46", "PIO0_47", "PIO0_51"]
@@ -36,7 +35,7 @@ class HX8KBoard(Board):
              pin = getattr(fpga, k)
              pin.rename(name).output()
              led = LED(name=name, board=self)
-             wire(pin, led.I)
+             m.wire(pin, led.I)
              setattr(self, name, led)
 
         GND = None
@@ -91,8 +90,8 @@ class HX8KBoard(Board):
 
         # create usart part
         #self.usart = FT232R(board=self)
-        #wire(self.TX, self.usart.RX)
-        #wire(self.usart.TX, self.RX)
+        #m.wire(self.TX, self.usart.RX)
+        #m.wire(self.usart.TX, self.RX)
 
         # create usart peripheral ...
 

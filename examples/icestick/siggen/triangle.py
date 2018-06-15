@@ -1,5 +1,5 @@
 import magma as m
-from mantle import Counter, Invert, Mux
+from mantle import Register, Counter, Invert, Mux
 from loam.boards.icestick import IceStick
 
 N = 8
@@ -31,7 +31,8 @@ counter = Counter(32)
 sawtooth = counter.O[8:8+N]
 
 tri = Triangle(N)
+reg = Register(N)
 
-m.wire( tri(sawtooth), main.J3 )
+m.wire( reg(tri(sawtooth)), main.J3 )
 
 

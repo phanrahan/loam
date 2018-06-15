@@ -1,8 +1,10 @@
 #NAME ?= square
 #NAME ?= sawtooth
-#NAME ?= triangle
+NAME ?= triangle
 #NAME ?= pwm
-NAME ?= sine
+#NAME ?= sine
+#NAME ?= dds
+#NAME ?= deltasigma
 
 PCF = $(NAME).pcf
 

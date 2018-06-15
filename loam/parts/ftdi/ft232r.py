@@ -7,7 +7,6 @@ class FT232R(Part):
 
     def __init__(self, name='console', board=None):
         Part.__init__(self, name, board)
-
         self.usart = None
 
     def peripheral(self, usart):

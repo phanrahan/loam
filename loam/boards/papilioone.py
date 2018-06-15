@@ -1,6 +1,4 @@
-from magma import *
-set_mantle_target("spartan3")
-#from mantle import *
+import magma as m
 from loam.parts.xilinx.spartan3 import XC3S250E
 from loam.parts.generic.crystal import Crystal
 #from loam.parts.ftdi.ft232r import FT232R
@@ -40,6 +38,7 @@ class PapilioOne(Papilio):
         # Need to define the interface ...
 
         self.fpga = fpga = fpga(board=self)
+        m.set_mantle_target(fpga.family)
 
         self.A = [fpga.P18, fpga.P23, fpga.P26, fpga.P33, 
                   fpga.P35, fpga.P40, fpga.P53, fpga.P57,
@@ -62,11 +61,11 @@ class PapilioOne(Papilio):
 
         #print('wiring crystal')
         self.Crystal = Crystal(32000000, board=self)
-        wire(self.Crystal.O, self.CLKIN.I)
+        m.wire(self.Crystal.O, self.CLKIN.I)
 
         #print('wiring clock')
         self.Clock = fpga.clock
-        wire(self.CLKIN.O, self.Clock.I)
+        m.wire(self.CLKIN.O, self.Clock.I)
 
 
         # Timer peripheral setup
@@ -83,13 +82,13 @@ class PapilioOne(Papilio):
 
         #print('wiring uart')
         #self.usart = FT232R(board=self)
-        #wire(self.TX, self.usart.RX)
-        #wire(self.usart.TX, self.RX)
+        #m.wire(self.TX, self.usart.RX)
+        #m.wire(self.usart.TX, self.RX)
 
         #self.usart0 = fpga.USART(fpga)
         #self.usart.peripheral(self.usart0)
-        #wire(self.usart0.TX, self.TX)
-        #wire(self.RX, self.usart0.RX)
+        #m.wire(self.usart0.TX, self.TX)
+        #m.wire(self.RX, self.usart0.RX)
 
 
         # Flash setup
@@ -103,8 +102,8 @@ class PapilioOne(Papilio):
         #self.MOSI.rename('MOSI').output()
         #self.MISO.rename('MISO').output()
         #self.CS.  rename('CS')  .output()
-        #wire(self.SCLK, self.Flash.SCLK)
-        #wire(self.MOSI, self.Flash.MOSI)
-        #wire(self.Flash.MISO, self.MISO)
-        #wire(self.CS, self.Flash.CS)
+        #m.wire(self.SCLK, self.Flash.SCLK)
+        #m.wire(self.MOSI, self.Flash.MOSI)
+        #m.wire(self.Flash.MISO, self.MISO)
+        #m.wire(self.CS, self.Flash.CS)
 

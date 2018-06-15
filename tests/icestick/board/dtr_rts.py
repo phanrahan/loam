@@ -1,4 +1,5 @@
-from magma import wire, EndCircuit
+import magma as m
+from mantle import Counter
 from loam.boards.icestick import IceStick
 
 icestick = IceStick()
@@ -9,7 +10,7 @@ icestick.D2.on()
 
 main = icestick.main()
 
-wire( main.DTR, main.D1 )
-wire( main.RTS, main.D2 )
+m.wire( main.DTR, main.D1 )
+m.wire( main.RTS, main.D2 )
 
-EndCircuit()
+m.EndCircuit()

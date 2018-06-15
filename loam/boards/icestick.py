@@ -1,6 +1,4 @@
-from magma import *
-set_mantle_target("ice40")
-#from mantle import *
+import magma as m
 from loam.parts.lattice.ice40 import ICE40HX1K
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.led import LED
@@ -18,17 +16,18 @@ class IceStick(Board):
         # Need to define the interface ...
 
         self.fpga = fpga = ICE40HX1K(board=self, package='tq144')
+        m.set_mantle_target(fpga.family)
 
         self.CLKIN = fpga.PIO3_00
         self.CLKIN.rename('CLKIN')
 
         self.Crystal = Crystal(12000000, board=self)
-        wire(self.Crystal.O, self.CLKIN.I)
+        m.wire(self.Crystal.O, self.CLKIN.I)
 
         self.Clock = fpga.clock
-        wire(self.CLKIN.O, self.Clock.I)
+        m.wire(self.CLKIN.O, self.Clock.I)
 
-        self.Timer = Timer(fpga, name='systimer')
+        #self.Timer = Timer(fpga, name='systimer')
 
         leds = ["PIO1_14", "PIO1_13", "PIO1_12", "PIO1_11", "PIO1_10"]
         for i,k in enumerate(leds):
@@ -36,7 +35,7 @@ class IceStick(Board):
              pin = getattr(fpga, k)
              pin.rename(name).output()
              led = LED(name=name, board=self)
-             wire(pin, led.I)
+             m.wire(pin, led.I)
              setattr(self, name, led)
 
         # Pmod connector
@@ -77,8 +76,8 @@ class IceStick(Board):
 
         # create usart part
         # self.usart = FT232R(board=self)
-        # wire(self.TX, self.usart.RX)
-        # wire(self.usart.TX, self.RX)
+        # m.wire(self.TX, self.usart.RX)
+        # m.wire(self.usart.TX, self.RX)
 
         # create usart peripheral
 

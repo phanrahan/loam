@@ -72,3 +72,6 @@ class FPGA(Part):
 
     def main(self):
         return self.DefineMain()
+
+    def constraints(self, filename):
+        pass

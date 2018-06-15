@@ -1,6 +1,4 @@
-from magma import *
-set_mantle_target("cyclone4")
-#from mantle import *
+import magma as m
 from loam.parts.altera.cyclone4 import EP4CE22F17C6
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.button import Button
@@ -17,15 +15,16 @@ class DE0Nano(Board):
         super(DE0Nano,self).__init__("DE0Nano")
 
         self.fpga = fpga = EP4CE22F17C6(board=self, package='lbga256')
+        m.set_mantle_target(fpga.family)
 
         self.CLKIN = fpga.R8
         self.CLKIN.rename('CLKIN')
 
         self.Crystal = Crystal(50000000, board=self)
-        wire(self.Crystal.O, self.CLKIN.I)
+        m.wire(self.Crystal.O, self.CLKIN.I)
 
         self.Clock = fpga.clock
-        wire(self.CLKIN.O, self.Clock.I)
+        m.wire(self.CLKIN.O, self.Clock.I)
 
         #self.Timer = Timer(fpga, name='systimer')
 
@@ -35,7 +34,7 @@ class DE0Nano(Board):
              pin = getattr(fpga, k)
              pin.rename(name).output()
              led = LED(name=name, board=self)
-             wire(pin, led.I)
+             m.wire(pin, led.I)
              setattr(self, name, led)
 
         # Buttons
@@ -45,7 +44,7 @@ class DE0Nano(Board):
              pin = getattr(fpga, k)
              pin.rename(name).input()
              button = Button(name=name, board=self)
-             wire(button.O, pin)
+             m.wire(button.O, pin)
              setattr(self, name, button)
 
         # Switches
@@ -55,7 +54,7 @@ class DE0Nano(Board):
              pin = getattr(fpga, k)
              pin.rename(name).input()
              switch = Switch(name=name, board=self)
-             wire(switch.O, pin)
+             m.wire(switch.O, pin)
              setattr(self, name, switch)
 
 
@@ -72,8 +71,8 @@ class DE0Nano(Board):
 
         # create usart part
         # self.usart = FT232R(board=self)
-        # wire(self.TX, self.usart.RX)
-        # wire(self.usart.TX, self.RX)
+        # m.wire(self.TX, self.usart.RX)
+        # m.wire(self.usart.TX, self.RX)
 
         self.GPIO0 = [fpga.A8, 
                  fpga.D3,
