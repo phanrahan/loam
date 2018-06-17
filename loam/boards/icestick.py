@@ -1,9 +1,11 @@
 import magma as m
+m.set_mantle_target('ice40')
+
 from loam.parts.lattice.ice40 import ICE40HX1K
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.led import LED
 from loam.parts.ftdi.ft232r import FT232R
-from loam.peripherals.timer import Timer
+#from loam.peripherals.timer import Timer
 from loam import Board
 
 
