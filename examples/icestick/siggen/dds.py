@@ -1,32 +1,39 @@
 import math
 import magma as m
-from magma.bitutils import int2seq
-from mantle import LUT4, Counter
+from mantle import Register, Memory
 from loam.boards.icestick import IceStick
 
-N = 8
+def DefineDDS(n):
+    class _DDS(m.Circuit):
+        name = 'DDS{}'.format(n)
+        IO = ['I', m.In(m.UInt(n)), "O", m.Out(m.UInt(n))] + m.ClockInterface()
+        @classmethod
+        def definition(io):
+            reg = Register(n)
+            m.wire(reg(m.uint(reg.O) + io.I), io.O)
+    return _DDS
+
+def DDS(n):
+    return DefineDDS(n)()
 
 icestick = IceStick()
 icestick.Clock.on()
-for i in range(N):
+for i in range(8):
+    icestick.J1[i].input().on()
     icestick.J3[i].output().on()
 
 main = icestick.main()
 
-counter = Counter(32)
-sawtooth = counter.O[8:8+4]
+dds = DDS(16)
 
-def int256(x):
-    return int2seq(int(x), N)
+sintab = [int(128 + 127 * math.sin(2 * math.pi * i / 256.)) for i in range(256)]
+rom = Memory(height=256, width=16, rom=sintab, readonly=True)
 
-sintab = [int256(128+127*math.sin(2 * math.pi * i / 16.)) for i in range(16)]
-sintab = list(zip(*sintab)) # transpose
+phase = m.concat(main.J1, m.bits(0,8))
+addr = dds( phase )
+O = rom( addr[8:] ) 
+m.wire( 1, rom.RE )
+m.wire( O[8:16], main.J3 )
 
-def ROM(y):
-    return m.uncurry(LUT4(sintab[y]))
-
-rom = m.fork(m.col(ROM, N))
-
-m.wire( rom(sawtooth), main.J3 )
-
+m.EndCircuit()
 
