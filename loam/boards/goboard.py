@@ -17,7 +17,6 @@ class GoBoard(Board):
         # Need to define the interface ...
 
         self.fpga = fpga = fpga(board=self, package='vq100')
-        m.set_mantle_target(fpga.family)
 
         self.CLKIN = fpga.IOL_7A
         self.CLKIN.rename('CLKIN')

@@ -35,7 +35,6 @@ class PapilioPro(Papilio):
         super(PapilioPro,self).__init__("PapilioPro")
 
         self.fpga = fpga = fpga(board=self)
-        m.set_mantle_target(fpga.family)
 
         self.A = [fpga.P48, fpga.P51, fpga.P56, fpga.P58, 
                   fpga.P61, fpga.P66, fpga.P67, fpga.P75,

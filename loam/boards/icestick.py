@@ -1,6 +1,4 @@
 import magma as m
-m.set_mantle_target('ice40')
-
 from loam.parts.lattice.ice40 import ICE40HX1K
 from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.led import LED
@@ -18,7 +16,6 @@ class IceStick(Board):
         # Need to define the interface ...
 
         self.fpga = fpga = ICE40HX1K(board=self, package='tq144')
-        m.set_mantle_target(fpga.family)
 
         self.CLKIN = fpga.PIO3_00
         self.CLKIN.rename('CLKIN')

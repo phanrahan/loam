@@ -15,7 +15,6 @@ class DE0Nano(Board):
         super(DE0Nano,self).__init__("DE0Nano")
 
         self.fpga = fpga = EP4CE22F17C6(board=self, package='lbga256')
-        m.set_mantle_target(fpga.family)
 
         self.CLKIN = fpga.R8
         self.CLKIN.rename('CLKIN')

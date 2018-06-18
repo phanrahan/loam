@@ -38,7 +38,6 @@ class PapilioOne(Papilio):
         # Need to define the interface ...
 
         self.fpga = fpga = fpga(board=self)
-        m.set_mantle_target(fpga.family)
 
         self.A = [fpga.P18, fpga.P23, fpga.P26, fpga.P33, 
                   fpga.P35, fpga.P40, fpga.P53, fpga.P57,

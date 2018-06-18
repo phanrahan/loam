@@ -15,7 +15,6 @@ class HX8KBoard(Board):
         # Need to define the interface ...
 
         self.fpga = fpga = ICE40HX8K(board=self, package='ct256')
-        m.set_mantle_target(fpga.family)
 
         self.CLKIN = fpga.PIO3_26
         self.CLKIN.rename('CLKIN')

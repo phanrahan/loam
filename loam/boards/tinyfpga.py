@@ -15,7 +15,6 @@ class B2(Board):
         # Need to define the interface ...
 
         self.fpga = fpga = ICE40LP8K(board=self, package='cm81')
-        m.set_mantle_target(fpga.family)
 
         self.header = [
            None,
