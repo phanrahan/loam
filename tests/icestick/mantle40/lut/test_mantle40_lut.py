@@ -21,8 +21,8 @@ def main(n):
     icestick.J3[0].rename('D0').output().on()
 
     top = icestick.main()
-    pown = 1 << n
-    lut = LUTN(pown//2*[0,1], pown)
+    lut = LUTN((1<<n)//2*[0,1], n)
+    print(n, type(top.J1))
     I = [top.J1[i] for i in range(n)] if n != 1 else [top.J1]
     m.wire( lut(*I), top.D0 )
     m.EndCircuit()
@@ -31,5 +31,6 @@ def main(n):
 
 def test_lut():
     for n in range(8):
+        m.magma_clear_circuit_cache()
         compile_and_regress('lut'+str(n+1), 'lattice', main, n+1)
 
