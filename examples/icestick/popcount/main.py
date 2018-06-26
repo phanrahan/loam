@@ -1,4 +1,4 @@
-from magma import *
+import magma as m
 from magma.bitutils import clog2
 from mantle.util.compressor import PopCount
 from loam.boards.icestick import IceStick
@@ -17,8 +17,8 @@ main = icestick.main()
 pop = PopCount(N)
 
 for i in range(len(pop.I)):
-   wire( main.J1[i] if i < 8 else 0, pop.I[i] )
-wire( pop.O[0:LOGN], main.J3 )
+   m.wire( main.J1[i] if i < 8 else 0, pop.I[i] )
+m.wire( pop.O[0:LOGN], main.J3 )
 
-EndCircuit()
+m.EndCircuit()
 

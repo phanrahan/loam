@@ -1,4 +1,4 @@
-from magma import *
+import magma as m
 from loam.boards.icestick import IceStick
 from mantle.util.sort import \
     halfcleaner, reversehalfcleaner, \
@@ -19,7 +19,7 @@ for i in range(N):
 
 main = icestick.main()
 
-#wire( Riffle(N)(main.J1), main.J3 )
+#m.wire( Riffle(N)(main.J1), main.J3 )
 #r = Riffle(N)
 #u = UnRiffle(N)
 #id = compose( u, r )
@@ -28,24 +28,24 @@ main = icestick.main()
 #u = UnReverseRiffle(N)
 #id = compose( u, r )
 
-#wire( Reverse(N)(main.J1), main.J3 )
+#m.wire( Reverse(N)(main.J1), main.J3 )
 #r = Reverse(N)
 #u = Reverse(N)
 #id = compose( u, r )
-#wire( id(main.J1), main.J3 )
+#m.wire( id(main.J1), main.J3 )
 
-#wire( halfcleaner(main.J1), main.J3 )
-#wire( reversehalfcleaner(main.J1), main.J3 )
+#m.wire( halfcleaner(main.J1), main.J3 )
+#m.wire( reversehalfcleaner(main.J1), main.J3 )
 
-#wire( bitonicsorter(main.J1), main.J3 )
+#m.wire( bitonicsorter(main.J1), main.J3 )
 
-#wire( merger(main.J1), main.J3 )
+#m.wire( merger(main.J1), main.J3 )
 
-wire( sorter(main.J1), main.J3 )
+m.wire( sorter(main.J1), main.J3 )
 
-#wire( evenoddmerger(main.J1), main.J3 )
-#wire( evenoddsorter(main.J1), main.J3 )
+#m.wire( evenoddmerger(main.J1), main.J3 )
+#m.wire( evenoddsorter(main.J1), main.J3 )
 
-#wire( bricksorter(main.J1), main.J3 )
+#m.wire( bricksorter(main.J1), main.J3 )
 
-EndCircuit()
+m.EndCircuit()
