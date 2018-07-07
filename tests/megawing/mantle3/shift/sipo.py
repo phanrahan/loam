@@ -1,20 +1,16 @@
-import sys
 from magma import *
 from mantle import *
+from loam.boards.papilioone import PapilioOne
 from loam.shields.megawing import MegaWing
 
-megawing = MegaWing()
+megawing = MegaWing(PapilioOne)
 megawing.Clock.on()
 megawing.LED.on(4)
 
 main = megawing.main()
-O = main.LED
 
 clock = Counter(24)
-ring = SIPO(4, init=1, ce=True)
+ring = SIPO(4, init=1, has_ce=True)
 
-O( ring(ring.O[3], CE=clock.COUT) )
-
-compile(sys.argv[1], main)
-
+wire( ring(ring.O[3], CE=clock.COUT), main.LED )
 
