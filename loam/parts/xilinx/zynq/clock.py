@@ -1,5 +1,6 @@
-from magma import Peripheral, wire
-from mantle.xilinx.spartan import BUFG
+from magma import wire
+from mantle.xilinx.spartan6 import BUFG
+from loam import Peripheral
 
 class Clock(Peripheral):
     name = 'clock'
