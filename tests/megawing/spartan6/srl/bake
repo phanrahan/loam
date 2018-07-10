@@ -23,7 +23,7 @@ def magma(base):
     run('magma', '-b', BOARD, '-d', BUILD, base)
 
 def regress(base):
-    u = base+'.pcf'
+    u = base+'.ucf'
     v = base+'.v'
     buildu, goldu = join(BUILD,u), join(GOLD,u)
     buildv, goldv = join(BUILD,v), join(GOLD,v)
@@ -36,6 +36,6 @@ def clean():
     autoclean()
 
 def gold():
-    os.system('cp %s/*.{v,pcf} %s' % (BUILD, GOLD))
+    os.system('cp %s/*.{v,ucf} %s' % (BUILD, GOLD))
 
 main()

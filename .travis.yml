@@ -12,7 +12,4 @@ install:
     - pip install -e .
 
 script:
-    - py.test --cov=loam tests/
-    - cd tests
-    - ./bake
-    - cd ${TRAVIS_BUILD_DIR}
+    - ./scripts/run_tests.sh

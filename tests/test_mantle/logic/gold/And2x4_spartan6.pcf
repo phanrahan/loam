@@ -1,0 +1,19 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon Jul 09 17:07:27 2018
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "LED<0>" LOCATE = SITE "P123" LEVEL 1;
+COMP "LED<1>" LOCATE = SITE "P124" LEVEL 1;
+COMP "LED<2>" LOCATE = SITE "P126" LEVEL 1;
+COMP "LED<3>" LOCATE = SITE "P127" LEVEL 1;
+COMP "SWITCH<0>" LOCATE = SITE "P114" LEVEL 1;
+COMP "SWITCH<1>" LOCATE = SITE "P115" LEVEL 1;
+COMP "SWITCH<2>" LOCATE = SITE "P116" LEVEL 1;
+COMP "SWITCH<3>" LOCATE = SITE "P117" LEVEL 1;
+COMP "SWITCH<4>" LOCATE = SITE "P118" LEVEL 1;
+COMP "SWITCH<5>" LOCATE = SITE "P119" LEVEL 1;
+COMP "SWITCH<6>" LOCATE = SITE "P120" LEVEL 1;
+COMP "SWITCH<7>" LOCATE = SITE "P121" LEVEL 1;
+SCHEMATIC END;
+

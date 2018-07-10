@@ -1,0 +1,389 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "counter.v"
+Input Format                       : verilog
+
+---- Target Parameters
+Target Device                      : xc3s250e-4-vq100
+Output File Name                   : "counter.ngc"
+Output Format                      : NGC
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "counter.v" in library work
+Module <Add30_cout> compiled
+Module <Register30> compiled
+Module <Counter30> compiled
+Module <main> compiled
+No errors in compilation
+Analysis of file <"counter.v"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <main> in library <work>.
+
+Analyzing hierarchy for module <Counter30> in library <work>.
+
+Analyzing hierarchy for module <Add30_cout> in library <work>.
+
+Analyzing hierarchy for module <Register30> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <main>.
+Module <main> is correct for synthesis.
+ 
+Analyzing module <Counter30> in library <work>.
+Module <Counter30> is correct for synthesis.
+ 
+Analyzing module <Add30_cout> in library <work>.
+Module <Add30_cout> is correct for synthesis.
+ 
+    Set user-defined property "INIT =  6" for instance <inst0> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst3> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst6> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst9> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst12> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst15> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst18> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst21> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst24> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst27> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst30> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst33> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst36> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst39> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst42> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst45> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst48> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst51> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst54> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst57> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst60> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst63> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst66> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst69> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst72> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst75> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst78> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst81> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst84> in unit <Add30_cout>.
+    Set user-defined property "INIT =  6" for instance <inst87> in unit <Add30_cout>.
+Analyzing module <Register30> in library <work>.
+Module <Register30> is correct for synthesis.
+ 
+    Set user-defined property "INIT =  0" for instance <inst0> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst1> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst2> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst3> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst4> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst5> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst6> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst7> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst8> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst9> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst10> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst11> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst12> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst13> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst14> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst15> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst16> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst17> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst18> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst19> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst20> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst21> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst22> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst23> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst24> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst25> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst26> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst27> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst28> in unit <Register30>.
+    Set user-defined property "INIT =  0" for instance <inst29> in unit <Register30>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Add30_cout>.
+    Related source file is "counter.v".
+Unit <Add30_cout> synthesized.
+
+
+Synthesizing Unit <Register30>.
+    Related source file is "counter.v".
+Unit <Register30> synthesized.
+
+
+Synthesizing Unit <Counter30>.
+    Related source file is "counter.v".
+Unit <Counter30> synthesized.
+
+
+Synthesizing Unit <main>.
+    Related source file is "counter.v".
+WARNING:Xst:646 - Signal <inst0_O<21:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <inst0_COUT> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <main> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 30
+ Flip-Flops                                            : 30
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <main> ...
+
+Optimizing unit <Add30_cout> ...
+
+Optimizing unit <Register30> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 30
+ Flip-Flops                                            : 30
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+Top Level Output File Name         : counter.ngc
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : no
+
+Design Statistics
+# IOs                              : 9
+
+Cell Usage :
+# BELS                             : 92
+#      GND                         : 1
+#      LUT2                        : 30
+#      MUXCY                       : 30
+#      VCC                         : 1
+#      XORCY                       : 30
+# FlipFlops/Latches                : 30
+#      FDRSE                       : 30
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 8
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s250evq100-4 
+
+ Number of Slices:                       16  out of   2448     0%  
+ Number of Slice Flip Flops:             30  out of   4896     0%  
+ Number of 4 input LUTs:                 30  out of   4896     0%  
+ Number of IOs:                           9
+ Number of bonded IOBs:                   9  out of     66    13%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLKIN                              | BUFGP                  | 30    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 5.118ns (Maximum Frequency: 195.389MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 4.310ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLKIN'
+  Clock period: 5.118ns (frequency: 195.389MHz)
+  Total number of paths / destination ports: 900 / 30
+-------------------------------------------------------------------------
+Delay:               5.118ns (Levels of Logic = 31)
+  Source:            inst0/inst1/inst0 (FF)
+  Destination:       inst0/inst1/inst29 (FF)
+  Source Clock:      CLKIN rising
+  Destination Clock: CLKIN rising
+
+  Data Path: inst0/inst1/inst0 to inst0/inst1/inst29
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRSE:C->Q            1   0.591   0.595  inst0/inst1/inst0 (inst0/inst1_O<0>)
+     LUT2:I0->O            1   0.704   0.000  inst0/inst0/inst0 (inst0/inst0/inst0_O)
+     MUXCY:S->O            1   0.464   0.000  inst0/inst0/inst1 (inst0/inst0/inst1_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst4 (inst0/inst0/inst4_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst7 (inst0/inst0/inst7_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst10 (inst0/inst0/inst10_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst13 (inst0/inst0/inst13_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst16 (inst0/inst0/inst16_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst19 (inst0/inst0/inst19_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst22 (inst0/inst0/inst22_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst25 (inst0/inst0/inst25_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst28 (inst0/inst0/inst28_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst31 (inst0/inst0/inst31_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst34 (inst0/inst0/inst34_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst37 (inst0/inst0/inst37_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst40 (inst0/inst0/inst40_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst43 (inst0/inst0/inst43_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst46 (inst0/inst0/inst46_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst49 (inst0/inst0/inst49_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst52 (inst0/inst0/inst52_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst55 (inst0/inst0/inst55_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst58 (inst0/inst0/inst58_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst61 (inst0/inst0/inst61_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst64 (inst0/inst0/inst64_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst67 (inst0/inst0/inst67_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst70 (inst0/inst0/inst70_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst73 (inst0/inst0/inst73_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst76 (inst0/inst0/inst76_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst79 (inst0/inst0/inst79_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst82 (inst0/inst0/inst82_O)
+     MUXCY:CI->O           1   0.059   0.000  inst0/inst0/inst85 (inst0/inst0/inst85_O)
+     XORCY:CI->O           1   0.804   0.000  inst0/inst0/inst89 (inst0/inst0_O<29>)
+     FDRSE:D                   0.308          inst0/inst1/inst29
+    ----------------------------------------
+    Total                      5.118ns (4.523ns logic, 0.595ns route)
+                                       (88.4% logic, 11.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLKIN'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              4.310ns (Levels of Logic = 1)
+  Source:            inst0/inst1/inst29 (FF)
+  Destination:       LED<7> (PAD)
+  Source Clock:      CLKIN rising
+
+  Data Path: inst0/inst1/inst29 to LED<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRSE:C->Q            2   0.591   0.447  inst0/inst1/inst29 (LED_7_OBUF)
+     OBUF:I->O                 3.272          LED_7_OBUF (LED<7>)
+    ----------------------------------------
+    Total                      4.310ns (3.863ns logic, 0.447ns route)
+                                       (89.6% logic, 10.4% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 2.94 secs
+ 
+--> 
+
+
+Total memory usage is 511976 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

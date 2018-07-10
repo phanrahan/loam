@@ -1,0 +1,354 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'main'
+
+Design Information
+------------------
+Command Line   : map -detail -pr b counter32.ngd 
+Target Device  : xc3s250e
+Target Package : vq100
+Target Speed   : -4
+Mapper Version : spartan3e -- $Revision: 1.55 $
+Mapped Date    : Sat Jul  7 13:08:04 2018
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    0
+Logic Utilization:
+  Number of Slice Flip Flops:             8 out of   4,896    1%
+Logic Distribution:
+  Number of occupied Slices:              8 out of   2,448    1%
+    Number of Slices containing only related logic:       8 out of       8 100%
+    Number of Slices containing unrelated logic:          0 out of       8   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Number of bonded IOBs:                  9 out of      66   13%
+  Number of BUFGMUXs:                     1 out of      24    4%
+
+Average Fanout of Non-Clock Nets:                2.00
+
+Peak Memory Usage:  577 MB
+Total REAL time to MAP completion:  1 secs 
+Total CPU time to MAP completion:   1 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Informational
+-------------------------
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:MapLib:159 - Net Timing constraints on signal CLKIN are pushed forward
+   through input buffer.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  80 block(s) removed
+   2 block(s) optimized away
+  80 signal(s) removed
+   8 Block(s) redundant
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "inst0/inst0/inst63" (MUX) removed.
+ The signal "inst0/inst0/inst61_O" is loadless and has been removed.
+  Loadless block "inst0/inst0/inst61" (MUX) removed.
+   The signal "inst0/inst0/inst59_O" is loadless and has been removed.
+    Loadless block "inst0/inst0/inst59" (MUX) removed.
+     The signal "inst0/inst0/inst57_O" is loadless and has been removed.
+      Loadless block "inst0/inst0/inst57" (MUX) removed.
+       The signal "inst0/inst0/inst55_O" is loadless and has been removed.
+        Loadless block "inst0/inst0/inst55" (MUX) removed.
+         The signal "inst0/inst0/inst53_O" is loadless and has been removed.
+          Loadless block "inst0/inst0/inst53" (MUX) removed.
+           The signal "inst0/inst0/inst51_O" is loadless and has been removed.
+            Loadless block "inst0/inst0/inst51" (MUX) removed.
+             The signal "inst0/inst0/inst49_O" is loadless and has been removed.
+              Loadless block "inst0/inst0/inst49" (MUX) removed.
+               The signal "inst0/inst0/inst47_O" is loadless and has been removed.
+                Loadless block "inst0/inst0/inst47" (MUX) removed.
+                 The signal "inst0/inst0/inst45_O" is loadless and has been removed.
+                  Loadless block "inst0/inst0/inst45" (MUX) removed.
+                   The signal "inst0/inst0/inst43_O" is loadless and has been removed.
+                    Loadless block "inst0/inst0/inst43" (MUX) removed.
+                     The signal "inst0/inst0/inst41_O" is loadless and has been removed.
+                      Loadless block "inst0/inst0/inst41" (MUX) removed.
+                       The signal "inst0/inst0/inst39_O" is loadless and has been removed.
+                        Loadless block "inst0/inst0/inst39" (MUX) removed.
+                         The signal "inst0/inst0/inst37_O" is loadless and has been removed.
+                          Loadless block "inst0/inst0/inst37" (MUX) removed.
+                           The signal "inst0/inst0/inst35_O" is loadless and has been removed.
+                            Loadless block "inst0/inst0/inst35" (MUX) removed.
+                             The signal "inst0/inst0/inst33_O" is loadless and has been removed.
+                              Loadless block "inst0/inst0/inst33" (MUX) removed.
+                               The signal "inst0/inst0/inst31_O" is loadless and has been removed.
+                                Loadless block "inst0/inst0/inst31" (MUX) removed.
+                                 The signal "inst0/inst0/inst29_O" is loadless and has been removed.
+                                  Loadless block "inst0/inst0/inst29" (MUX) removed.
+                                   The signal "inst0/inst0/inst27_O" is loadless and has been removed.
+                                    Loadless block "inst0/inst0/inst27" (MUX) removed.
+                                     The signal "inst0/inst0/inst25_O" is loadless and has been removed.
+                                      Loadless block "inst0/inst0/inst25" (MUX) removed.
+                                       The signal "inst0/inst0/inst23_O" is loadless and has been removed.
+                                        Loadless block "inst0/inst0/inst23" (MUX) removed.
+                                         The signal "inst0/inst0/inst21_O" is loadless and has been removed.
+                                          Loadless block "inst0/inst0/inst21" (MUX) removed.
+                                           The signal "inst0/inst0/inst19_O" is loadless and has been removed.
+                                            Loadless block "inst0/inst0/inst19" (MUX) removed.
+                                             The signal "inst0/inst0/inst17_O" is loadless and has been removed.
+                                              Loadless block "inst0/inst0/inst17" (MUX) removed.
+                                               The signal "inst0/inst0/inst15_O" is loadless and has been removed.
+                                                Loadless block "inst0/inst0/inst15" (MUX) removed.
+                                                 The signal "inst0/inst0/inst13_O" is loadless and has been removed.
+*Loadless block "inst0/inst0/inst13" (MUX) removed.
+* The signal "inst0/inst0/inst11_O" is loadless and has been removed.
+*  Loadless block "inst0/inst0/inst11" (MUX) removed.
+*   The signal "inst0/inst0/inst9_O" is loadless and has been removed.
+*    Loadless block "inst0/inst0/inst9" (MUX) removed.
+*     The signal "inst0/inst0/inst7_O" is loadless and has been removed.
+*      Loadless block "inst0/inst0/inst7" (MUX) removed.
+*       The signal "inst0/inst0/inst5_O" is loadless and has been removed.
+*        Loadless block "inst0/inst0/inst5" (MUX) removed.
+*         The signal "inst0/inst0/inst3_O" is loadless and has been removed.
+*          Loadless block "inst0/inst0/inst3" (MUX) removed.
+*           The signal "inst0/inst0/inst1_O" is loadless and has been removed.
+*            Loadless block "inst0/inst0/inst1" (MUX) removed.
+*             The signal "inst0/inst1_O<0>" is loadless and has been removed.
+*              Loadless block "inst0/inst1/inst0" (SFF) removed.
+*               The signal "N1" is loadless and has been removed.
+*               The signal "inst0/inst0_O<0>" is loadless and has been removed.
+*                Loadless block "inst0/inst0/inst0" (ROM) removed.
+*           The signal "inst0/inst1_O<1>" is loadless and has been removed.
+*            Loadless block "inst0/inst1/inst1" (SFF) removed.
+*             The signal "inst0/inst0_O<1>" is loadless and has been removed.
+*              Loadless block "inst0/inst0/inst2" (ROM) removed.
+*         The signal "inst0/inst1_O<2>" is loadless and has been removed.
+*          Loadless block "inst0/inst1/inst2" (SFF) removed.
+*           The signal "inst0/inst0_O<2>" is loadless and has been removed.
+*            Loadless block "inst0/inst0/inst4" (ROM) removed.
+*       The signal "inst0/inst1_O<3>" is loadless and has been removed.
+*        Loadless block "inst0/inst1/inst3" (SFF) removed.
+*         The signal "inst0/inst0_O<3>" is loadless and has been removed.
+*          Loadless block "inst0/inst0/inst6" (ROM) removed.
+*     The signal "inst0/inst1_O<4>" is loadless and has been removed.
+*      Loadless block "inst0/inst1/inst4" (SFF) removed.
+*       The signal "inst0/inst0_O<4>" is loadless and has been removed.
+*        Loadless block "inst0/inst0/inst8" (ROM) removed.
+*   The signal "inst0/inst1_O<5>" is loadless and has been removed.
+*    Loadless block "inst0/inst1/inst5" (SFF) removed.
+*     The signal "inst0/inst0_O<5>" is loadless and has been removed.
+*      Loadless block "inst0/inst0/inst10" (ROM) removed.
+* The signal "inst0/inst1_O<6>" is loadless and has been removed.
+*  Loadless block "inst0/inst1/inst6" (SFF) removed.
+*   The signal "inst0/inst0_O<6>" is loadless and has been removed.
+*    Loadless block "inst0/inst0/inst12" (ROM) removed.
+                                                 The signal "inst0/inst1_O<7>" is loadless and has been removed.
+*Loadless block "inst0/inst1/inst7" (SFF) removed.
+* The signal "inst0/inst0_O<7>" is loadless and has been removed.
+*  Loadless block "inst0/inst0/inst14" (ROM) removed.
+                                               The signal "inst0/inst1_O<8>" is loadless and has been removed.
+                                                Loadless block "inst0/inst1/inst8" (SFF) removed.
+                                                 The signal "inst0/inst0_O<8>" is loadless and has been removed.
+*Loadless block "inst0/inst0/inst16" (ROM) removed.
+                                             The signal "inst0/inst1_O<9>" is loadless and has been removed.
+                                              Loadless block "inst0/inst1/inst9" (SFF) removed.
+                                               The signal "inst0/inst0_O<9>" is loadless and has been removed.
+                                                Loadless block "inst0/inst0/inst18" (ROM) removed.
+                                           The signal "inst0/inst1_O<10>" is loadless and has been removed.
+                                            Loadless block "inst0/inst1/inst10" (SFF) removed.
+                                             The signal "inst0/inst0_O<10>" is loadless and has been removed.
+                                              Loadless block "inst0/inst0/inst20" (ROM) removed.
+                                         The signal "inst0/inst1_O<11>" is loadless and has been removed.
+                                          Loadless block "inst0/inst1/inst11" (SFF) removed.
+                                           The signal "inst0/inst0_O<11>" is loadless and has been removed.
+                                            Loadless block "inst0/inst0/inst22" (ROM) removed.
+                                       The signal "inst0/inst1_O<12>" is loadless and has been removed.
+                                        Loadless block "inst0/inst1/inst12" (SFF) removed.
+                                         The signal "inst0/inst0_O<12>" is loadless and has been removed.
+                                          Loadless block "inst0/inst0/inst24" (ROM) removed.
+                                     The signal "inst0/inst1_O<13>" is loadless and has been removed.
+                                      Loadless block "inst0/inst1/inst13" (SFF) removed.
+                                       The signal "inst0/inst0_O<13>" is loadless and has been removed.
+                                        Loadless block "inst0/inst0/inst26" (ROM) removed.
+                                   The signal "inst0/inst1_O<14>" is loadless and has been removed.
+                                    Loadless block "inst0/inst1/inst14" (SFF) removed.
+                                     The signal "inst0/inst0_O<14>" is loadless and has been removed.
+                                      Loadless block "inst0/inst0/inst28" (ROM) removed.
+                                 The signal "inst0/inst1_O<15>" is loadless and has been removed.
+                                  Loadless block "inst0/inst1/inst15" (SFF) removed.
+                                   The signal "inst0/inst0_O<15>" is loadless and has been removed.
+                                    Loadless block "inst0/inst0/inst30" (ROM) removed.
+                               The signal "inst0/inst1_O<16>" is loadless and has been removed.
+                                Loadless block "inst0/inst1/inst16" (SFF) removed.
+                                 The signal "inst0/inst0_O<16>" is loadless and has been removed.
+                                  Loadless block "inst0/inst0/inst32" (ROM) removed.
+                             The signal "inst0/inst1_O<17>" is loadless and has been removed.
+                              Loadless block "inst0/inst1/inst17" (SFF) removed.
+                               The signal "inst0/inst0_O<17>" is loadless and has been removed.
+                                Loadless block "inst0/inst0/inst34" (ROM) removed.
+                           The signal "inst0/inst1_O<18>" is loadless and has been removed.
+                            Loadless block "inst0/inst1/inst18" (SFF) removed.
+                             The signal "inst0/inst0_O<18>" is loadless and has been removed.
+                              Loadless block "inst0/inst0/inst36" (ROM) removed.
+                         The signal "inst0/inst1_O<19>" is loadless and has been removed.
+                          Loadless block "inst0/inst1/inst19" (SFF) removed.
+                           The signal "inst0/inst0_O<19>" is loadless and has been removed.
+                            Loadless block "inst0/inst0/inst38" (ROM) removed.
+                       The signal "inst0/inst1_O<20>" is loadless and has been removed.
+                        Loadless block "inst0/inst1/inst20" (SFF) removed.
+                         The signal "inst0/inst0_O<20>" is loadless and has been removed.
+                          Loadless block "inst0/inst0/inst40" (ROM) removed.
+                     The signal "inst0/inst1_O<21>" is loadless and has been removed.
+                      Loadless block "inst0/inst1/inst21" (SFF) removed.
+                       The signal "inst0/inst0_O<21>" is loadless and has been removed.
+                        Loadless block "inst0/inst0/inst42" (ROM) removed.
+                   The signal "inst0/inst1_O<22>" is loadless and has been removed.
+                    Loadless block "inst0/inst1/inst22" (SFF) removed.
+                     The signal "inst0/inst0_O<22>" is loadless and has been removed.
+                      Loadless block "inst0/inst0/inst44" (ROM) removed.
+                 The signal "inst0/inst1_O<23>" is loadless and has been removed.
+                  Loadless block "inst0/inst1/inst23" (SFF) removed.
+                   The signal "inst0/inst0_O<23>" is loadless and has been removed.
+                    Loadless block "inst0/inst0/inst46" (ROM) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+
+Redundant Block(s):
+TYPE 		BLOCK
+LUT2 		inst0/inst0/inst62
+LUT2 		inst0/inst0/inst60
+LUT2 		inst0/inst0/inst58
+LUT2 		inst0/inst0/inst56
+LUT2 		inst0/inst0/inst54
+LUT2 		inst0/inst0/inst52
+LUT2 		inst0/inst0/inst50
+LUT2 		inst0/inst0/inst48
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CLKIN                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| LED<0>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<1>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<2>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<3>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<4>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<5>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<6>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<7>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+BUFGMUX "CLKIN_BUFGP/BUFG":
+DISABLE_ATTR:LOW
+
+
+
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Module             | Partition | Slices        | Slice Reg     | LUTs          | LUTRAM        | BRAM      | MULT18X18 | BUFG  | DCM   | Full Hierarchical  |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| main/              |           | 0/8           | 0/8           | 0/0           | 0/0           | 0/0       | 0/0       | 1/1   | 0/0   | main               |
+| +inst0             |           | 0/8           | 0/8           | 0/0           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0         |
+| ++inst1            |           | 8/8           | 8/8           | 0/0           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst1   |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Slices can be packed with basic elements from multiple hierarchies.
+  Therefore, a slice will be counted in every hierarchical module
+  that each of its packed basic elements belong to.
+** For each column, there are two numbers reported <A>/<B>.
+   <A> is the number of elements that belong to that specific hierarchical module.
+   <B> is the total number of elements from that hierarchical module and any lower level
+   hierarchical modules below.
+*** The LUTRAM column counts all LUTs used as memory including RAM, ROM, and shift registers.
