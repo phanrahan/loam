@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+import os, glob
+from os.path import join, exists
+from fabricate import main, autoclean, run
+
+BOARD = 'icestick'
+
+tests = glob.glob('*.py')
+
+def build():
+    for test in tests:
+        if test != 'rom.py':
+            base, suffix = test.split('.')
+            compile(base)
+
+def compile(base):
+    run('magma','-b',BOARD,base)
+
+def clean():
+    autoclean()
+
+main()

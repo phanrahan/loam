@@ -1,0 +1,1373 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'main'
+
+Design Information
+------------------
+Command Line   : map -detail -pr b popcount8.ngd 
+Target Device  : xc3s250e
+Target Package : vq100
+Target Speed   : -4
+Mapper Version : spartan3e -- $Revision: 1.55 $
+Mapped Date    : Mon Jul  9 20:08:56 2018
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    0
+Logic Utilization:
+  Number of 4 input LUTs:                13 out of   4,896    1%
+Logic Distribution:
+  Number of occupied Slices:              8 out of   2,448    1%
+    Number of Slices containing only related logic:       8 out of       8 100%
+    Number of Slices containing unrelated logic:          0 out of       8   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:          13 out of   4,896    1%
+  Number of bonded IOBs:                 16 out of      66   24%
+
+Average Fanout of Non-Clock Nets:                2.24
+
+Peak Memory Usage:  577 MB
+Total REAL time to MAP completion:  1 secs 
+Total CPU time to MAP completion:   1 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Informational
+-------------------------
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  12 block(s) removed
+ 569 block(s) optimized away
+  12 signal(s) removed
+  15 Block(s) redundant
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "inst0/inst151/inst0_O" is unused and has been removed.
+ Unused block "inst0/inst151/inst0/inst0" (ROM) removed.
+The signal "inst0/inst151/inst2_O" is unused and has been removed.
+ Unused block "inst0/inst151/inst2/inst0" (ROM) removed.
+The signal "inst0/inst159/inst1_O" is unused and has been removed.
+ Unused block "inst0/inst159/inst1/inst0" (ROM) removed.
+The signal "inst0/inst159/inst2_O" is unused and has been removed.
+ Unused block "inst0/inst159/inst2/inst0" (ROM) removed.
+The signal "inst0/inst181/inst0_O" is unused and has been removed.
+ Unused block "inst0/inst181/inst0/inst0" (ROM) removed.
+The signal "inst0/inst181/inst2_O" is unused and has been removed.
+ Unused block "inst0/inst181/inst2/inst0" (ROM) removed.
+The signal "inst0/inst183/inst0_O" is unused and has been removed.
+ Unused block "inst0/inst183/inst0/inst0" (ROM) removed.
+The signal "inst0/inst183/inst1_O" is unused and has been removed.
+ Unused block "inst0/inst183/inst1/inst0" (ROM) removed.
+The signal "inst0/inst217/inst0_O" is unused and has been removed.
+ Unused block "inst0/inst217/inst0/inst0" (ROM) removed.
+The signal "inst0/inst217/inst2_O" is unused and has been removed.
+ Unused block "inst0/inst217/inst2/inst0" (ROM) removed.
+The signal "inst0/inst235/inst1_O" is unused and has been removed.
+ Unused block "inst0/inst235/inst1/inst0" (ROM) removed.
+The signal "inst0/inst235/inst2_O" is unused and has been removed.
+ Unused block "inst0/inst235/inst2/inst0" (ROM) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+LUT3 		inst0/inst10/inst0
+   optimized to 0
+LUT3 		inst0/inst100/inst0
+   optimized to 0
+LUT2 		inst0/inst101/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst101/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst101/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst101/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst102/inst0
+   optimized to 0
+LUT2 		inst0/inst103/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst103/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst103/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst103/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst104/inst0
+   optimized to 0
+LUT2 		inst0/inst105/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst105/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst105/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst105/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst106/inst0
+   optimized to 0
+LUT2 		inst0/inst107/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst107/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst107/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst107/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst108/inst0
+   optimized to 0
+LUT2 		inst0/inst109/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst109/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst109/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst109/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst11/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst11/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst11/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst11/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst110/inst0
+   optimized to 0
+LUT2 		inst0/inst111/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst111/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst111/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst111/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst114/inst0
+   optimized to 1
+LUT2 		inst0/inst115/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst115/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst115/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst115/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst116/inst0
+   optimized to 1
+LUT2 		inst0/inst117/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst117/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst117/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst117/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst118/inst0
+   optimized to 1
+LUT2 		inst0/inst119/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst119/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst119/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst119/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst12/inst0
+   optimized to 0
+LUT3 		inst0/inst120/inst0
+   optimized to 1
+LUT2 		inst0/inst121/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst121/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst121/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst121/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst122/inst0
+   optimized to 1
+LUT2 		inst0/inst123/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst123/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst123/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst123/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst124/inst0
+   optimized to 1
+LUT2 		inst0/inst125/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst125/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst125/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst125/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst126/inst0
+   optimized to 1
+LUT2 		inst0/inst127/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst127/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst127/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst127/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst128/inst0
+   optimized to 1
+LUT2 		inst0/inst129/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst129/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst129/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst129/inst3/inst0
+   optimized to 0
+LUT2 		inst0/inst13/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst13/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst13/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst13/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst130/inst0
+   optimized to 1
+LUT2 		inst0/inst131/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst131/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst131/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst131/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst132/inst0
+   optimized to 1
+LUT2 		inst0/inst133/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst133/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst133/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst133/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst134/inst0
+   optimized to 1
+LUT2 		inst0/inst135/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst135/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst135/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst135/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst136/inst0
+   optimized to 1
+LUT2 		inst0/inst137/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst137/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst137/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst137/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst138/inst0
+   optimized to 1
+LUT2 		inst0/inst139/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst139/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst139/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst139/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst14/inst0
+   optimized to 0
+LUT2 		inst0/inst141/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst141/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst141/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst141/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst142/inst0
+   optimized to 0
+LUT2 		inst0/inst143/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst143/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst143/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst143/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst144/inst0
+   optimized to 0
+LUT2 		inst0/inst145/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst145/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst145/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst145/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst146/inst0
+   optimized to 0
+LUT2 		inst0/inst147/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst147/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst147/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst147/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst148/inst0
+   optimized to 0
+LUT2 		inst0/inst149/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst149/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst149/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst149/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst15/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst15/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst15/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst15/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst151/inst1/inst0
+   optimized to 1
+LUT3 		inst0/inst151/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst152/inst0
+   optimized to 1
+LUT2 		inst0/inst153/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst153/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst153/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst153/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst154/inst0
+   optimized to 1
+LUT2 		inst0/inst155/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst155/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst155/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst155/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst156/inst0
+   optimized to 1
+LUT2 		inst0/inst157/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst157/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst157/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst157/inst3/inst0
+   optimized to 0
+LUT2 		inst0/inst159/inst0/inst0
+   optimized to 1
+LUT3 		inst0/inst159/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst16/inst0
+   optimized to 0
+LUT3 		inst0/inst160/inst0
+   optimized to 1
+LUT2 		inst0/inst161/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst161/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst161/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst161/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst162/inst0
+   optimized to 1
+LUT2 		inst0/inst163/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst163/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst163/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst163/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst164/inst0
+   optimized to 1
+LUT2 		inst0/inst165/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst165/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst165/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst165/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst166/inst0
+   optimized to 1
+LUT2 		inst0/inst167/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst167/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst167/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst167/inst3/inst0
+   optimized to 0
+LUT2 		inst0/inst169/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst169/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst169/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst169/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst17/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst17/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst17/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst17/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst170/inst0
+   optimized to 0
+LUT2 		inst0/inst171/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst171/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst171/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst171/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst172/inst0
+   optimized to 0
+LUT2 		inst0/inst173/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst173/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst173/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst173/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst174/inst0
+   optimized to 0
+LUT2 		inst0/inst175/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst175/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst175/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst175/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst177/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst177/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst177/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst177/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst178/inst0
+   optimized to 0
+LUT2 		inst0/inst179/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst179/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst179/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst179/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst18/inst0
+   optimized to 0
+LUT2 		inst0/inst181/inst1/inst0
+   optimized to 1
+LUT3 		inst0/inst181/inst3/inst0
+   optimized to 0
+LUT2 		inst0/inst183/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst183/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst184/inst0
+   optimized to 1
+LUT2 		inst0/inst185/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst185/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst185/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst185/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst186/inst0
+   optimized to 1
+LUT2 		inst0/inst187/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst187/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst187/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst187/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst188/inst0
+   optimized to 1
+LUT2 		inst0/inst189/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst189/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst189/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst189/inst3/inst0
+   optimized to 0
+LUT2 		inst0/inst19/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst19/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst19/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst19/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst191/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst191/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst191/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst191/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst192/inst0
+   optimized to 0
+LUT2 		inst0/inst193/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst193/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst193/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst193/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst194/inst0
+   optimized to 0
+LUT2 		inst0/inst195/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst195/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst195/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst195/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst196/inst0
+   optimized to 0
+LUT2 		inst0/inst197/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst197/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst197/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst197/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst198/inst0
+   optimized to 0
+LUT2 		inst0/inst199/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst199/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst199/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst199/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst20/inst0
+   optimized to 0
+LUT3 		inst0/inst200/inst0
+   optimized to 1
+LUT2 		inst0/inst201/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst201/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst201/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst201/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst204/inst0
+   optimized to 1
+LUT2 		inst0/inst205/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst205/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst205/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst205/inst3/inst0
+   optimized to 0
+LUT2 		inst0/inst207/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst207/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst207/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst207/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst208/inst0
+   optimized to 0
+LUT2 		inst0/inst209/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst209/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst209/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst209/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst21/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst21/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst21/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst21/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst210/inst0
+   optimized to 0
+LUT2 		inst0/inst211/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst211/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst211/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst211/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst212/inst0
+   optimized to 1
+LUT2 		inst0/inst213/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst213/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst213/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst213/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst214/inst0
+   optimized to 1
+LUT2 		inst0/inst215/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst215/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst215/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst215/inst3/inst0
+   optimized to 0
+LUT2 		inst0/inst217/inst1/inst0
+   optimized to 1
+LUT3 		inst0/inst217/inst3/inst0
+   optimized to 0
+LUT2 		inst0/inst219/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst219/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst219/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst219/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst22/inst0
+   optimized to 0
+LUT2 		inst0/inst221/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst221/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst221/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst221/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst222/inst0
+   optimized to 1
+LUT2 		inst0/inst223/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst223/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst223/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst223/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst224/inst0
+   optimized to 1
+LUT2 		inst0/inst225/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst225/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst225/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst225/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst226/inst0
+   optimized to 0
+LUT2 		inst0/inst227/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst227/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst227/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst227/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst229/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst229/inst2/inst0
+   optimized to 0
+LUT2 		inst0/inst23/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst23/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst23/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst23/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst230/inst0
+   optimized to 1
+LUT2 		inst0/inst231/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst231/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst231/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst231/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst232/inst0
+   optimized to 0
+LUT2 		inst0/inst233/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst233/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst233/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst233/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst235/inst0/inst0
+   optimized to 1
+LUT3 		inst0/inst235/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst236/inst0
+   optimized to 0
+LUT2 		inst0/inst237/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst237/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst237/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst237/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst238/inst0
+   optimized to 1
+LUT2 		inst0/inst239/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst239/inst1/inst0
+   optimized to 1
+LUT2 		inst0/inst239/inst2/inst0
+   optimized to 1
+LUT3 		inst0/inst239/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst24/inst0
+   optimized to 0
+LUT2 		inst0/inst241/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst241/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst241/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst241/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst243/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst243/inst2/inst0
+   optimized to 0
+LUT2 		inst0/inst245/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst245/inst2/inst0
+   optimized to 0
+LUT2 		inst0/inst247/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst247/inst2/inst0
+   optimized to 0
+LUT2 		inst0/inst249/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst249/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst249/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst249/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst25/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst25/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst25/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst25/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst250/inst0
+   optimized to 0
+LUT2 		inst0/inst251/inst0/inst0
+   optimized to 1
+LUT2 		inst0/inst251/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst251/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst251/inst3/inst0
+   optimized to 0
+LUT3 		inst0/inst252/inst0
+   optimized to 0
+LUT2 		inst0/inst253/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst253/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst253/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst253/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst26/inst0
+   optimized to 0
+LUT2 		inst0/inst27/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst27/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst27/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst27/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst28/inst0
+   optimized to 0
+LUT2 		inst0/inst29/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst29/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst29/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst29/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst30/inst0
+   optimized to 0
+LUT2 		inst0/inst31/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst31/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst31/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst31/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst32/inst0
+   optimized to 0
+LUT2 		inst0/inst33/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst33/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst33/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst33/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst34/inst0
+   optimized to 0
+LUT2 		inst0/inst35/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst35/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst35/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst35/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst36/inst0
+   optimized to 0
+LUT2 		inst0/inst37/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst37/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst37/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst37/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst38/inst0
+   optimized to 0
+LUT2 		inst0/inst39/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst39/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst39/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst39/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst40/inst0
+   optimized to 0
+LUT2 		inst0/inst41/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst41/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst41/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst41/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst42/inst0
+   optimized to 0
+LUT2 		inst0/inst43/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst43/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst43/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst43/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst44/inst0
+   optimized to 0
+LUT2 		inst0/inst45/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst45/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst45/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst45/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst46/inst0
+   optimized to 0
+LUT2 		inst0/inst47/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst47/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst47/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst47/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst48/inst0
+   optimized to 0
+LUT2 		inst0/inst49/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst49/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst49/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst49/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst5/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst5/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst50/inst0
+   optimized to 0
+LUT2 		inst0/inst51/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst51/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst51/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst51/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst52/inst0
+   optimized to 0
+LUT2 		inst0/inst53/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst53/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst53/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst53/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst54/inst0
+   optimized to 0
+LUT2 		inst0/inst55/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst55/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst55/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst55/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst56/inst0
+   optimized to 0
+LUT2 		inst0/inst57/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst57/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst57/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst57/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst58/inst0
+   optimized to 0
+LUT2 		inst0/inst59/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst59/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst59/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst59/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst6/inst0
+   optimized to 0
+LUT3 		inst0/inst60/inst0
+   optimized to 0
+LUT2 		inst0/inst61/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst61/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst61/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst61/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst62/inst0
+   optimized to 0
+LUT2 		inst0/inst63/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst63/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst63/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst63/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst64/inst0
+   optimized to 0
+LUT2 		inst0/inst65/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst65/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst65/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst65/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst66/inst0
+   optimized to 0
+LUT2 		inst0/inst67/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst67/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst67/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst67/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst68/inst0
+   optimized to 0
+LUT2 		inst0/inst69/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst69/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst69/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst69/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst7/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst7/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst7/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst7/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst70/inst0
+   optimized to 0
+LUT2 		inst0/inst71/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst71/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst71/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst71/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst72/inst0
+   optimized to 0
+LUT2 		inst0/inst73/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst73/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst73/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst73/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst74/inst0
+   optimized to 0
+LUT2 		inst0/inst75/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst75/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst75/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst75/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst76/inst0
+   optimized to 0
+LUT2 		inst0/inst77/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst77/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst77/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst77/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst78/inst0
+   optimized to 0
+LUT2 		inst0/inst79/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst79/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst79/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst79/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst8/inst0
+   optimized to 0
+LUT3 		inst0/inst80/inst0
+   optimized to 0
+LUT2 		inst0/inst81/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst81/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst81/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst81/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst82/inst0
+   optimized to 0
+LUT2 		inst0/inst83/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst83/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst83/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst83/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst86/inst0
+   optimized to 0
+LUT2 		inst0/inst87/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst87/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst87/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst87/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst88/inst0
+   optimized to 0
+LUT2 		inst0/inst89/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst89/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst89/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst89/inst3/inst0
+   optimized to 1
+LUT2 		inst0/inst9/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst9/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst9/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst9/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst90/inst0
+   optimized to 0
+LUT2 		inst0/inst91/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst91/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst91/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst91/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst92/inst0
+   optimized to 0
+LUT2 		inst0/inst93/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst93/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst93/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst93/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst94/inst0
+   optimized to 0
+LUT2 		inst0/inst95/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst95/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst95/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst95/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst96/inst0
+   optimized to 0
+LUT2 		inst0/inst97/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst97/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst97/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst97/inst3/inst0
+   optimized to 1
+LUT3 		inst0/inst98/inst0
+   optimized to 0
+LUT2 		inst0/inst99/inst0/inst0
+   optimized to 0
+LUT2 		inst0/inst99/inst1/inst0
+   optimized to 0
+LUT2 		inst0/inst99/inst2/inst0
+   optimized to 0
+LUT3 		inst0/inst99/inst3/inst0
+   optimized to 1
+
+Redundant Block(s):
+TYPE 		BLOCK
+LUT3 		inst0/inst5/inst3/inst0
+LUT3 		inst0/inst158/inst0
+LUT3 		inst0/inst182/inst0
+LUT2 		inst0/inst203/inst1/inst0
+LUT3 		inst0/inst247/inst3/inst0
+LUT3 		inst0/inst248/inst0
+LUT3 		inst0/inst140/inst0
+LUT3 		inst0/inst176/inst0
+LUT3 		inst0/inst240/inst0
+LUT3 		inst0/inst216/inst0
+LUT2 		inst0/inst243/inst0/inst0
+LUT3 		inst0/inst243/inst3/inst0
+LUT3 		inst0/inst242/inst0
+LUT3 		inst0/inst229/inst3/inst0
+LUT3 		inst0/inst234/inst0
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| LED<0>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<1>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<2>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<3>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<4>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<5>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<6>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| LED<7>                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| SWITCH<0>                          | IBUF             | INPUT     | LVTTL                |       |          |      |              |          | 0 / 0    |
+| SWITCH<1>                          | IBUF             | INPUT     | LVTTL                |       |          |      |              |          | 0 / 0    |
+| SWITCH<2>                          | IBUF             | INPUT     | LVTTL                |       |          |      |              |          | 0 / 0    |
+| SWITCH<3>                          | IBUF             | INPUT     | LVTTL                |       |          |      |              |          | 0 / 0    |
+| SWITCH<4>                          | IBUF             | INPUT     | LVTTL                |       |          |      |              |          | 0 / 0    |
+| SWITCH<5>                          | IBUF             | INPUT     | LVTTL                |       |          |      |              |          | 0 / 0    |
+| SWITCH<6>                          | IBUF             | INPUT     | LVTTL                |       |          |      |              |          | 0 / 0    |
+| SWITCH<7>                          | IBUF             | INPUT     | LVTTL                |       |          |      |              |          | 0 / 0    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Module             | Partition | Slices        | Slice Reg     | LUTs          | LUTRAM        | BRAM      | MULT18X18 | BUFG  | DCM   | Full Hierarchical Name    |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| main/              |           | 0/13          | 0/0           | 0/13          | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main                      |
+| +inst0             |           | 0/13          | 0/0           | 0/13          | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0                |
+| ++inst0            |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst0          |
+| ++inst1            |           | 0/1           | 0/0           | 0/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst1          |
+| +++inst3           |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst1/inst3    |
+| ++inst2            |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst2          |
+| ++inst202          |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst202        |
+| ++inst228          |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst228        |
+| ++inst229          |           | 0/1           | 0/0           | 0/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst229        |
+| +++inst0           |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst229/inst0  |
+| ++inst244          |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst244        |
+| ++inst246          |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst246        |
+| ++inst247          |           | 0/1           | 0/0           | 0/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst247        |
+| +++inst0           |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst247/inst0  |
+| ++inst3            |           | 0/1           | 0/0           | 0/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst3          |
+| +++inst3           |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst3/inst3    |
+| ++inst5            |           | 0/1           | 0/0           | 0/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst5          |
+| +++inst0           |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst5/inst0    |
+| ++inst84           |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst84         |
+| ++inst85           |           | 0/1           | 0/0           | 0/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst85         |
+| +++inst3           |           | 1/1           | 0/0           | 1/1           | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | main/inst0/inst85/inst3   |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Slices can be packed with basic elements from multiple hierarchies.
+  Therefore, a slice will be counted in every hierarchical module
+  that each of its packed basic elements belong to.
+** For each column, there are two numbers reported <A>/<B>.
+   <A> is the number of elements that belong to that specific hierarchical module.
+   <B> is the total number of elements from that hierarchical module and any lower level
+   hierarchical modules below.
+*** The LUTRAM column counts all LUTs used as memory including RAM, ROM, and shift registers.

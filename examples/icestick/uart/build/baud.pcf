@@ -1,0 +1,3 @@
+set_io J3[1] 61
+set_io J3[0] 62
+set_io CLKIN 21
