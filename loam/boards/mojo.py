@@ -1,5 +1,6 @@
 from magma import *
 from mantle import *
+from loam import Board
 from loam.parts.xilinx.spartan6 import XC6SLX9
 from loam.parts.generic.crystal import Crystal
 #from mantle.peripherals.timer import Timer

@@ -1,6 +1,7 @@
 from magma import *
 from mantle import *
 #from mantle.peripherals.timer import Timer
+from loam import Board
 from loam.parts.xilinx.spartan6 import XC6SLX9
 from loam.parts.generic.crystal import Crystal
 
@@ -26,7 +27,7 @@ class Xula2(Board):
 
         #self.Timer = Timer(fpga, name='systimer')
 
-        self.Pin = [fpga.R7, fpga.R15, fpga.R16, fpga.M15, 
+        self.PINS = [fpga.R7, fpga.R15, fpga.R16, fpga.M15, 
                     fpga.M16, fpga.K15, fpga.K16, fpga.J16,
                     fpga.J14, fpga.F15, fpga.F16, fpga.C16,
                     fpga.C15, fpga.B16, fpga.B15, fpga.T4,
