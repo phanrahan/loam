@@ -2,6 +2,7 @@ from magma import *
 from mantle import *
 #from mantle.peripherals.timer import Timer
 
+from loam import Board
 from loam.parts.xilinx.zynq import XC7Z020
 from loam.parts.generic.switch import Switches
 from loam.parts.generic.led import LEDs
