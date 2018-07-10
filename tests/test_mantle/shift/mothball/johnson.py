@@ -1,5 +1,6 @@
-from magma import wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, Counter, Johnson
+import magma as m
+import mantle
+from loam.boards.icestick import IceStick
 
 icestick = IceStick()
 icestick.Clock.on()
@@ -8,12 +9,12 @@ for i in range(4):
 
 main = icestick.main()
 
-clock = Counter(22)
+clock = mantle.Counter(22)
 
-johnson = Johnson(4, has_ce=True)
+johnson = mantle.Johnson(4, has_ce=True)
 
 johnson(ce=clock.COUT)
 
-wire(johnson.O, main.J3)
+m.wire(johnson.O, main.J3)
 
-EndCircuit()
+m.EndCircuit()

@@ -1,7 +1,0 @@
-INFILE=/mnt/hgfs/hanrahan/git/loam/tests/megawing/mantle3/counter/build/parout.ncd
-OUTFILE=/mnt/hgfs/hanrahan/git/loam/tests/megawing/mantle3/counter/build/counter32.bit
-FAMILY=Spartan3E
-PART=xc3s250e-4vq100
-WORKINGDIR=/mnt/hgfs/hanrahan/git/loam/tests/megawing/mantle3/counter/build
-LICENSE=WebPack
-USER_INFO=206382588_0_0_219

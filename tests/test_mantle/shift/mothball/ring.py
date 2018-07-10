@@ -1,5 +1,6 @@
-from magma import wire, compile, EndCircuit
-from loam.boards.icestick import IceStick, Counter, Ring
+import magma as m
+import mantle
+from loam.boards.icestick import IceStick
 
 N = 8
 
@@ -10,10 +11,10 @@ for i in range(N):
 
 main = icestick.main()
 
-clock = Counter(22)
+clock = mantle.Counter(22)
 
-ring = Ring(N, has_ce=True)
+ring = mantle.Ring(N, has_ce=True)
 
-wire( ring( ce=clock.COUT ), main.J3 )
+m.wire( ring( ce=clock.COUT ), main.J3 )
 
-EndCircuit()
+m.EndCircuit()
