@@ -1,6 +1,6 @@
 import pytest
 import mantle
-from ..harness import unary, binary
+from ..harness import unary, binary, shift
 
 def com(name, main):
     import magma 
@@ -10,7 +10,7 @@ def com(name, main):
     gold = 'gold/' + name
     magma.compile(build, main)
     assert check_files_equal(__file__, build+'.v',   gold+'.v')
-    if magma.mantle_target == 'ice40':
+    if   magma.mantle_target == 'ice40':
         assert check_files_equal(__file__, build+'.pcf', gold+'.pcf')
     elif magma.mantle_target in ['spartan3', 'spartan6']:
         assert check_files_equal(__file__, build+'.ucf', gold+'.ucf')
@@ -33,4 +33,15 @@ def test_unary(op,width):
 def test_binary(op,width):
     Test = getattr(mantle, op)
     com(f'{op}{width}', binary(Test, width))
+
+@pytest.mark.parametrize("op", [
+    "ASR",
+])
+@pytest.mark.parametrize("width", [2])
+def test_shift(op,width):
+    from magma.bitutils import clog2
+    total = width + clog2(width)
+    if total < 8:
+        Test = getattr(mantle, op)
+        com(f'{op}{width}', shift(Test, width) )
 

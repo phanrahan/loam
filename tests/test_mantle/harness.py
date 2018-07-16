@@ -1,4 +1,5 @@
 import magma as m
+from magma.bitutils import clog2
 
 def main(ninputs, noutputs, input_isbits=True, output_isbits=True,
          has_clock=False):
@@ -114,6 +115,17 @@ def compare(Test, width):
     top = main(2*width,1,output_isbits=False)
     test = Test(width)
     m.wire( test(top.I[0:width], top.I[width:2*width]), top.O )
+    m.EndCircuit()
+    return top
+
+# IO : In(Bits(width), I1 : In(Bits(clog2(width))), O : Out(Bits(width)
+def shift(Test, width):
+    logwidth = clog2(width)
+    print(width, logwidth)
+    top = main(width+logwidth,width)
+    test = Test(width)
+    print(type(test))
+    m.wire( test(top.I[0:width], top.I[width:width+logwidth]), top.O )
     m.EndCircuit()
     return top
 

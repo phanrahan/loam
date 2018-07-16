@@ -1,7 +1,7 @@
 import pytest
 import magma
 import mantle
-from ..harness import reduce, unary, nary
+from ..harness import reduce, unary, nary, shift
 
 def com(name, main):
     from magma.testing import check_files_equal
@@ -56,3 +56,17 @@ def test_unary(op,width):
 
 def test_not():
     pass
+
+@pytest.mark.parametrize("op", [
+    "LSL",
+    "LSR",
+    "ROL",
+    "ROR",
+])
+@pytest.mark.parametrize("width", [2,4])
+def test_shift(op,width):
+    from magma.bitutils import clog2
+    total = width + clog2(width)
+    if total < 8:
+        Test = getattr(mantle, op)
+        com(f'{op}{width}', shift(Test, width) )
