@@ -9,7 +9,7 @@ trap 'err=1' ERR
 py.test --target ice40    tests/icestick
 py.test --target ice40    tests/test_mantle 
 py.test --target spartan3 tests/test_mantle
-y.test --target spartan6 tests/test_mantle
+py.test --target spartan6 tests/test_mantle
 cd tests
 ./bake
 cd ..
