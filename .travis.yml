@@ -5,7 +5,7 @@ python:
 install:
     - pip install pytest-cov
     - pip install fabricate
-    - pip install -e .
+    - pip install --process-dependency-links -e .
 
 script:
     - ./scripts/run_tests.sh
