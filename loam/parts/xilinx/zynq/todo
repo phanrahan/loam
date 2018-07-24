@@ -1,0 +1,11 @@
+Get all the pin information to the zynq fpga (part)
+  This includes IOSTANDARD, SLEW, DRIVE, and LOC.
+  Currently I have a table of the correct values for these in collateral/system.ucf and collateral/ps7_constraints.ucf
+    Can I automatically generate this from something?
+
+To be able to get *anything* running on the zynq you need to:
+  Instantiate the ps7 module.
+  Wire the MIO, PS_* and DDR_* signals from the ps7 instance to the top IO
+  drive all other inputs to the ps7 instance to constants
+    Specifically you need "stubs" on every unused axi port
+
