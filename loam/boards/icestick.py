@@ -4,7 +4,7 @@ from loam.parts.generic.crystal import Crystal
 from loam.parts.generic.led import LED
 from loam.parts.ftdi.ft232r import FT232R
 #from loam.peripherals.timer import Timer
-from loam import 
+from loam import Board
 
 '''
 SPECS: Lattice ICE40HX1K
