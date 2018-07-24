@@ -113,6 +113,7 @@ It is that easy to make an LED blink using an FPGA!
 $ git clone https://github.com/phanrahan/loam
 $ cd loam
 $ pip install pytest
+$ pip install -r requirements.txt
 $ pip install -e .
 $ ./scripts/run_tests.sh
 ```
