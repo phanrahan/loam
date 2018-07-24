@@ -107,13 +107,24 @@ It is that easy to make an LED blink using an FPGA!
 
 
 # Setup
-* Follow [these instructions](https://github.com/phanrahan/magma#setup) to install magma
-* Follow [these instructions](https://github.com/phanrahan/mantle#setup) to install mantle
 ```
 $ git clone https://github.com/phanrahan/loam
 $ cd loam
-$ pip install pytest
+```
+
+Install the Python dependencies. You can do this automatically using `pip` 
+```
 $ pip install -r requirements.txt
+```
+
+Or manually
+* Follow [these instructions](https://github.com/phanrahan/magma#setup) to install magma
+* Follow [these instructions](https://github.com/phanrahan/mantle#setup) to install mantle
+
+Install the `pytest` testing framework and the `loam` package, then run the test suite
+to check that everything is in order.
+```
+$ pip install pytest
 $ pip install -e .
 $ ./scripts/run_tests.sh
 ```
