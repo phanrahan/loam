@@ -78,6 +78,13 @@ class HX8KBoard(Board):
                    GND,          GND]
 
 
+        # self.J2[3].rename( "J2_3" )
+        # self.J2[4].rename( "J2_4" )
+        
+        for i in range(len(self.J2)):
+            if (self.J2[i] != VCC) & (self.J2[i] != GND):
+                self.J2[i].rename( "J2_%d" % i )
+
         self.J3 = []
         self.J4 = []
 
