@@ -4,6 +4,7 @@ from mantle.xilinx.zynq import PS7
 from ..spartan.spartan import Spartan
 from ..gpio import GPIO, Pin
 from .clock import Clock
+from .pinmap import pinmap
 
 class Zynq(Spartan):
     family = 'zynq'
@@ -509,10 +510,26 @@ class XC7Z020(Zynq):
         if package == 'clg484':
             self.CLG484()
         
-        #TODO Import PS7 peripheral nicely!
-        self.ps7 = PS7(self)
+        #This is the PS7 peripheral
+        ps7 = PS7(self)
+        self.ps7 = ps7
 
-        self.clock = Clock(self)
+        #Wire up MIO
+        mio_map = pinmap[0]
+        for i, (net, loc, slew) in enumerate(zip(mio_map["NET"],mio_map["LOC"],mio_map["SLEW"])):
+          pin = getattr(self,loc)
+          wire(ps7.MIO[i],pin)
+          pin.setucfopts(dict(
+            DRIVE=mio_map["DRIVE"],
+            IOSTANDARD=mio_map["IOSTANDARD"],
+            SLEW=slew
+          )
+
+        #Wire up DDR
+
+        #WIre up PS_
+
+
 
 if __name__ == "__main__":
     fpga = XC7Z020()
