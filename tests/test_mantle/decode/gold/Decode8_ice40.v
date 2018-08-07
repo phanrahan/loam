@@ -18,7 +18,7 @@ SB_LUT4 #(.LUT_INIT(16'h8282)) inst7 (.I0(inst6_O), .I1(I0[7]), .I2(I1[7]), .I3(
 assign O = inst7_O;
 endmodule
 
-module Decode08 (input [7:0] I, output  O);
+module Decode8_0 (input [7:0] I, output  O);
 wire  inst0_O;
 EQ8 inst0 (.I0(I), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}), .O(inst0_O));
 assign O = inst0_O;
@@ -26,7 +26,7 @@ endmodule
 
 module main (input [7:0] J1, output  J3);
 wire  inst0_O;
-Decode08 inst0 (.I(J1), .O(inst0_O));
+Decode8_0 inst0 (.I(J1), .O(inst0_O));
 assign J3 = inst0_O;
 endmodule
 
