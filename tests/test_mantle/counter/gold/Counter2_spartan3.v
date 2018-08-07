@@ -23,7 +23,7 @@ FDRSE #(.INIT(1'h0)) inst1 (.C(CLK), .CE(1'b1), .R(1'b0), .S(1'b0), .D(I[1]), .Q
 assign O = {inst1_Q,inst0_Q};
 endmodule
 
-module Counter2 (output [1:0] O, output  COUT, input  CLK);
+module Counter2_COUT (output [1:0] O, output  COUT, input  CLK);
 wire [1:0] inst0_O;
 wire  inst0_COUT;
 wire [1:0] inst1_O;
@@ -36,7 +36,7 @@ endmodule
 module main (output [1:0] LED, input  CLKIN);
 wire [1:0] inst0_O;
 wire  inst0_COUT;
-Counter2 inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
+Counter2_COUT inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
 assign LED = inst0_O;
 endmodule
 
