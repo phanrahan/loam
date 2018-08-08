@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 import os, glob
 
-tests = glob.glob('*')
-tests = ['icestick', 'goboard', 'hx8kboard']
+tests  = ['icestick', 'goboard', 'hx8kboard']
+tests += ['tinyfpga/B2', 'tinyfpga/BX']
+tests += ['upduino']
+tests += ['gp4devboard']
+tests += ['megawing/papiloone', 'megawing/papiliopro']
 
 def build():
     for test in tests:

@@ -3,4 +3,6 @@
 # Except this file
 !.gitignore
 # And makefiles
-!Makefile
+!Makefile*
+# And bscan
+!bscan*

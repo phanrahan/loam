@@ -7,7 +7,7 @@ assign O = inst0_O;
 assign COUT = inst1_CO;
 endmodule
 
-module Add24Cout (input [23:0] I0, input [23:0] I1, output [23:0] O, output  COUT);
+module Add24_COUT (input [23:0] I0, input [23:0] I1, output [23:0] O, output  COUT);
 wire  inst0_O;
 wire  inst0_COUT;
 wire  inst1_O;
@@ -136,11 +136,11 @@ SB_DFF inst23 (.C(CLK), .D(I[23]), .Q(inst23_Q));
 assign O = {inst23_Q,inst22_Q,inst21_Q,inst20_Q,inst19_Q,inst18_Q,inst17_Q,inst16_Q,inst15_Q,inst14_Q,inst13_Q,inst12_Q,inst11_Q,inst10_Q,inst9_Q,inst8_Q,inst7_Q,inst6_Q,inst5_Q,inst4_Q,inst3_Q,inst2_Q,inst1_Q,inst0_Q};
 endmodule
 
-module Counter24 (output [23:0] O, output  COUT, input  CLK);
+module Counter24_COUT (output [23:0] O, output  COUT, input  CLK);
 wire [23:0] inst0_O;
 wire  inst0_COUT;
 wire [23:0] inst1_O;
-Add24Cout inst0 (.I0(inst1_O), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1}), .O(inst0_O), .COUT(inst0_COUT));
+Add24_COUT inst0 (.I0(inst1_O), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1}), .O(inst0_O), .COUT(inst0_COUT));
 Register24 inst1 (.I(inst0_O), .O(inst1_O), .CLK(CLK));
 assign O = inst1_O;
 assign COUT = inst0_COUT;
@@ -149,7 +149,7 @@ endmodule
 module main (input  CLKIN, output  LED);
 wire [23:0] inst0_O;
 wire  inst0_COUT;
-Counter24 inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
+Counter24_COUT inst0 (.O(inst0_O), .COUT(inst0_COUT), .CLK(CLKIN));
 assign LED = inst0_O[23];
 endmodule
 

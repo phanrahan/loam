@@ -14,8 +14,6 @@ class B(Board):
 
         super(B, self).__init__(name)
 
-        # Need to define the interface ...
-
         self.fpga = fpga = ICE40LP8K(board=self, package='cm81')
 
         # SPI interface
@@ -24,6 +22,7 @@ class B(Board):
         self.SS  = fpga.IOB_108_SS  # F7 
         self.SS.rename('SS').output()
 
+        # USB interface
         self.USB_DP = fpga.IOT_211 # B4 USB DP
         self.USB_DP.rename('USB_DP').inout()
         self.USB_DN = fpga.IOT_208 # A4 USB DN
@@ -33,7 +32,7 @@ class B(Board):
 
     def set_pins(self):
         for i in range(1,len(self.header)):
-            name = "PIN{}".format(i)
+            name = f"PIN{i}"
             pin = self.header[i]
             pin.rename( name )
             setattr(self, name, pin )
@@ -46,13 +45,14 @@ class B2(B):
 
         fpga = self.fpga
 
-        self.CLKIN = fpga.IOT_211 # B2
+        self.CLKIN = fpga.IOT_211 # B4
         self.CLKIN.rename('CLKIN')
 
         self.Crystal = Crystal(16000000, board=self)
         m.wire(self.Crystal.O, self.CLKIN.I)
 
         self.Clock = fpga.clock
+        m.wire(self.CLKIN.O, self.Clock.I)
 
         self.SDO = fpga.IOB_105_SDO # G6 
         self.SDO.rename('SDO').output()
@@ -101,7 +101,7 @@ class BX(B):
 
         fpga = self.fpga
 
-        self.CLKIN = fpga.IOL_2B # B2
+        self.CLKIN = fpga.IOL_2B # pin B2
         self.CLKIN.rename('CLKIN')
 
         self.Crystal = Crystal(16000000, board=self)

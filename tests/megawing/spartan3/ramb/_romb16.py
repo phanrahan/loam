@@ -1,5 +1,5 @@
 import magma as m
-from mantle.xilinx.spartan3.RAMB import ROMB
+from mantle.xilinx.spartan3.RAMB import ROMB16
 from loam.boards.papilioone import PapilioOne
 from loam.shields.megawing import MegaWing
 
@@ -16,7 +16,7 @@ for i in range(1024):
     byte = i & 0xff
     rom[i] = byte << 8
 
-romb = ROMB( rom, 16 )
+romb = ROMB16( rom, 16 )
 
 I = m.bits([main.SWITCH[0], main.SWITCH[1], main.SWITCH[2], main.SWITCH[3],
           main.SWITCH[4], main.SWITCH[5], main.SWITCH[6], main.SWITCH[7],

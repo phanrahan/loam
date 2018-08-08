@@ -7,7 +7,7 @@ assign O = inst0_O;
 assign COUT = inst1_CO;
 endmodule
 
-module Add26Cout (input [25:0] I0, input [25:0] I1, output [25:0] O, output  COUT);
+module Add26_COUT (input [25:0] I0, input [25:0] I1, output [25:0] O, output  COUT);
 wire  inst0_O;
 wire  inst0_COUT;
 wire  inst1_O;
@@ -146,11 +146,11 @@ SB_DFF inst25 (.C(CLK), .D(I[25]), .Q(inst25_Q));
 assign O = {inst25_Q,inst24_Q,inst23_Q,inst22_Q,inst21_Q,inst20_Q,inst19_Q,inst18_Q,inst17_Q,inst16_Q,inst15_Q,inst14_Q,inst13_Q,inst12_Q,inst11_Q,inst10_Q,inst9_Q,inst8_Q,inst7_Q,inst6_Q,inst5_Q,inst4_Q,inst3_Q,inst2_Q,inst1_Q,inst0_Q};
 endmodule
 
-module Counter26 (output [25:0] O, output  COUT, input  CLK);
+module Counter26_COUT (output [25:0] O, output  COUT, input  CLK);
 wire [25:0] inst0_O;
 wire  inst0_COUT;
 wire [25:0] inst1_O;
-Add26Cout inst0 (.I0(inst1_O), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1}), .O(inst0_O), .COUT(inst0_COUT));
+Add26_COUT inst0 (.I0(inst1_O), .I1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1}), .O(inst0_O), .COUT(inst0_COUT));
 Register26 inst1 (.I(inst0_O), .O(inst1_O), .CLK(CLK));
 assign O = inst1_O;
 assign COUT = inst0_COUT;
@@ -167,7 +167,7 @@ SB_PLL40_CORE #(.DIVF(7'b0111111),
 .FEEDBACK_PATH("SIMPLE"),
 .FILTER_RANGE(3'b001),
 .PLLOUT_SELECT("GENCLK")) inst0 (.REFERENCECLK(CLKIN), .RESETB(1'b1), .BYPASS(1'b0), .PLLOUTCORE(inst0_PLLOUTCORE), .PLLOUTGLOBAL(inst0_PLLOUTGLOBAL));
-Counter26 inst1 (.O(inst1_O), .COUT(inst1_COUT), .CLK(CLKIN));
+Counter26_COUT inst1 (.O(inst1_O), .COUT(inst1_COUT), .CLK(CLKIN));
 assign D5 = inst1_O[25];
 endmodule
 
