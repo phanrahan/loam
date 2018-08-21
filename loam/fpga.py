@@ -62,7 +62,7 @@ class FPGA(Part):
                     else:
                         args.append(In(Bit) if p.direction == INPUT else Out(Bit))
 
-        D = DefineCircuit('main',*args)
+        D = DefineCircuit('main',*args, __magma_no_cache__=True)
         D.fpga = self
         for p in self.peripherals:
             if p.used:
