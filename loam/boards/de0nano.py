@@ -8,6 +8,19 @@ from loam.parts.generic.led import LED
 #from loam.peripherals.timer import Timer
 from loam import Board
 
+'''
+SPECS: Altera EP4CE22F17C6
+-------------------------------------
+Logics Elements              : 22320
+Embedded memory (Kbits)      : 594
+Embedded 18 x 18 multipliers : 66
+General Purpose PLLs         : 4   
+Global Clock Networks        : 20
+User I/O Banks               : 8
+Maxu=imum User I/O           : 153
+-------------------------------------
+'''
+
 
 class DE0Nano(Board):
 

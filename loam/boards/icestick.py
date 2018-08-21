@@ -6,6 +6,18 @@ from loam.parts.ftdi.ft232r import FT232R
 #from loam.peripherals.timer import Timer
 from loam import Board
 
+'''
+SPECS: Lattice ICE40HX1K
+-------------------------------
+Logics Cells (LUT + FF)  : 1280
+RAM4K Memory Blocks      : 16
+RAM4K RAM bits           : 64K
+PLLs                     : 1    
+Programmable I/O pins    : 95
+Differential Input Pairs : 11
+-------------------------------
+'''
+
 
 class IceStick(Board):
 

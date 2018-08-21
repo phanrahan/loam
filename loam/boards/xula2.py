@@ -5,6 +5,21 @@ from loam import Board
 from loam.parts.xilinx.spartan6 import XC6SLX9
 from loam.parts.generic.crystal import Crystal
 
+'''
+SPECS: Xilinx XC6SLX9
+-------------------------------------------
+Logics Cells                       : 9152
+Slices (4 LUTs + 8 FFs)            : 1430
+Flip-Flops                         : 11440
+Max Distributed RAM (Kb)           : 90
+DSP Slices (18x18 mul+adder+accum) : 16
+BRAM (Kb)                          : 576
+CMTs (2 DCMs + PLL)                : 2
+Memory Controller Blocks           : 2
+Max User I/O                       : 200
+-------------------------------------------
+'''
+
 class Xula2(Board):
     vendor = 'xess'
 

@@ -6,6 +6,18 @@ from loam.parts.ftdi.ft232r import FT232R
 #from loam.peripherals.timer import Timer
 from loam import Board
 
+'''
+SPECS: Lattice ICE40HX8K
+-------------------------------
+Logics Cells (LUT + FF)  : 7680
+RAM4K Memory Blocks      : 32
+RAM4K RAM bits           : 128K
+PLLs                     : 2    
+Programmable I/O pins    : 206
+Differential Input Pairs : 26
+-------------------------------
+'''
+
 
 class HX8KBoard(Board):
 
@@ -65,6 +77,13 @@ class HX8KBoard(Board):
                    fpga.PIO1_47, fpga.PIO1_49,
                    GND,          GND]
 
+
+        # self.J2[3].rename( "J2_3" )
+        # self.J2[4].rename( "J2_4" )
+        
+        for i in range(len(self.J2)):
+            if (self.J2[i] != VCC) & (self.J2[i] != GND):
+                self.J2[i].rename( "J2_%d" % i )
 
         self.J3 = []
         self.J4 = []

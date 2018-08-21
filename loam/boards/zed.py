@@ -7,6 +7,18 @@ from loam.parts.xilinx.zynq import XC7Z020
 from loam.parts.generic.switch import Switches
 from loam.parts.generic.led import LEDs
 
+'''
+SPECS: Xilinx Zynq XC7Z020
+----------------------------------
+Logics Cells             : 85K
+LUTs                     : 53200
+Flip-Flops               : 106400
+Block RAM                : 3.3 Mb
+DSP Slices (18x25 MACCs) : 220
+Differential Inputs      : 17
+----------------------------------
+'''
+
 
 class Zed(Board):
 
