@@ -10,6 +10,6 @@ for i in range(4, 8):
     icestick.J1[i].rename('J1o[{}]'.format(i-4)).output().on()
 
 main = icestick.main()
-m.wire(1, main.J1o[0])
+main.J1o <= main.J1i
 m.EndCircuit()
 

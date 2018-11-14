@@ -14,10 +14,11 @@ main = icestick.main()
 N = 26
 
 counter = Counter(N)
-m.wire(counter.O[N-2], main.DSR)
-m.wire(counter.O[N-2], main.D1)
+O, _ = counter()
+main.DSR <= O[-2]
+main.D1 <= O[-2]
 
-m.wire(counter.O[N-1], main.CTS)
-m.wire(counter.O[N-1], main.D2)
+main.CTS <= O[-1]
+main.D2 <= O[-1]
 
 m.EndCircuit()

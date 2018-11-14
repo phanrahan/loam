@@ -8,6 +8,6 @@ icestick.J3[0].output().on()
 
 main = icestick.main()
 
-m.wire( main.J1, main.J3 )
+main.J3 <= main.J1
 
 m.EndCircuit()

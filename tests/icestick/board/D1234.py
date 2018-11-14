@@ -9,9 +9,9 @@ icestick.D4.on()
 
 main = icestick.main()
 
-m.wire( 1, main.D1 )
-m.wire( 1, main.D2 )
-m.wire( 1, main.D3 )
-m.wire( 1, main.D4 )
+main.D1 <= 1
+main.D2 <= 1
+main.D3 <= 1
+main.D4 <= 1
 
 m.EndCircuit()

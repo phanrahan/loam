@@ -6,6 +6,6 @@ icestick.D5.on()
 
 main = icestick.main()
 
-m.wire( 1, main.D5 )
+main.D5 <= 1
 
 m.EndCircuit()

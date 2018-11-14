@@ -10,6 +10,7 @@ main = icestick.main()
 
 N = 22
 counter = Counter(N)
-m.wire(counter.O[N-1], main.D5)
+o, _ = counter()
+main.D5 <= o[-1]
 
 m.EndCircuit()

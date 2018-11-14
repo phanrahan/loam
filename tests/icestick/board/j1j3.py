@@ -9,6 +9,9 @@ for i in range(8):
 
 main = icestick.main()
 
-m.wire( main.J1, main.J3 )
+for i in range(8):
+    main.J3[i] <= main.J1[7-i]
+#main.J3[4:] <= main.J1[4:]
+#main.J3 <= main.J1
 
 m.EndCircuit()

@@ -17,8 +17,8 @@ main = icestick.main()
 pop = PopCount(N)
 
 for i in range(len(pop.I)):
-   m.wire( main.J1[i] if i < 8 else 0, pop.I[i] )
-m.wire( pop.O[0:LOGN], main.J3 )
+   pop.I[i] <= (main.J1[i] if i < 8 else 0)
+main.J3 <= pop.O[0:LOGN]
 
 m.EndCircuit()
 

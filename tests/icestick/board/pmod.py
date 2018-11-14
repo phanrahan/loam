@@ -12,9 +12,13 @@ icestick.D4.on()
 
 main = icestick.main()
 
-m.wire( main.PMOD0[0], main.D1 )
-m.wire( main.PMOD0[1], main.D2 )
-m.wire( main.PMOD0[2], main.D3 )
-m.wire( main.PMOD0[3], main.D4 )
+main.D1 <= main.PMOD0[0]
+main.D2 <= main.PMOD0[1]
+main.D3 <= main.PMOD0[2]
+main.D4 <= main.PMOD0[3]
+#m.wire( main.PMOD0[0], main.D1 )
+#m.wire( main.PMOD0[1], main.D2 )
+#m.wire( main.PMOD0[2], main.D3 )
+#m.wire( main.PMOD0[3], main.D4 )
 
 m.EndCircuit()

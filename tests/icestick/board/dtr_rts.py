@@ -10,7 +10,7 @@ icestick.D2.on()
 
 main = icestick.main()
 
-m.wire( main.DTR, main.D1 )
-m.wire( main.RTS, main.D2 )
+main.D1 <= main.DTR
+main.D2 <= main.RTS
 
 m.EndCircuit()
