@@ -52,7 +52,7 @@ class FPGA(Part):
                         i = int(i)
                         if i == max(arrays[name]):
                             args.append(name)
-                            T = Bits(i+1)
+                            T = Bits[i+1]
                             args.append(In(T) if p.direction == INPUT else Out(T))
                 else:
                     args.append(p.name)
