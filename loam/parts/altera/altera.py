@@ -1,5 +1,4 @@
-from magma.compile import write_file
-from loam import FPGA
+from loam import FPGA, write_file
 
 class Altera(FPGA):
     vendor = 'altera'
